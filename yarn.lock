@@ -1049,6 +1049,10 @@ ci-info@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-1.0.0.tgz#dc5285f2b4e251821683681c381c3388f46ec534"
 
+clamp@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/clamp/-/clamp-1.0.1.tgz#66a0e64011816e37196828fdc8c8c147312c8634"
+
 cli-cursor@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/cli-cursor/-/cli-cursor-1.0.2.tgz#64da3f7d56a54412e59794bd62dc35295e8f2987"
@@ -3326,6 +3330,12 @@ react-native-code-push@^1.16.1-beta:
     glob "^5.0.15"
     inquirer "1.1.2"
     plist "1.2.0"
+
+react-native-swipe-cards@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/react-native-swipe-cards/-/react-native-swipe-cards-0.0.9.tgz#b663522762ddf7681d99a986f0d52989c49263b9"
+  dependencies:
+    clamp "^1.0.1"
 
 react-native@0.40.0:
   version "0.40.0"

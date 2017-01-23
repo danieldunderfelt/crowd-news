@@ -1,16 +1,19 @@
 import React, { Component, PropTypes } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { observer } from 'mobx-react/native'
+import { observer, Provider } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import { observable, action, toJS } from 'mobx'
 import storage from './helpers/storage'
 import appActions from './actions/appActions'
 import authActions from './actions/authActions'
+import JudgmentView from './JudgmentView'
 
 export default () => {
 
   const store = observable({
-    user: {}
+    user: {},
+    news: [],
+    judgedNews: []
   })
 
   @observer
@@ -34,14 +37,11 @@ export default () => {
     }
 
     render() {
-      const { user } = store
 
       return (
-        <View style={{ paddingVertical: 25, paddingHorizontal: 15 }}>
-          <Text>
-            { JSON.stringify(user, null, 2) }
-          </Text>
-        </View>
+        <Provider state={ store } app={ this.appActions } >
+          <JudgmentView />
+        </Provider>
       )
     }
   }
