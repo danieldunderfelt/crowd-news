@@ -7,13 +7,19 @@ import storage from './helpers/storage'
 import appActions from './actions/appActions'
 import authActions from './actions/authActions'
 import JudgmentView from './JudgmentView'
+import _ from 'lodash'
 
 export default () => {
 
   const store = observable({
     user: {},
     news: [],
-    judgedNews: []
+    judgedNews: [],
+    get unjudgedNews() {
+      return _.chain(this.news.slice())
+        .differenceBy(this.judgedNews, 'id')
+        .value()
+    }
   })
 
   @observer

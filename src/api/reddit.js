@@ -8,7 +8,7 @@ export default state => {
   }
 
   function getPosts() {
-    return axios.get(getUrl('worldnews+news+europe'))
+    return axios.get(getUrl('worldnews+news+UpliftingNews'))
       .then(({ data }) => parsePostsFromData(data))
   }
 
@@ -19,6 +19,7 @@ export default state => {
         post.over_18 === false &&
         post.is_self === false
       ))
+      .uniqBy('url')
       .value()
   }
 

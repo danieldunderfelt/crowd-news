@@ -1,10 +1,10 @@
 import { action } from 'mobx'
 import { collection } from 'mobx-app'
-import News from '../helpers/News'
+import Article from '../helpers/Article'
 
 export default state => {
 
-  const newsCollection = collection(state.news, News, 'News collection')
+  const newsCollection = collection(state.news, Article, 'Article collection')
 
   return {
     ...newsCollection
