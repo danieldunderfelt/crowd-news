@@ -76,6 +76,7 @@ export default class SwipeCards extends Component {
     onClickHandler: React.PropTypes.func,
     renderCard: React.PropTypes.func,
     cardRemoved: React.PropTypes.func,
+    onCardDone: React.PropTypes.func,
     dragY: React.PropTypes.bool
   }
 
@@ -97,6 +98,7 @@ export default class SwipeCards extends Component {
     onClickHandler: () => {
       alert('tap')
     },
+    onCardDone: null,
     cardRemoved: (ix) => null,
     renderCard: (card) => null,
     style: styles.container,
@@ -182,7 +184,7 @@ export default class SwipeCards extends Component {
           })
           this.cardAnimation.start(status => {
               if( status.finished ) this._advanceState()
-              else this._resetState()
+              else this._onCardDone()
 
               this.cardAnimation = null
             }
@@ -200,7 +202,7 @@ export default class SwipeCards extends Component {
       toValue: { x: -500, y: 0 },
     }).start(status => {
         if( status.finished ) this._advanceState()
-        else this._resetState()
+        else this._onCardDone()
 
         this.cardAnimation = null
       }
@@ -213,12 +215,20 @@ export default class SwipeCards extends Component {
       toValue: { x: 500, y: 0 },
     }).start(status => {
         if( status.finished ) this._advanceState()
-        else this._resetState()
+        else this._onCardDone()
 
         this.cardAnimation = null
       }
     )
     this.props.cardRemoved(currentIndex[ this.guid ])
+  }
+
+  _onCardDone() {
+    const { onCardDone } = this.props
+
+    typeof onCardDone === 'function' ?
+      onCardDone(this._resetState.bind(this)) :
+      this._resetState()
   }
 
   _goToNextCard() {

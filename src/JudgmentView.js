@@ -1,13 +1,15 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { computed, action } from 'mobx'
+import { View, Text, StyleSheet, LayoutAnimation } from 'react-native'
+import { computed, action, observable, reaction } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import SwipeCards from './helpers/SwipeCards'
 import NewsItem from './NewsItem'
 import StackEnd from './StackEnd'
+import ResultView from './ResultView'
 import newsActions from './actions/newsActions'
 import reddit from './api/reddit'
+import layoutAnim from './helpers/layoutAnim'
 
 const Wrapper = styled.View`
   align-items: stretch;
@@ -20,6 +22,8 @@ const Wrapper = styled.View`
 @observer
 class JudgmentView extends Component {
 
+  @observable showResults = false
+  @observable canProceed = true
   newsActions = (newsActions(this.props.state))
 
   componentDidMount() {
@@ -42,22 +46,42 @@ class JudgmentView extends Component {
     })
   }
 
+  @action onCardDone = next => {
+    LayoutAnimation.configureNext(layoutAnim)
+    this.showResults = true
+
+    reaction(() => !this.showResults , nextCard => {
+      if(nextCard) next()
+    })
+  }
+
+  @action onResultsDone = () => {
+    LayoutAnimation.configureNext(layoutAnim)
+    this.showResults = false
+  }
+
   render() {
     const { unjudgedNews } = this.props.state
 
     return (
       <Wrapper>
-        <SwipeCards
-          stackOffsetX={ 0 }
-          showYup
-          showNope
-          yupText="Real!"
-          noText="Fake!"
-          handleYup={ this.onYup }
-          handleNope={ this.onNope }
-          renderNoMoreCards={ () => <StackEnd /> }
-          renderCard={ cardData => <NewsItem { ...cardData } /> }
-          cards={ unjudgedNews } />
+        { this.showResults ? (
+          <ResultView
+            onDone={ this.onResultsDone } />
+        ) : (
+          <SwipeCards
+            onCardDone={ this.onCardDone }
+            stackOffsetX={ 0 }
+            showYup
+            showNope
+            yupText="Real!"
+            noText="Fake!"
+            handleYup={ this.onYup }
+            handleNope={ this.onNope }
+            renderNoMoreCards={ () => <StackEnd /> }
+            renderCard={ cardData => <NewsItem { ...cardData } /> }
+            cards={ unjudgedNews } />
+        )}
       </Wrapper>
     )
   }
