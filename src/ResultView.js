@@ -25,12 +25,17 @@ class ResultView extends Component {
 
   render() {
     const { judgedNews } = this.props.state
-    const lastAnswer = _.get(_.last(judgedNews.slice()), 'judgement')
+    const judgementItem = _.last(judgedNews.slice())
+    const yourResponse = _.get(judgementItem, 'judgement')
+    const truePercentage = _.get(judgementItem, 'truePercentage', 0)
+
+    const displayPercentage = yourResponse === true ? truePercentage : (100 - truePercentage)
+    const displayWord = yourResponse === true ? 'REAL!' : 'FAKE!!!'
 
     return (
       <ResultsWrapper>
         <ResultsHeading>
-          You and 20.5% others said { lastAnswer ? 'REAL!' : 'FAKE!!!' }
+          You and { displayPercentage }% others said { displayWord }
         </ResultsHeading>
         <Button
           title="Ok, next!"

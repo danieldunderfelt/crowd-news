@@ -35,7 +35,7 @@ export default state => {
   }
 
   const setUser = action('Set user', user => {
-    extendObservable(state, { user: userModel(user) })
+    extendObservable(state, { user })
   })
 
   reaction(authStateObservable.current, user => {
