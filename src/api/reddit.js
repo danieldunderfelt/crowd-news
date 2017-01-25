@@ -1,5 +1,6 @@
 import axios from 'axios'
 import _ from 'lodash'
+import subreddits from '../../subreddits'
 
 export default state => {
 
@@ -8,7 +9,9 @@ export default state => {
   }
 
   function getPosts() {
-    return axios.get(getUrl('worldnews+news+UpliftingNews'))
+    const subredditsStr = subreddits.join('+')
+
+    return axios.get(getUrl(subredditsStr + '/top.json?sort=top&t=week'))
       .then(({ data }) => parsePostsFromData(data))
   }
 

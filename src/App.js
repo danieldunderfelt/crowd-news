@@ -5,14 +5,14 @@ import styled from 'styled-components/native'
 import { observable, action, toJS } from 'mobx'
 import storage from './helpers/storage'
 import appActions from './actions/appActions'
-import authActions from './actions/authActions'
+import authActions, { userModel } from './actions/authActions'
 import JudgmentView from './JudgmentView'
 import _ from 'lodash'
 
 export default () => {
 
   const store = observable({
-    user: {},
+    user: userModel(),
     news: [],
     judgedNews: [],
     get unjudgedNews() {
@@ -39,6 +39,7 @@ export default () => {
     }
 
     async componentWillUnmount() {
+      console.log('yo')
       await storage.setItem('state', toJS(store, false))
     }
 

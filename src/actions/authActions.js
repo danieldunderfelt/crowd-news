@@ -1,12 +1,12 @@
 import { reaction, observable, action, extendObservable } from 'mobx'
 import { fromResource } from 'mobx-utils'
-import firebase from '../../firebase'
+import firebase from '../api/firebase'
 
-const userModel = (data = {
-  id: false,
+export const userModel = (data = {
+  uid: false,
   refreshToken: '',
   isAnonymous: true,
-  token: '',
+  Dd: '',
   name: null
 }) => {
   return observable({

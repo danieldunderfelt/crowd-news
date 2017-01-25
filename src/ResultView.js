@@ -25,7 +25,7 @@ class ResultView extends Component {
 
   render() {
     const { judgedNews } = this.props.state
-    const lastAnswer = _.get(_.last(judgedNews.slice()), 'judgment')
+    const lastAnswer = _.get(_.last(judgedNews.slice()), 'judgement')
 
     return (
       <ResultsWrapper>

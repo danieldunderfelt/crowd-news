@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text, StyleSheet, LayoutAnimation } from 'react-native'
+import { View, Text, StyleSheet, LayoutAnimation, StatusBar } from 'react-native'
 import { computed, action, observable, reaction } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
@@ -23,7 +23,6 @@ const Wrapper = styled.View`
 class JudgmentView extends Component {
 
   @observable showResults = false
-  @observable canProceed = true
   newsActions = (newsActions(this.props.state))
 
   componentDidMount() {
@@ -32,26 +31,12 @@ class JudgmentView extends Component {
       .then(this.newsActions.addItems)
   }
 
-  @action onYup = newsItem => {
-    this.props.state.judgedNews.push({
-      id: newsItem.id,
-      judgment: true
-    })
-  }
-
-  @action onNope = newsItem => {
-    this.props.state.judgedNews.push({
-      id: newsItem.id,
-      judgment: false
-    })
-  }
-
   @action onCardDone = next => {
     LayoutAnimation.configureNext(layoutAnim)
     this.showResults = true
 
-    reaction(() => !this.showResults , nextCard => {
-      if(nextCard) next()
+    reaction(() => !this.showResults , doNextCard => {
+      if(doNextCard) next()
     })
   }
 
@@ -65,6 +50,10 @@ class JudgmentView extends Component {
 
     return (
       <Wrapper>
+        <StatusBar
+          translucent
+          showHideTransition="fade"
+          barStyle="light-content" />
         { this.showResults ? (
           <ResultView
             onDone={ this.onResultsDone } />
@@ -76,8 +65,8 @@ class JudgmentView extends Component {
             showNope
             yupText="Real!"
             noText="Fake!"
-            handleYup={ this.onYup }
-            handleNope={ this.onNope }
+            handleYup={ item => this.newsActions.judgeItem(true, item) }
+            handleNope={ item => this.newsActions.judgeItem(false, item) }
             renderNoMoreCards={ () => <StackEnd /> }
             renderCard={ cardData => <NewsItem { ...cardData } /> }
             cards={ unjudgedNews } />
