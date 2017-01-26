@@ -10,6 +10,8 @@ import ResultView from './ResultView'
 import newsActions from './actions/newsActions'
 import reddit from './api/reddit'
 import layoutAnim from './helpers/layoutAnim'
+import _ from 'lodash'
+import LoadingScreen from './LoadingScreen'
 
 const Wrapper = styled.View`
   align-items: stretch;
@@ -40,13 +42,15 @@ class JudgmentView extends Component {
     })
   }
 
-  @action onResultsDone = () => {
+  @action onResultsDone = item => {
     LayoutAnimation.configureNext(layoutAnim)
+
+    this.newsActions.saveJudgment(item)
     this.showResults = false
   }
 
   render() {
-    const { unjudgedNews } = this.props.state
+    const { unjudgedNews, judgedNews } = this.props.state
 
     return (
       <Wrapper>
@@ -54,8 +58,11 @@ class JudgmentView extends Component {
           translucent
           showHideTransition="fade"
           barStyle="light-content" />
-        { this.showResults ? (
+        { unjudgedNews.length === 0 ? (
+          <LoadingScreen loadingText="Loading news..." />
+        ) : this.showResults ? (
           <ResultView
+            key={ `results_${_.last(judgedNews.slice()).id}` }
             onDone={ this.onResultsDone } />
         ) : (
           <SwipeCards
@@ -68,7 +75,7 @@ class JudgmentView extends Component {
             handleYup={ item => this.newsActions.judgeItem(true, item) }
             handleNope={ item => this.newsActions.judgeItem(false, item) }
             renderNoMoreCards={ () => <StackEnd /> }
-            renderCard={ cardData => <NewsItem { ...cardData } /> }
+            renderCard={ cardData => <NewsItem key={ cardData.id } { ...cardData } /> }
             cards={ unjudgedNews } />
         )}
       </Wrapper>

@@ -5,7 +5,7 @@ import subreddits from '../../subreddits'
 export default state => {
 
   function getUrl(endpoint) {
-    return `https://www.reddit.com/r/${endpoint}/top.json?nsfw=0&sort=top&t=week`
+    return `https://www.reddit.com/r/${endpoint}/top.json?nsfw=0&sort=top&t=day`
   }
 
   function getPosts() {

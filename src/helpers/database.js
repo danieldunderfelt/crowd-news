@@ -15,8 +15,10 @@ export default (collection) => {
 
 export function resolveList(list) {
   const all = []
+
   list.forEach(i => {
     all.push(i.val())
   })
+
   return all
 }

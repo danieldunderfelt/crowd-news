@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { Button } from 'react-native'
 import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import _ from 'lodash'
+import Text from 'react-native-text'
+import LoadingScreen from './LoadingScreen'
 
 const ResultsWrapper = styled.View`
   flex-grow: 1;
@@ -12,11 +14,16 @@ const ResultsWrapper = styled.View`
   background-color: black;
 `
 
-const ResultsHeading = styled.Text`
+const ResultHeading = styled(Text)`
   color: white;
-  font-size: 28;
-  font-weight: 700;
+  font-size: 20;
+  font-weight: 300;
   text-align: center;
+`
+
+const ResultWord = styled(ResultHeading)`
+  font-size: 36;
+  font-weight: 700;
 `
 
 @inject('state')
@@ -25,21 +32,29 @@ class ResultView extends Component {
 
   render() {
     const { judgedNews } = this.props.state
-    const judgementItem = _.last(judgedNews.slice())
-    const yourResponse = _.get(judgementItem, 'judgement')
-    const truePercentage = _.get(judgementItem, 'truePercentage', 0)
 
-    const displayPercentage = yourResponse === true ? truePercentage : (100 - truePercentage)
-    const displayWord = yourResponse === true ? 'REAL!' : 'FAKE!!!'
+    const judgedArticle = _.last(judgedNews.slice())
+    const yourResponse = judgedArticle.judgment
+    const percent = judgedArticle.truePercentage
 
-    return (
+    const displayPercentage = yourResponse === true ? percent : 100 - percent
+    const displayWord = yourResponse === true ? 'REAL!' : 'FAKE!'
+
+    return percent === false ? (
+        <LoadingScreen
+          loadingText="Loading results..."
+          bg="black" />
+    ) : (
       <ResultsWrapper>
-        <ResultsHeading>
-          You and { displayPercentage }% others said { displayWord }
-        </ResultsHeading>
+        <ResultHeading>
+          You{ displayPercentage > 0 ? ` and ${ displayPercentage }% others` : '' } rated it as
+        </ResultHeading>
+        <ResultWord>
+          { displayWord }
+        </ResultWord>
         <Button
           title="Ok, next!"
-          onPress={ this.props.onDone } />
+          onPress={ () => this.props.onDone(judgedArticle) } />
       </ResultsWrapper>
     )
   }

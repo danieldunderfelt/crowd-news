@@ -2894,9 +2894,9 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mobx-app@^0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/mobx-app/-/mobx-app-0.0.16.tgz#ad93f13446df12e5205c31e2acab15cf8dded371"
+mobx-app@^0.0.17:
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/mobx-app/-/mobx-app-0.0.17.tgz#1279be657ffb8f86642ffcf9722122427ff68408"
   dependencies:
     invariant "^2.2.1"
 
@@ -3362,6 +3362,14 @@ react-native-code-push@^1.16.1-beta:
     glob "^5.0.15"
     inquirer "1.1.2"
     plist "1.2.0"
+
+react-native-progress@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-progress/-/react-native-progress-3.2.0.tgz#86d756be5537c09936ac3d3c4e23710da590743c"
+
+react-native-text@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-text/-/react-native-text-0.0.4.tgz#9875215509b53bd7818a41b9aa17ccbf886668ba"
 
 react-native@0.40.0:
   version "0.40.0"

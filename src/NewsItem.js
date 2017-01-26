@@ -48,7 +48,7 @@ const ArticleContent = styled.View`
 `
 
 export default observer(props => {
-  const { title, url, image } = props
+  const { title, url, image, truePercentage } = props
   const { width, height } = Dimensions.get('window')
 
   return (
