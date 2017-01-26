@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import { Button } from 'react-native'
 import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import _ from 'lodash'
 import Text from 'react-native-text'
 import LoadingScreen from './LoadingScreen'
+import Button from 'apsl-react-native-button'
 
 const ResultsWrapper = styled.View`
   flex-grow: 1;
@@ -24,6 +24,15 @@ const ResultHeading = styled(Text)`
 const ResultWord = styled(ResultHeading)`
   font-size: 36;
   font-weight: 700;
+`
+
+const ContinueButton = styled(Button)`
+  background-color: white;
+  margin: 80 50 0;
+`
+
+const ButtonLabel = styled(Text)`
+  font-size: 16;
 `
 
 @inject('state')
@@ -52,9 +61,12 @@ class ResultView extends Component {
         <ResultWord>
           { displayWord }
         </ResultWord>
-        <Button
-          title="Ok, next!"
-          onPress={ () => this.props.onDone(judgedArticle) } />
+        <ContinueButton
+          onPress={ () => this.props.onDone(judgedArticle) }>
+          <ButtonLabel>
+            { 'Ok, next!'.toUpperCase() }
+          </ButtonLabel>
+        </ContinueButton>
       </ResultsWrapper>
     )
   }

@@ -1,7 +1,10 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native'
+import React, { Component } from 'react'
+import { Image, Dimensions } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
+import Button from 'apsl-react-native-button'
+import Text from 'react-native-text'
+import { observable, action } from 'mobx'
 
 const Wrapper = styled.View`
   flex-grow: 1;
@@ -12,17 +15,12 @@ const Wrapper = styled.View`
   position: relative;
 `
 
-const Title = styled.Text`
+const Title = styled(Text)`
   font-size: 24;
   font-weight: 700;
   text-align: center;
   margin-bottom: 20;
   color: white;
-`
-
-const Url = styled.Text`
-  font-size: 16;
-  text-align: center;
 `
 
 const ArticleImage = styled(Image)`
@@ -42,30 +40,50 @@ const ArticleContent = styled.View`
   background-color: transparent;
   align-items: center;
   justify-content: center;
-  padding: 20;
+  padding: 40;
   flex-grow: 1;
   align-self: stretch;
 `
 
-export default observer(props => {
-  const { title, url, image, truePercentage } = props
-  const { width, height } = Dimensions.get('window')
+const ReadButton = styled(Button)`
+  background-color: black;
+  margin: 70 50 0;
+`
 
-  return (
-    <Wrapper>
-      { image && (
-        <ArticleImage
-          width={ width }
-          height={ height }
-          resizeMode="cover"
-          source={{ uri: image }} />
-      )}
-      <ArticleContent
-        width={ width }>
-        <Title>
-          { title }
-        </Title>
-      </ArticleContent>
-    </Wrapper>
-  )
-})
+const ButtonLabel = styled(Text)`
+  font-size: 14;
+  color: white;
+`
+
+@observer
+class NewsItem extends Component {
+
+  render() {
+    const { title, url, image, onOpenArticle } = this.props
+    const { width, height } = Dimensions.get('window')
+
+    return (
+      <Wrapper>
+        { image && (
+          <ArticleImage
+            width={ width }
+            height={ height }
+            resizeMode="cover"
+            source={{ uri: image }}/>
+        )}
+        <ArticleContent width={ width }>
+          <Title>
+            { title }
+          </Title>
+          <ReadButton onPress={ () => onOpenArticle(url) }>
+            <ButtonLabel>
+              Read article
+            </ButtonLabel>
+          </ReadButton>
+        </ArticleContent>
+      </Wrapper>
+    )
+  }
+}
+
+export default NewsItem

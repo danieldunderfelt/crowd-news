@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text, StyleSheet, LayoutAnimation, StatusBar } from 'react-native'
+import { View, Text, StyleSheet, LayoutAnimation, StatusBar, Modal } from 'react-native'
 import { computed, action, observable, reaction } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
@@ -12,6 +12,7 @@ import reddit from './api/reddit'
 import layoutAnim from './helpers/layoutAnim'
 import _ from 'lodash'
 import LoadingScreen from './LoadingScreen'
+import ArticleView from './ArticleView'
 
 const Wrapper = styled.View`
   align-items: stretch;
@@ -24,6 +25,7 @@ const Wrapper = styled.View`
 @observer
 class JudgmentView extends Component {
 
+  @observable articleUrl = false
   @observable showResults = false
   newsActions = (newsActions(this.props.state))
 
@@ -31,6 +33,14 @@ class JudgmentView extends Component {
     reddit(this.props.state)
       .getPosts()
       .then(this.newsActions.addItems)
+  }
+
+  @action openArticle = url => {
+    this.articleUrl = url
+  }
+
+  @action closeArticle = () => {
+    this.articleUrl = false
   }
 
   @action onCardDone = next => {
@@ -75,9 +85,22 @@ class JudgmentView extends Component {
             handleYup={ item => this.newsActions.judgeItem(true, item) }
             handleNope={ item => this.newsActions.judgeItem(false, item) }
             renderNoMoreCards={ () => <StackEnd /> }
-            renderCard={ cardData => <NewsItem key={ cardData.id } { ...cardData } /> }
+            renderCard={ cardData => (
+              <NewsItem
+                onOpenArticle={ this.openArticle }
+                key={ cardData.id } { ...cardData } />
+            )}
             cards={ unjudgedNews } />
         )}
+        <Modal
+          transparent
+          visible={ !!this.articleUrl }
+          animationType="slide"
+          key="article-modal">
+          <ArticleView
+            closeArticle={ this.closeArticle }
+            url={ this.articleUrl } />
+        </Modal>
       </Wrapper>
     )
   }
