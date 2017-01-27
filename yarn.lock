@@ -3364,9 +3364,9 @@ react-native-animatable@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.1.0.tgz#1ca3e8a00e441979d5711805651ff62a2d3b245a"
 
-react-native-code-push@^1.16.1-beta:
-  version "1.16.1-beta"
-  resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-1.16.1-beta.tgz#7f06dc7209a241c16e7586fad3ebb83709527c7a"
+react-native-code-push@latest:
+  version "1.17.0-beta"
+  resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-1.17.0-beta.tgz#a9f2ca52bceba1d8a91e65455959dd250fbb4492"
   dependencies:
     code-push "1.8.0-beta"
     glob "^5.0.15"
@@ -3376,6 +3376,10 @@ react-native-code-push@^1.16.1-beta:
 react-native-progress@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-native-progress/-/react-native-progress-3.2.0.tgz#86d756be5537c09936ac3d3c4e23710da590743c"
+
+react-native-sensor-manager@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/react-native-sensor-manager/-/react-native-sensor-manager-0.1.10.tgz#c228280d67fddb668e715b4d7b823188de504da8"
 
 react-native-text@^0.0.4:
   version "0.0.4"

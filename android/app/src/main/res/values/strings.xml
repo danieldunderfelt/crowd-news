@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">yxUOzuEsVfybsYaH9uR0efjvow5mVyjgq568-</string>
     <string name="app_name">FakeNews</string>
 </resources>
