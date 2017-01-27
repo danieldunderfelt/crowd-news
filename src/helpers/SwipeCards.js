@@ -413,12 +413,19 @@ export default class SwipeCards extends Component {
   renderNope() {
     let { pan } = this.state
 
-    let nopeOpacity = pan.x.interpolate({ inputRange: [ -150, 0 ], outputRange: [ 1, 0 ] })
-    let nopeScale = pan.x.interpolate({ inputRange: [ -150, 0 ], outputRange: [ 1, 0.5 ], extrapolate: 'clamp' })
-    let animatedNopeStyles = { transform: [ { scale: nopeScale } ], opacity: nopeOpacity }
+    let nopeOpacity = pan.x.interpolate({ inputRange: [ -130, -20 ], outputRange: [ 1, 0 ] })
+    let nopeScale = pan.x.interpolate({ inputRange: [ -130, -20 ], outputRange: [ 1, 0.75 ], extrapolate: 'clamp' })
+    let nopeTranslate = pan.x.interpolate({ inputRange: [ -130, -130, -20, -20 ], outputRange: [ 180, 180, 300, 300 ], extrapolate: 'clamp' })
+
+    let animatedNopeStyles = { transform: [
+      { scale: nopeScale },
+      { rotate: '45deg' },
+      { translateX: -40 },
+      { translateY: nopeTranslate },
+    ], opacity: nopeOpacity }
 
     if( this.props.renderNope ) {
-      return this.props.renderNope(pan)
+      return this.props.renderNope(animatedNopeStyles)
     }
 
     if( this.props.showNope ) {
@@ -433,12 +440,19 @@ export default class SwipeCards extends Component {
   renderYup() {
     let { pan } = this.state
 
-    let yupOpacity = pan.x.interpolate({ inputRange: [ 0, 150 ], outputRange: [ 0, 1 ] })
-    let yupScale = pan.x.interpolate({ inputRange: [ 0, 150 ], outputRange: [ 0.5, 1 ], extrapolate: 'clamp' })
-    let animatedYupStyles = { transform: [ { scale: yupScale } ], opacity: yupOpacity }
+    let yupOpacity = pan.x.interpolate({ inputRange: [ 20, 130 ], outputRange: [ 0, 1 ] })
+    let yupScale = pan.x.interpolate({ inputRange: [ 20, 130 ], outputRange: [ 0.75, 1 ], extrapolate: 'clamp' })
+    let yupTranslateY = pan.x.interpolate({ inputRange: [ 20, 20, 130, 130 ], outputRange: [ 300, 300, 180, 180 ], extrapolate: 'clamp' })
+
+    let animatedYupStyles = { transform: [
+      { scale: yupScale },
+      { rotate: '-45deg' },
+      { translateX: 40 },
+      { translateY: yupTranslateY },
+    ], opacity: yupOpacity }
 
     if( this.props.renderYup ) {
-      return this.props.renderYup(pan)
+      return this.props.renderYup(animatedYupStyles)
     }
 
     if( this.props.showYup ) {

@@ -13,6 +13,7 @@ import layoutAnim from './helpers/layoutAnim'
 import _ from 'lodash'
 import LoadingScreen from './LoadingScreen'
 import ArticleView from './ArticleView'
+import SwipeGraphics from './SwipeGraphics'
 
 const Wrapper = styled.View`
   align-items: stretch;
@@ -59,6 +60,8 @@ class JudgmentView extends Component {
     this.showResults = false
   }
 
+
+
   render() {
     const { unjudgedNews, judgedNews } = this.props.state
 
@@ -80,10 +83,10 @@ class JudgmentView extends Component {
             stackOffsetX={ 0 }
             showYup
             showNope
-            yupText="Real!"
-            noText="Fake!"
             handleYup={ item => this.newsActions.judgeItem(true, item) }
             handleNope={ item => this.newsActions.judgeItem(false, item) }
+            renderYup={ styles => <SwipeGraphics style={ styles } label="REAL!" side="right" /> }
+            renderNope={ styles => <SwipeGraphics style={ styles } label="FAKE!" side="left" /> }
             renderNoMoreCards={ () => <StackEnd /> }
             renderCard={ cardData => (
               <NewsItem
