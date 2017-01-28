@@ -39,8 +39,8 @@ class JudgmentView extends Component {
       if(!stackLength) this.fillStack()
     })
 
-    this.reddit
-      .hydratePaging()
+    this.newsActions
+      .hydrateRated()
       .then(this.fillStack)
   }
 
@@ -69,8 +69,6 @@ class JudgmentView extends Component {
 
   @action onResultsDone = item => {
     LayoutAnimation.configureNext(layoutAnim)
-
-    this.newsActions.saveJudgment(item)
     this.showResults = false
   }
 

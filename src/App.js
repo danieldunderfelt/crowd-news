@@ -11,9 +11,12 @@ const store = observable({
   news: [],
   judgedNews: [],
   reddit: {
-    after: '',
-    count: 0,
-    timestamp: false
+    get after() {
+      return _.get(_.last(store.judgedNews.slice), 'name', '')
+    },
+    get count() {
+      return store.judgedNews.length
+    }
   },
   get unjudgedNews() {
     return _.chain(this.news.slice())

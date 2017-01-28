@@ -18,7 +18,9 @@ export default state => {
 
   const judgeItem = action((judgment, item) => {
     item.judgment = judgment
+
     judgedCollection.addItem(item)
+    saveJudgment(item)
   })
 
   function saveJudgment(item) {
@@ -38,18 +40,19 @@ export default state => {
       .then(saveItems => storage.setItem('rated-news', saveItems))
   }
 
-  function hydrateRated(rated) {
-    judgedCollection.addItems(_.get(rated, 'ratedNews', []))
+  function hydrateRated() {
+    return storage
+      .getItem('rated-news')
+      .then(rated => {
+        judgedCollection.addItems(_.get(rated, 'ratedNews', []))
+      })
   }
-
-  storage
-    .getItem('rated-news')
-    .then(hydrateRated)
 
   return {
     ...newsCollection,
     judgeItem,
     saveJudgment,
-    persistJudged
+    persistJudged,
+    hydrateRated
   }
 }
