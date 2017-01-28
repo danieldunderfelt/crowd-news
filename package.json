@@ -11,6 +11,7 @@
 		"axios": "^0.15.3",
 		"babel-preset-react-native-stage-0": "^1.0.1",
 		"clamp": "^1.0.1",
+		"date-fns": "^1.27.1",
 		"firebase": "^3.6.6",
 		"lodash": "^4.17.4",
 		"mobx": "^3.0.2",

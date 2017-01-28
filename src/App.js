@@ -10,6 +10,11 @@ const store = observable({
   user: firebaseUser(),
   news: [],
   judgedNews: [],
+  reddit: {
+    after: '',
+    count: 0,
+    timestamp: false
+  },
   get unjudgedNews() {
     return _.chain(this.news.slice())
       .differenceBy(this.judgedNews.slice(), 'id')

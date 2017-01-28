@@ -12,3 +12,16 @@ export default {
     springDamping: 0.7,
   },
 }
+
+export const fade = {
+  duration: 300,
+  create: {
+    type: LayoutAnimation.Types.easeInEaseOut,
+    property: LayoutAnimation.Properties.scaleXY,
+    springDamping: 0.7,
+  },
+  update: {
+    type: LayoutAnimation.Types.easeInEaseOut,
+    springDamping: 0.7,
+  },
+}

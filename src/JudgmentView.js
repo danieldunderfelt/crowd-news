@@ -28,10 +28,24 @@ class JudgmentView extends Component {
 
   @observable articleUrl = false
   @observable showResults = false
+
   newsActions = (newsActions(this.props.state))
+  reddit = (reddit(this.props.state))
 
   componentDidMount() {
-    reddit(this.props.state)
+    const { state } = this.props
+
+    reaction(() => state.unjudgedNews.length, stackLength => {
+      if(!stackLength) this.fillStack()
+    })
+
+    this.reddit
+      .hydratePaging()
+      .then(this.fillStack)
+  }
+
+  fillStack = () => {
+    this.reddit
       .getPosts()
       .then(this.newsActions.addItems)
   }
@@ -69,12 +83,12 @@ class JudgmentView extends Component {
           translucent
           showHideTransition="fade"
           barStyle="light-content" />
-        { unjudgedNews.length === 0 ? (
-          <LoadingScreen loadingText="Loading news..." />
-        ) : this.showResults ? (
+        { this.showResults ? (
           <ResultView
             key={ `results_${_.last(judgedNews.slice()).id}` }
             onDone={ this.onResultsDone } />
+        ) : unjudgedNews.length === 0 ? (
+          <LoadingScreen loadingText="Loading news..." />
         ) : (
           <SwipeCards
             onCardDone={ this.onCardDone }

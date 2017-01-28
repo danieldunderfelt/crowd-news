@@ -34,16 +34,11 @@ export default state => {
   function persistJudged(ratedNews) {
     storage
       .getItem('rated-news')
-      .then(rated => {
-        const next = { ratedNews: _.get(rated, 'ratedNews', []).concat(ratedNews) }
-        console.log(rated)
-        return next
-      })
+      .then(rated => ({ ratedNews: _.get(rated, 'ratedNews', []).concat(ratedNews) }))
       .then(saveItems => storage.setItem('rated-news', saveItems))
   }
 
   function hydrateRated(rated) {
-    console.log(rated)
     judgedCollection.addItems(_.get(rated, 'ratedNews', []))
   }
 

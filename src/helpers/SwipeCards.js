@@ -413,11 +413,11 @@ export default class SwipeCards extends Component {
     let { pan } = this.state
 
     let nopeOpacity = pan.x.interpolate({ inputRange: [ -130, -20 ], outputRange: [ 1, 0 ] })
-    let nopeScale = pan.x.interpolate({ inputRange: [ -130, -20 ], outputRange: [ 1, 0.75 ], extrapolate: 'clamp' })
+    let nopeScale = pan.x.interpolate({ inputRange: [ -130, -20 ], outputRange: [ 1, 0.9 ], extrapolate: 'clamp' })
     let nopeTranslate = pan.x.interpolate({ inputRange: [ -130, -130, -20, -20 ], outputRange: [ 180, 180, 300, 300 ], extrapolate: 'clamp' })
 
     let animatedNopeStyles = { transform: [
-      //{ scale: nopeScale },
+      { scale: nopeScale },
       { rotate: '45deg' },
       { translateX: -40 },
       { translateY: nopeTranslate },
@@ -440,11 +440,11 @@ export default class SwipeCards extends Component {
     let { pan } = this.state
 
     let yupOpacity = pan.x.interpolate({ inputRange: [ 20, 130 ], outputRange: [ 0, 1 ] })
-    let yupScale = pan.x.interpolate({ inputRange: [ 20, 130 ], outputRange: [ 0.75, 1 ], extrapolate: 'clamp' })
+    let yupScale = pan.x.interpolate({ inputRange: [ 20, 130 ], outputRange: [ 0.9, 1 ], extrapolate: 'clamp' })
     let yupTranslateY = pan.x.interpolate({ inputRange: [ 20, 20, 130, 130 ], outputRange: [ 300, 300, 180, 180 ], extrapolate: 'clamp' })
 
     let animatedYupStyles = { transform: [
-      //{ scale: yupScale },
+      { scale: yupScale },
       { rotate: '-45deg' },
       { translateX: 40 },
       { translateY: yupTranslateY },

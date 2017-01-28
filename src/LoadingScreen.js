@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import { Dimensions } from 'react-native'
+import { Dimensions, LayoutAnimation } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import Progress from 'react-native-progress/CircleSnail'
 import Text from 'react-native-text'
+import layoutAnim, { fade } from './helpers/layoutAnim'
 
 const SpinnerWrapper = styled.View`
   align-items: center;
@@ -21,6 +22,14 @@ const LoadingText = styled(Text)`
 
 @observer
 class LoadingScreen extends Component {
+
+  componentWillMount() {
+    LayoutAnimation.configureNext(fade)
+  }
+
+  componentWillUnmount() {
+    LayoutAnimation.configureNext(layoutAnim)
+  }
 
   render() {
     const { loadingText = 'Loading...', bg = 'black' } = this.props
