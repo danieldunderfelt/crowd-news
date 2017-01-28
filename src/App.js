@@ -12,7 +12,7 @@ const store = observable({
   judgedNews: [],
   get unjudgedNews() {
     return _.chain(this.news.slice())
-      .differenceBy(this.judgedNews, 'id')
+      .differenceBy(this.judgedNews.slice(), 'id')
       .value()
   }
 })

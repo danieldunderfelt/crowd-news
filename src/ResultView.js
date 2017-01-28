@@ -44,7 +44,7 @@ const JudgedHeading = styled(Text)`
 
 const ResultWord = styled(ResultHeading)`
   font-size: 120;
-  font-weight: 700;
+  font-weight: 900;
 `
 
 const ContinueButton = styled(Button)`
@@ -68,6 +68,16 @@ class ResultView extends Component {
     const displayPercentage = yourJudgment === true ? percent : 100 - percent
     const displayWord = yourJudgment === true ? 'REAL!' : 'FAKE!'
 
+    let displayMessage
+
+    if(displayPercentage === 0 && responses > 0) {
+      displayMessage = "You're the only one so far who rated it as"
+    } else if(responses === 0) {
+      displayMessage = "You rated it as"
+    } else {
+      displayMessage = `You and ${ displayPercentage }% others rated it as`
+    }
+
     return percent === false ? (
         <LoadingScreen
           loadingText="Loading results..."
@@ -80,7 +90,7 @@ class ResultView extends Component {
           </JudgedHeading>
           <View>
             <ResultHeading>
-              You{ responses > 0 ? ` and ${ displayPercentage }% of other users` : '' } rated it as
+              { displayMessage }
             </ResultHeading>
             <ResultWord>
               { displayWord }

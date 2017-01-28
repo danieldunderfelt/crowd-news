@@ -10,8 +10,9 @@ const judgmentsDb = database('judgments')
 
 export default data => {
   if( Object.keys(data).length === 0 ) return {}
+  if( _.get(data, '__is_article', false) ) return data
 
-  const url = normalizeUrl(_.get(data, 'url', 'fuck://off'))
+  const url = normalizeUrl(_.get(data, 'url', 'no://url'))
   const id = hash(url)
   const judgmentsRef = judgmentsDb(id)
 
@@ -32,6 +33,7 @@ export default data => {
   )
 
   const article = observable({
+    __is_article: true,
     id,
     name: data.name,
     image: _.get(data, 'preview.images[0].source.url', false),
@@ -40,8 +42,6 @@ export default data => {
     judgment: null,
     get judgmentCount() {
       const list = judgmentResource.current()
-
-      console.log(list)
 
       if(!list) return 0
       return list.length

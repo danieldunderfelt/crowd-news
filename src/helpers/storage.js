@@ -10,13 +10,22 @@ export default (() => {
   function getItem(key) {
     return AsyncStorage
       .getItem(_getKey(key))
-      .then(JSON.parse)
+      .then(data => {
+        if(!data) return
+        return JSON.parse(data)
+      })
   }
 
   function setItem(key, value) {
     return Promise.resolve(value)
       .then(JSON.stringify)
       .then(strVal => AsyncStorage.setItem(_getKey(key), strVal))
+  }
+
+  function mergeItem(key, value) {
+    return Promise.resolve(value)
+      .then(JSON.stringify)
+      .then(strVal => AsyncStorage.mergeItem(_getKey(key), strVal))
   }
 
   function removeItem(key) {
@@ -26,6 +35,7 @@ export default (() => {
   return {
     getItem,
     setItem,
+    mergeItem,
     removeItem
   }
 })()
