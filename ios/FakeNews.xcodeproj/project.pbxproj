@@ -26,6 +26,18 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		D79E4642EC0E4C668353546C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CEABE5DD6C6C42E588F030FE /* libz.tbd */; };
+		F222F79559CC4501878B64BE /* libRNAdMobManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3206D102B34B4A8DEE6DA9 /* libRNAdMobManager.a */; };
+		F25B92DA1E3CD87E00557041 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D41E3CD87E00557041 /* FirebaseAnalytics.framework */; };
+		F25B92DB1E3CD87E00557041 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D51E3CD87E00557041 /* FirebaseCore.framework */; };
+		F25B92DC1E3CD87E00557041 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D61E3CD87E00557041 /* FirebaseInstanceID.framework */; };
+		F25B92DD1E3CD87E00557041 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D71E3CD87E00557041 /* GoogleInterchangeUtilities.framework */; };
+		F25B92DE1E3CD87E00557041 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D81E3CD87E00557041 /* GoogleSymbolUtilities.framework */; };
+		F25B92DF1E3CD87E00557041 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D91E3CD87E00557041 /* GoogleToolboxForMac.framework */; };
+		F25B92E11E3CD8A900557041 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92E01E3CD8A900557041 /* GoogleMobileAds.framework */; };
+		F25B92E51E3D0E0800557041 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92E31E3D0E0800557041 /* FirebaseStorage.framework */; };
+		F25B92E61E3D0E0800557041 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92E41E3D0E0800557041 /* GTMSessionFetcher.framework */; };
+		F25B92E81E3D0FD100557041 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92E71E3D0FD100557041 /* libsqlite3.0.tbd */; };
+		F25B92EA1E3D12CA00557041 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F25B92E91E3D12CA00557041 /* GoogleService-Info.plist */; };
 		F2BF73D01E3A892500763A80 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BF73B61E3A891B00763A80 /* libART.a */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +224,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		F25B92D21E3CD83C00557041 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D273E9C4EB1D4BD6973773FC /* RNAdMobManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A96DA7741C146D7200FC639B;
+			remoteInfo = RNAdMobManager;
+		};
 		F2A9ACDC1E3BE974007016E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B22A85BB82E6429992FD15E9 /* CodePush.xcodeproj */;
@@ -248,12 +267,26 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FakeNews/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FakeNews/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		4F3206D102B34B4A8DEE6DA9 /* libRNAdMobManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAdMobManager.a; sourceTree = "<group>"; };
 		5B837D22108F43788B5AA6F6 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		B22A85BB82E6429992FD15E9 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		CEABE5DD6C6C42E588F030FE /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D273E9C4EB1D4BD6973773FC /* RNAdMobManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAdMobManager.xcodeproj; path = "../node_modules/react-native-admob/ios/RNAdMobManager.xcodeproj"; sourceTree = "<group>"; };
+		F25B92D41E3CD87E00557041 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		F25B92D51E3CD87E00557041 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		F25B92D61E3CD87E00557041 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		F25B92D71E3CD87E00557041 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		F25B92D81E3CD87E00557041 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		F25B92D91E3CD87E00557041 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		F25B92E01E3CD8A900557041 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		F25B92E21E3CD8DC00557041 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		F25B92E31E3D0E0800557041 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = "<group>"; };
+		F25B92E41E3D0E0800557041 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
+		F25B92E71E3D0FD100557041 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		F25B92E91E3D12CA00557041 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../working files/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2BF73B11E3A891B00763A80 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,7 +303,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F25B92E81E3D0FD100557041 /* libsqlite3.0.tbd in Frameworks */,
+				F25B92DF1E3CD87E00557041 /* GoogleToolboxForMac.framework in Frameworks */,
+				F25B92DA1E3CD87E00557041 /* FirebaseAnalytics.framework in Frameworks */,
+				F25B92E51E3D0E0800557041 /* FirebaseStorage.framework in Frameworks */,
 				F2BF73D01E3A892500763A80 /* libART.a in Frameworks */,
+				F25B92E61E3D0E0800557041 /* GTMSessionFetcher.framework in Frameworks */,
+				F25B92DE1E3CD87E00557041 /* GoogleSymbolUtilities.framework in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -279,11 +318,16 @@
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
+				F25B92DB1E3CD87E00557041 /* FirebaseCore.framework in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
+				F25B92E11E3CD8A900557041 /* GoogleMobileAds.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
+				F25B92DD1E3CD87E00557041 /* GoogleInterchangeUtilities.framework in Frameworks */,
+				F25B92DC1E3CD87E00557041 /* FirebaseInstanceID.framework in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				3E809311B18E449D8C7840CD /* libCodePush.a in Frameworks */,
 				D79E4642EC0E4C668353546C /* libz.tbd in Frameworks */,
+				F222F79559CC4501878B64BE /* libRNAdMobManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,9 +416,11 @@
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				F25B92E21E3CD8DC00557041 /* Firebase.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				F25B92E91E3D12CA00557041 /* GoogleService-Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -399,6 +445,16 @@
 		1D337FE5F1D742C3BC320EB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F25B92E71E3D0FD100557041 /* libsqlite3.0.tbd */,
+				F25B92E31E3D0E0800557041 /* FirebaseStorage.framework */,
+				F25B92E41E3D0E0800557041 /* GTMSessionFetcher.framework */,
+				F25B92E01E3CD8A900557041 /* GoogleMobileAds.framework */,
+				F25B92D41E3CD87E00557041 /* FirebaseAnalytics.framework */,
+				F25B92D51E3CD87E00557041 /* FirebaseCore.framework */,
+				F25B92D61E3CD87E00557041 /* FirebaseInstanceID.framework */,
+				F25B92D71E3CD87E00557041 /* GoogleInterchangeUtilities.framework */,
+				F25B92D81E3CD87E00557041 /* GoogleSymbolUtilities.framework */,
+				F25B92D91E3CD87E00557041 /* GoogleToolboxForMac.framework */,
 				CEABE5DD6C6C42E588F030FE /* libz.tbd */,
 			);
 			name = Frameworks;
@@ -438,6 +494,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				B22A85BB82E6429992FD15E9 /* CodePush.xcodeproj */,
+				D273E9C4EB1D4BD6973773FC /* RNAdMobManager.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -469,6 +526,14 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* FakeNews.app */,
 				00E356EE1AD99517003FC87E /* FakeNewsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F25B92B41E3CD83B00557041 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F25B92D31E3CD83C00557041 /* libRNAdMobManager.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -609,6 +674,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = F25B92B41E3CD83B00557041 /* Products */;
+					ProjectRef = D273E9C4EB1D4BD6973773FC /* RNAdMobManager.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -795,6 +864,13 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F25B92D31E3CD83C00557041 /* libRNAdMobManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNAdMobManager.a;
+			remoteRef = F25B92D21E3CD83C00557041 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F2A9ACDD1E3BE974007016E9 /* libCodePush.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -825,6 +901,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				F25B92EA1E3D12CA00557041 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,6 +979,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FakeNews.app/FakeNews";
@@ -919,6 +997,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FakeNews.app/FakeNews";
@@ -932,6 +1011,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = VTHJ4G9DW9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FakeNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -940,7 +1023,7 @@
 					"-lc++",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.developsuperpoers.apps.FakeNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.developsuperpowers.apps.FakeNews;
 				PRODUCT_NAME = FakeNews;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -952,6 +1035,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VTHJ4G9DW9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FakeNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -960,7 +1047,7 @@
 					"-lc++",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.developsuperpoers.apps.FakeNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.developsuperpowers.apps.FakeNews;
 				PRODUCT_NAME = FakeNews;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

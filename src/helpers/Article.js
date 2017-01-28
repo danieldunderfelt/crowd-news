@@ -38,6 +38,12 @@ export default data => {
     title: data.title,
     url,
     judgment: null,
+    get judgmentCount() {
+      const list = judgmentResource.current()
+
+      if(!list) return 0
+      return list.length
+    },
     get truePercentage() {
       const list = judgmentResource.current()
 

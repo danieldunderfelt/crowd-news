@@ -60,8 +60,6 @@ class JudgmentView extends Component {
     this.showResults = false
   }
 
-
-
   render() {
     const { unjudgedNews, judgedNews } = this.props.state
 
@@ -91,7 +89,8 @@ class JudgmentView extends Component {
             renderCard={ cardData => (
               <NewsItem
                 onOpenArticle={ this.openArticle }
-                key={ cardData.id } { ...cardData } />
+                key={ cardData.id }
+                { ...cardData } />
             )}
             cards={ unjudgedNews } />
         )}

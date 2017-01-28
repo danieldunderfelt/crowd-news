@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Image, Dimensions } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
-import Button from 'apsl-react-native-button'
+import Button, { ButtonLabel } from './Button'
 import Text from 'react-native-text'
 import { observable, action } from 'mobx'
 
@@ -50,8 +50,7 @@ const ReadButton = styled(Button)`
   margin: 70 50 0;
 `
 
-const ButtonLabel = styled(Text)`
-  font-size: 14;
+const ReadButtonLabel = styled(ButtonLabel)`
   color: white;
 `
 
@@ -76,9 +75,9 @@ class NewsItem extends Component {
             { title }
           </Title>
           <ReadButton onPress={ () => onOpenArticle(url) }>
-            <ButtonLabel>
+            <ReadButtonLabel>
               Read article
-            </ButtonLabel>
+            </ReadButtonLabel>
           </ReadButton>
         </ArticleContent>
       </Wrapper>
