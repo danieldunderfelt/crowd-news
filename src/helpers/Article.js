@@ -41,6 +41,8 @@ export default data => {
     get judgmentCount() {
       const list = judgmentResource.current()
 
+      console.log(list)
+
       if(!list) return 0
       return list.length
     },

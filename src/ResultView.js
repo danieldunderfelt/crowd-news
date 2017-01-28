@@ -63,13 +63,10 @@ class ResultView extends Component {
     const { judgedNews } = this.props.state
 
     const judgedArticle = _.last(judgedNews.slice())
-    const yourResponse = judgedArticle.judgment
+    const { judgment: yourJudgment, truePercentage: percent, judgmentCount: responses } = judgedArticle
 
-    const percent = judgedArticle.truePercentage
-    const responses = judgedArticle.judgmentCount
-
-    const displayPercentage = yourResponse === true ? percent : 100 - percent
-    const displayWord = yourResponse === true ? 'REAL!' : 'FAKE!'
+    const displayPercentage = yourJudgment === true ? percent : 100 - percent
+    const displayWord = yourJudgment === true ? 'REAL!' : 'FAKE!'
 
     return percent === false ? (
         <LoadingScreen

@@ -1,16 +1,13 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { AppState } from 'react-native'
 import { observer, Provider } from 'mobx-react/native'
-import styled from 'styled-components/native'
-import { observable, action, toJS } from 'mobx'
-import storage from './helpers/storage'
-import appActions from './actions/appActions'
-import authActions, { userModel } from './actions/authActions'
+import { observable, action, toJS, reaction } from 'mobx'
+import authActions, { firebaseUser } from './actions/authActions'
 import JudgmentView from './JudgmentView'
 import _ from 'lodash'
 
 const store = observable({
-  user: userModel(),
+  user: firebaseUser(),
   news: [],
   judgedNews: [],
   get unjudgedNews() {
@@ -22,28 +19,41 @@ const store = observable({
 
 @observer
 class App extends Component {
-
-  appActions = {}
   authActions = {}
 
-  async componentDidMount() {
-    const prevState = await storage.getItem('state')
-    // appActions initializes state with initial data if available
-    this.appActions = appActions(store, prevState)
-
-    // Set up authActions and authenticate user
-    this.authActions = authActions(store)
-    this.authActions.authenticate()
+  handleClose() {
+    this.authActions.persistUser()
   }
 
-  async componentWillUnmount() {
-    return await storage.setItem('state', toJS(store, false))
+  async handleOpen() {
+    // Set up authActions and authenticate user
+    this.authActions = authActions(store)
+  }
+
+  handleStateChange = state => {
+    if (state === 'active') {
+      this.handleOpen()
+    } else if (state === 'background') {
+      this.handleClose()
+    } else if (state === 'inactive') {
+      this.handleClose()
+    }
+  }
+
+  componentDidMount() {
+    AppState.addEventListener('change', this.handleStateChange)
+    this.handleOpen()
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this.handleStateChange)
+    this.handleClose()
   }
 
   render() {
 
     return (
-      <Provider state={ store } app={ this.appActions } >
+      <Provider state={ store } >
         <JudgmentView />
       </Provider>
     )
