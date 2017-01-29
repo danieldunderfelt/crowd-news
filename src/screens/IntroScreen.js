@@ -26,13 +26,13 @@ class IntroScreen extends Component {
             Start
           </ButtonLabel>
         </Button>
-        { !state.user ? (
+        {/*{ !state.user ? (*/}
           <Button onPress={ () => navigation.navigate('Login') }>
             <ButtonLabel color="white">
               Login
             </ButtonLabel>
           </Button>
-        ) : null }
+        {/*) : null }*/}
       </Screen>
     )
   }

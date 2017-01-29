@@ -34,7 +34,6 @@ class App extends Component {
   authActions = authActions(store)
 
   handleClose() {}
-
   handleOpen() {}
 
   handleStateChange = state => {

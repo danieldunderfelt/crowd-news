@@ -11,8 +11,7 @@ import { AdMobBanner } from 'react-native-admob'
 
 const ResultsWrapper = styled.View`
   height: ${({ height }) => height };
-  justify-content: space-around;
-  background-color: #121212;
+  background-color: #212121;
 `
 
 const ViewWrapper = styled.View`
@@ -27,10 +26,16 @@ const Ad = styled(AdMobBanner)`
 `
 
 const ResultHeading = styled(Text)`
-  color: white;
-  font-size: 36;
+  color: #ccc;
+  font-size: 30;
   font-weight: 300;
   text-align: center;
+  padding: 0 20;
+`
+
+const JudgmentWord = styled(ResultHeading)`
+  font-weight: 900;
+  font-size: 32;
 `
 
 const JudgedHeading = styled(Text)`
@@ -38,13 +43,16 @@ const JudgedHeading = styled(Text)`
   font-size: 14;
   font-weight: 200;
   text-align: center;
-  padding: 10 20;
+  padding: 40 20 10 20;
+  margin-bottom: 30;
   background-color: black;
 `
 
 const ResultWord = styled(ResultHeading)`
   font-size: 120;
+  color: white;
   font-weight: 900;
+  margin: 30 0;
 `
 
 const ContinueButton = styled(Button)`
@@ -64,18 +72,10 @@ class ResultView extends Component {
     const judgedArticle = _.last(judgedNews.slice())
     const { judgment: yourJudgment, truePercentage: percent, judgmentCount: responses } = judgedArticle
 
+    console.log(responses, percent)
+
     const displayPercentage = yourJudgment === true ? percent : 100 - percent
-    const displayWord = yourJudgment === true ? 'REAL!' : 'FAKE!'
-
-    let displayMessage
-
-    if(displayPercentage === 0 && responses > 0) {
-      displayMessage = "You're the only one so far who rated it as"
-    } else if(responses === 0) {
-      displayMessage = "You rated it as"
-    } else {
-      displayMessage = `You and ${ displayPercentage }% others rated it as`
-    }
+    const displayWord = yourJudgment === true ? 'REAL' : 'FAKE'
 
     return percent === false ? (
         <LoadingScreen
@@ -87,14 +87,34 @@ class ResultView extends Component {
           <JudgedHeading>
             { judgedArticle.title }
           </JudgedHeading>
-          <View>
-            <ResultHeading>
-              { displayMessage }
-            </ResultHeading>
-            <ResultWord>
+          { displayPercentage === 0 && responses > 0 ? (
+            <View>
+              <ResultHeading>
+                You're the first who rated this article
+              </ResultHeading>
+              <ResultWord>
               { displayWord }
-            </ResultWord>
-          </View>
+              </ResultWord>
+            </View>
+          ) : responses === 0 ? (
+            <View>
+              <ResultHeading>
+                You're the first one to rate this article!
+              </ResultHeading>
+            </View>
+          ) : (
+            <View>
+              <ResultHeading>
+                You rated this article <JudgmentWord>{ displayWord }</JudgmentWord> along with
+              </ResultHeading>
+              <ResultWord>
+                { displayPercentage }%
+              </ResultWord>
+              <ResultHeading>
+                of others who have rated this article.
+              </ResultHeading>
+            </View>
+          )}
           <ContinueButton
             color="white"
             onPress={ () => this.props.onDone(judgedArticle) }>

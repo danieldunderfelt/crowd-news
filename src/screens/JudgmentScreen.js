@@ -46,8 +46,7 @@ class JudgmentView extends Component {
   }
 
   fillStack = () => {
-
-    this.reddit
+    return this.reddit
       .getPosts()
       .then(this.newsActions.addItems)
   }

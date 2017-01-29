@@ -8,6 +8,8 @@ import _ from 'lodash'
 export default (state, navigation) => {
   const judgmentsDb = database('judgments')
 
+  storage.removeItem('rated-news')
+
   async function recordJudgment(id, data) {
     const ref = judgmentsDb(id).push()
 
@@ -15,8 +17,8 @@ export default (state, navigation) => {
       .catch(err => console.warn(err))
   }
 
-  const newsCollection = collection(state.news, Article, 'Article collection')
-  const judgedCollection = collection(state.judgedNews, Article, 'Judged articles')
+  const newsCollection = collection(state.news, data => Article(data, state), 'Article collection')
+  const judgedCollection = collection(state.judgedNews, data => Article(data, state), 'Judged articles')
 
   const judgeItem = action((judgment, item) => {
     item.judgment = judgment
@@ -24,8 +26,12 @@ export default (state, navigation) => {
 
     if(!!state.user) {
       saveJudgment(item)
+      this.showResults = false
     } else {
-      navigation.navigate('Login', { onLoggedIn: () => { saveJudgment(item) }})
+      navigation.navigate('Login', { onLoggedIn: () => {
+        saveJudgment(item)
+        navigation.dispatch({ type: 'Back' })
+      }})
     }
   })
 
