@@ -5,54 +5,14 @@ import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import _ from 'lodash'
 import Button, { ButtonLabel } from '../Button'
-
-import Screen from '../style/Screen'
 import Text from 'react-native-text'
+import BgImage from '../style/BackgroundImageScreen'
 
-const Wrapper = styled(Screen)`
-  position: relative;
-`
 
-const IntroBg = styled.Image`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-`
-
-const ContentWrapper = styled.View`
-  padding: 20;
-  flex-grow: 1;
-  background-color: rgba(0, 0, 0, 0.33);
-`
-
-const AppHeading = styled(Text)`
-  font-size: 90;
-  font-weight: 900;
-  margin: 30 0;
-  color: white;
-  line-height: 90;
-  background-color: transparent;
-`
-
-const IntroContent = styled(Text)`
+const TextContent = styled(Text)`
   font-size: 16;
   color: white;
   line-height: 25;
-`
-
-const CTAContent = styled(IntroContent)`
-  font-weight: 700;
-`
-
-const IntroBox = styled.View`
-  padding: 20 20;
-  border-width: ${ 2 };
-  border-color: white;
-  background-color: rgba(0, 0, 0, 0.66);
-`
-
-const Footer = styled.View`
-  flex-grow: 1;
-  justify-content: flex-end;
 `
 
 @inject('auth', 'state')
@@ -76,10 +36,17 @@ class LoginScreen extends Component {
     const { auth, state } = this.props
 
     return (
-      <View>
-        <Text>
-          { state.user ? 'Log out' : 'Log in' }
-        </Text>
+      <BgImage
+        image={ require('../img/intro-bg.jpg') }
+        content={(
+          <TextContent>
+            Hoold up! Before you can continue your campaign of fake news carnage,
+            we would like to get to know you. Pick either Facebook or Google and
+            log in, It'll only take a few seconds!
+          </TextContent>
+        )}
+        headingSize={ 60 }
+        heading="Who are you?">
         { state.user ? (
           <Button
             background="black"
@@ -106,7 +73,7 @@ class LoginScreen extends Component {
             </Button>
           </View>
         )}
-      </View>
+      </BgImage>
     )
   }
 }

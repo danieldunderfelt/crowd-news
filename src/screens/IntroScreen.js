@@ -3,7 +3,7 @@ import { View, Dimensions, StyleSheet, Image, StatusBar } from 'react-native'
 import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import Button, { ButtonLabel } from '../Button'
-import NewspaperScreen from '../style/NewspaperScreen'
+import BgImage from '../style/BackgroundImageScreen'
 import Text from 'react-native-text'
 import storage from '../helpers/storage'
 
@@ -39,7 +39,8 @@ class IntroScreen extends Component {
     const { navigation, state, auth } = this.props
 
     return (
-      <NewspaperScreen
+      <BgImage
+        image={ require('../img/intro-bg.jpg') }
         content={(
           <View>
             <IntroContent>
@@ -68,13 +69,20 @@ class IntroScreen extends Component {
           </ButtonLabel>
         </Button>
         { __DEV__ ? (
-          <Button onPress={ () => storage.removeItem('rated-news') }>
-            <ButtonLabel color="white">
-              Clear cache
-            </ButtonLabel>
-          </Button>
+          <View>
+            <Button onPress={ () => navigation.navigate('Login') }>
+              <ButtonLabel color="white">
+                Login
+              </ButtonLabel>
+            </Button>
+            <Button onPress={ () => storage.removeItem('rated-news') }>
+              <ButtonLabel color="white">
+                Clear cache
+              </ButtonLabel>
+            </Button>
+          </View>
         ) : null }
-      </NewspaperScreen>
+      </BgImage>
     )
   }
 }

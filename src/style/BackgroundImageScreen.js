@@ -15,7 +15,7 @@ const BgImage = styled.Image`
 `
 
 const ContentWrapper = styled.View`
-  padding: 20;
+  padding: 20 10 20 10;
   flex-grow: 1;
   background-color: rgba(0, 0, 0, 0.33);
 `
@@ -25,7 +25,7 @@ const AppHeading = styled(Text)`
   font-weight: 900;
   margin: 30 0;
   color: white;
-  line-height: 90;
+  line-height: ${({ size = 90 }) => size };
   background-color: transparent;
 `
 
@@ -51,11 +51,11 @@ export default observer(props => {
         height={ height }
         resizeMode="cover"
         style={ StyleSheet.absoluteFill }
-        source={ require('../img/intro-bg.jpg') } />
+        source={ props.image } />
       <StatusBar
         translucent
         showHideTransition="fade"
-        barStyle="dark-content" />
+        barStyle="light-content" />
       <ContentWrapper>
         <AppHeading size={ props.headingSize }>
           { props.heading }
