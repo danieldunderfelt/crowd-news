@@ -8,6 +8,15 @@ import Button, { ButtonLabel } from '../Button'
 @observer
 class LoginScreen extends Component {
 
+  handleAuth(provider) {
+    const { state, goBack } = this.props.navigation
+
+    this.props.auth
+      .authenticate(provider)
+      .then(() => state.params.onLoggedIn())
+      .then(() => goBack())
+  }
+
   render() {
     const { auth, state } = this.props
 

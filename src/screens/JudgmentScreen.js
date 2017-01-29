@@ -20,6 +20,7 @@ const Wrapper = styled.View`
   flex-grow: 1;
   background-color: black;
   position: relative;
+  z-index: 100;
 `
 
 @inject('state')
@@ -33,7 +34,7 @@ class JudgmentView extends Component {
   reddit = (reddit(this.props.state))
 
   componentDidMount() {
-    const { state } = this.props
+    const { state, navigation } = this.props
 
     reaction(() => state.unjudgedNews.length, stackLength => {
       if(!stackLength) this.fillStack()
@@ -78,7 +79,7 @@ class JudgmentView extends Component {
     const { unjudgedNews, judgedNews } = state
 
     return (
-      <Wrapper>
+      <Wrapper style={ StyleSheet.absoluteFill }>
         <StatusBar
           translucent
           showHideTransition="fade"
@@ -91,6 +92,7 @@ class JudgmentView extends Component {
           <LoadingScreen loadingText="Loading news..." />
         ) : (
           <SwipeCards
+            allowGestureTermination={ false }
             onCardDone={ this.onCardDone }
             stackOffsetX={ 0 }
             showYup

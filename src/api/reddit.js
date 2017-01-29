@@ -11,15 +11,14 @@ export default state => {
     const pagingParams = `&after=${ after }&count=${ count }`
     const requestUrl = `https://www.reddit.com/r/${endpoint}/top.json?nsfw=0&sort=top&t=day`
 
-    console.log(pagingParams)
-
     return requestUrl + (paged ? pagingParams : '')
   }
 
   function getPosts() {
     const subredditsStr = subreddits.join('+')
 
-    return axios.get(getUrl(subredditsStr))
+    return axios
+      .get(getUrl(subredditsStr))
       .then(({ data }) => parsePostsFromData(data))
   }
 

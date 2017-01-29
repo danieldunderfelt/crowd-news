@@ -48,7 +48,6 @@ const ResultWord = styled(ResultHeading)`
 `
 
 const ContinueButton = styled(Button)`
-  background-color: white;
   margin: 50 50 0;
 `
 
@@ -97,8 +96,9 @@ class ResultView extends Component {
             </ResultWord>
           </View>
           <ContinueButton
+            color="white"
             onPress={ () => this.props.onDone(judgedArticle) }>
-            <ButtonLabel>
+            <ButtonLabel color="black">
               { 'Ok, next!'.toUpperCase() }
             </ButtonLabel>
           </ContinueButton>

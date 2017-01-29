@@ -10,6 +10,7 @@ export default (state, navigation) => {
 
   async function recordJudgment(id, data) {
     const ref = judgmentsDb(id).push()
+
     return await ref.set(data)
       .catch(err => console.warn(err))
   }
@@ -24,24 +25,22 @@ export default (state, navigation) => {
     if(!!state.user) {
       saveJudgment(item)
     } else {
-      navigation.navigate('Login', { onLoggedIn: () => {
-        saveJudgment(item)
-      }})
+      navigation.navigate('Login', { onLoggedIn: () => { saveJudgment(item) }})
     }
   })
 
   function saveJudgment(item) {
-    recordJudgment(item.id, {
+    cacheJudged([ Object.assign({}, toJS(item, false), { __is_article: false }) ])
+
+    return recordJudgment(item.id, {
       userId: state.user.uid,
       judgment: item.judgment,
       url: item.url
     })
-
-    cacheJudged([ Object.assign({}, toJS(item, false), { __is_article: false }) ])
   }
 
   function cacheJudged(ratedNews) {
-    storage
+    return storage
       .getItem('rated-news')
       .then(rated => ({ ratedNews: _.get(rated, 'ratedNews', []).concat(ratedNews) }))
       .then(saveItems => storage.setItem('rated-news', saveItems))
