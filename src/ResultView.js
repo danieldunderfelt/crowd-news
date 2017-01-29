@@ -12,7 +12,7 @@ import { AdMobBanner } from 'react-native-admob'
 const ResultsWrapper = styled.View`
   height: ${({ height }) => height };
   justify-content: space-around;
-  background-color: #333;
+  background-color: #121212;
 `
 
 const ViewWrapper = styled.View`
@@ -34,12 +34,12 @@ const ResultHeading = styled(Text)`
 `
 
 const JudgedHeading = styled(Text)`
-  color: black;
+  color: white;
   font-size: 14;
   font-weight: 200;
   text-align: center;
   padding: 10 20;
-  background-color: white;
+  background-color: black;
 `
 
 const ResultWord = styled(ResultHeading)`
@@ -107,7 +107,7 @@ class ResultView extends Component {
           <Ad
             bannerSize="smartBannerLandscape"
             adUnitID="ca-app-pub-7905807201378145/6576693799"
-            testDeviceID="EMULATOR"
+            testDeviceID={ __DEV__ ? "EMULATOR" : false }
             didFailToReceiveAdWithError={ action(() => this.showAd = false ) } />
         ) : null }
       </ViewWrapper>

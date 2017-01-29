@@ -2,17 +2,17 @@ import React, { Component, PropTypes } from 'react'
 import { AppState } from 'react-native'
 import { observer, Provider } from 'mobx-react/native'
 import { observable, action, toJS, reaction } from 'mobx'
-import authActions, { firebaseUser } from './actions/authActions'
+import authActions from './actions/authActions'
 import JudgmentView from './JudgmentView'
 import _ from 'lodash'
 
 const store = observable({
-  user: firebaseUser(),
+  _currentUser: null,
   news: [],
   judgedNews: [],
   reddit: {
     get after() {
-      return _.get(_.last(store.judgedNews.slice), 'name', '')
+      return _.get(_.last(store.judgedNews.slice()), 'name', '')
     },
     get count() {
       return store.judgedNews.length
@@ -22,6 +22,10 @@ const store = observable({
     return _.chain(this.news.slice())
       .differenceBy(this.judgedNews.slice(), 'id')
       .value()
+  },
+  get user() {
+    if(typeof store._currentUser !== 'function') return store._currentUser
+    return store._currentUser()
   }
 })
 
@@ -29,13 +33,11 @@ const store = observable({
 class App extends Component {
   authActions = {}
 
-  handleClose() {
-    this.authActions.persistUser()
-  }
+  handleClose() {}
 
-  async handleOpen() {
-    // Set up authActions and authenticate user
+  handleOpen() {
     this.authActions = authActions(store)
+    store._currentUser = this.authActions.currentUser
   }
 
   handleStateChange = state => {
@@ -48,7 +50,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  @action componentDidMount() {
     AppState.addEventListener('change', this.handleStateChange)
     this.handleOpen()
   }

@@ -8,9 +8,10 @@ import _ from 'lodash'
 export default state => {
   const judgmentsDb = database('judgments')
 
-  async function setData(id, data) {
+  async function recordJudgment(id, data) {
     const ref = judgmentsDb(id).push()
     return await ref.set(data)
+      .catch(err => console.warn(err))
   }
 
   const newsCollection = collection(state.news, Article, 'Article collection')
@@ -18,29 +19,33 @@ export default state => {
 
   const judgeItem = action((judgment, item) => {
     item.judgment = judgment
-
     judgedCollection.addItem(item)
-    saveJudgment(item)
+
+    if(!!state.user) {
+      saveJudgment(item)
+    } else {
+      // Show login screen
+    }
   })
 
   function saveJudgment(item) {
-    setData(item.id, {
-      userId: state.user.id,
+    recordJudgment(item.id, {
+      userId: state.user.uid,
       judgment: item.judgment,
       url: item.url
     })
 
-    persistJudged([ Object.assign({}, toJS(item, false), { __is_article: false }) ])
+    cacheJudged([ Object.assign({}, toJS(item, false), { __is_article: false }) ])
   }
 
-  function persistJudged(ratedNews) {
+  function cacheJudged(ratedNews) {
     storage
       .getItem('rated-news')
       .then(rated => ({ ratedNews: _.get(rated, 'ratedNews', []).concat(ratedNews) }))
       .then(saveItems => storage.setItem('rated-news', saveItems))
   }
 
-  function hydrateRated() {
+  function hydrateJudged() {
     return storage
       .getItem('rated-news')
       .then(rated => {
@@ -52,7 +57,7 @@ export default state => {
     ...newsCollection,
     judgeItem,
     saveJudgment,
-    persistJudged,
-    hydrateRated
+    cacheJudged,
+    hydrateJudged
   }
 }

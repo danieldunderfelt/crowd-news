@@ -40,11 +40,12 @@ class JudgmentView extends Component {
     })
 
     this.newsActions
-      .hydrateRated()
+      .hydrateJudged()
       .then(this.fillStack)
   }
 
   fillStack = () => {
+
     this.reddit
       .getPosts()
       .then(this.newsActions.addItems)
