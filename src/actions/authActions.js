@@ -1,7 +1,9 @@
 import { toJS, reaction, observable, action, extendObservable } from 'mobx'
 import { fromResource } from 'mobx-utils'
 import firebase from '../api/firebase'
-import storage from '../helpers/storage'
+import facebookLogin from '../helpers/facebookLogin'
+import googleLogin from '../helpers/googleLogin'
+import { auth as FirebaseAuth } from 'firebase'
 
 export default (state) => {
 
@@ -10,23 +12,48 @@ export default (state) => {
     firebase.auth().onAuthStateChanged(sink, err => console.log('Auth error: ', err))
   })
 
-  function authenticate() {
-
-    return firebase.auth()
-      .signInAnonymously()
-      .catch(err => {
-        console.warn(err)
+  function authenticate(providerName) {
+    return Promise.resolve(providerName)
+      .then(p => {
+        if(p === 'google') return getGoogleCredential()
+        if(p === 'facebook') return getFacebookCredential()
       })
+      .then(credential => firebase.auth().signInWithCredential(credential))
+      .catch(handleAuthError)
   }
 
-  function ensureAuth() {
-    if(!authStateObservable.current()) {
-      authenticate()
-    }
+  function logOut() {
+    return firebase.auth()
+      .signOut()
+      .catch(handleAuthError)
   }
+
+  async function getGoogleCredential() {
+    const google = googleLogin()
+    const token = await google.login()
+
+    return FirebaseAuth.GoogleAuthProvider.credential(null, token)
+  }
+
+  async function getFacebookCredential() {
+    const facebook = facebookLogin()
+    const token = await facebook.login()
+
+    return FirebaseAuth.FacebookAuthProvider.credential(token)
+  }
+
+  function handleAuthError(err) {
+    console.warn(err)
+  }
+
+  const setCurrentUser = action(() => {
+    state._currentUser = authStateObservable.current
+  })
+
+  setCurrentUser()
 
   return {
     authenticate,
-    currentUser: authStateObservable.current
+    logOut
   }
 }

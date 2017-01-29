@@ -31,14 +31,11 @@ const store = observable({
 
 @observer
 class App extends Component {
-  authActions = {}
+  authActions = authActions(store)
 
   handleClose() {}
 
-  handleOpen() {
-    this.authActions = authActions(store)
-    store._currentUser = this.authActions.currentUser
-  }
+  handleOpen() {}
 
   handleStateChange = state => {
     if (state === 'active') {
@@ -50,7 +47,7 @@ class App extends Component {
     }
   }
 
-  @action componentDidMount() {
+  componentDidMount() {
     AppState.addEventListener('change', this.handleStateChange)
     this.handleOpen()
   }
@@ -63,7 +60,7 @@ class App extends Component {
   render() {
 
     return (
-      <Provider state={ store } >
+      <Provider state={ store } auth={ this.authActions } >
         <Routes />
       </Provider>
     )

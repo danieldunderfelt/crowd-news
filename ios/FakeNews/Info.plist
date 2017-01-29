@@ -18,10 +18,50 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1196930667093144</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.googleusercontent.apps.746713077322-ugqph6orahiv7rqtg06mkjglp5cvco8b</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.746713077322-ugqph6orahiv7rqtg06mkjglp5cvco8b</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.developsuperpowers.apps.FakeNews</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.developsuperpowers.apps.FakeNews</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>CodePushDeploymentKey</key>
 	<string>yxUOzuEsVfybsYaH9uR0efjvow5mVyjgq568-</string>
+	<key>FacebookAppID</key>
+	<string>1196930667093144</string>
+	<key>FacebookDisplayName</key>
+	<string>FakeNews</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

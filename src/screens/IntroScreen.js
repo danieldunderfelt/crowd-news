@@ -1,28 +1,39 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { observer } from 'mobx-react/native'
+import { View, Text, StyleSheet, StatusBar } from 'react-native'
+import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
-import Button from '../Button'
+import Button, { ButtonLabel } from '../Button'
+import Screen from '../style/Screen'
 
+@inject('state')
 @observer
 class IntroScreen extends Component {
 
-  static navigationOptions = {
-    header: { visible: false }
-  }
-
   render() {
-    const { navigate } = this.props.navigation
+    const { navigation, state } = this.props
 
     return (
-      <View>
+      <Screen bg="white" padding={ 20 }>
+        <StatusBar
+          translucent
+          showHideTransition="fade"
+          barStyle="dark-content" />
         <Text>
           Introscreen
         </Text>
-        <Button onPress={ () => navigate('Judge') }>
-          Start
+        <Button onPress={ () => navigation.navigate('Judge') }>
+          <ButtonLabel color="white">
+            Start
+          </ButtonLabel>
         </Button>
-      </View>
+        { !state.user ? (
+          <Button onPress={ () => navigation.navigate('Login') }>
+            <ButtonLabel color="white">
+              Login
+            </ButtonLabel>
+          </Button>
+        ) : null }
+      </Screen>
     )
   }
 }

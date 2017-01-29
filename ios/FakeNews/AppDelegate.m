@@ -10,6 +10,9 @@
 #import "AppDelegate.h"
 #import <CodePush/CodePush.h>
 #import "Firebase.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <RNGoogleSignin/RNGoogleSignin.h>
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -44,7 +47,26 @@
   [FIRApp configure];
   [GADMobileAds configureWithApplicationID:@"ca-app-pub-7905807201378145~2146494198"];
   
-  return YES;
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                  didFinishLaunchingWithOptions:launchOptions];
 }
+
+// Facebook SDK
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  BOOL handledGoogle = [RNGoogleSignin application:application
+                                           openURL:url
+                                 sourceApplication:sourceApplication
+                                        annotation:annotation];
+  BOOL handledFacebook = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                        openURL:url
+                                                              sourceApplication:sourceApplication
+                                                                     annotation:annotation];
+  return handledFacebook || handledGoogle;
+}
+
 
 @end

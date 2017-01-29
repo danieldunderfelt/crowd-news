@@ -1,22 +1,47 @@
 import React, { Component, PropTypes } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { observer } from 'mobx-react/native'
+import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
+import Button, { ButtonLabel } from '../Button'
 
+@inject('auth', 'state')
 @observer
 class LoginScreen extends Component {
 
-  componentDidMount() {
-    setTimeout(this.props.navigation.state.params.onLoggedIn, 2000)
-  }
-
   render() {
+    const { auth, state } = this.props
 
     return (
       <View>
         <Text>
-          Login
+          { state.user ? 'Log out' : 'Log in' }
         </Text>
+        { state.user ? (
+          <Button
+            background="black"
+            onPress={ () => auth.logOut() }>
+            <ButtonLabel color="white">
+              Log out
+            </ButtonLabel>
+          </Button>
+        ) : (
+          <View>
+            <Button
+              background="black"
+              onPress={ () => auth.authenticate('facebook') }>
+              <ButtonLabel color="white">
+                Login with Facebook
+              </ButtonLabel>
+            </Button>
+            <Button
+              background="black"
+              onPress={ () => auth.authenticate('google') }>
+              <Buttonlabel color="white">
+                Login with Google
+              </Buttonlabel>
+            </Button>
+          </View>
+        )}
       </View>
     )
   }
