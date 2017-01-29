@@ -1,19 +1,13 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { observer } from 'mobx-react/native'
 import { StackNavigator } from 'react-navigation'
+import IntroScreen from './screens/IntroScreen'
+import JudgmentScreen from './screens/JudgmentScreen'
+import LoginScreen from './screens/LoginScreen'
 
-@observer
-class Routes extends Component {
-
-  render() {
-
-    return (
-      <View>
-
-      </View>
-    )
-  }
-}
-
-export default Routes
+export default StackNavigator({
+  Home: { screen: IntroScreen },
+  Judge: { screen: JudgmentScreen },
+  Login: { screen: LoginScreen, mode: 'modal' }
+}, {
+  headerMode: 'none'
+})

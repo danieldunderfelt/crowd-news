@@ -3,7 +3,7 @@ import { AppState } from 'react-native'
 import { observer, Provider } from 'mobx-react/native'
 import { observable, action, toJS, reaction } from 'mobx'
 import authActions from './actions/authActions'
-import JudgmentView from './JudgmentView'
+import Routes from './Routes'
 import _ from 'lodash'
 
 const store = observable({
@@ -64,7 +64,7 @@ class App extends Component {
 
     return (
       <Provider state={ store } >
-        <JudgmentView />
+        <Routes />
       </Provider>
     )
   }

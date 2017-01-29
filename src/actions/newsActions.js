@@ -5,7 +5,7 @@ import database from '../helpers/database'
 import storage from '../helpers/storage'
 import _ from 'lodash'
 
-export default state => {
+export default (state, navigation) => {
   const judgmentsDb = database('judgments')
 
   async function recordJudgment(id, data) {
@@ -24,7 +24,9 @@ export default state => {
     if(!!state.user) {
       saveJudgment(item)
     } else {
-      // Show login screen
+      navigation.navigate('Login', { onLoggedIn: () => {
+        saveJudgment(item)
+      }})
     }
   })
 

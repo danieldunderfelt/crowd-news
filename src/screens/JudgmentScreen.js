@@ -3,17 +3,17 @@ import { View, Text, StyleSheet, LayoutAnimation, StatusBar, Modal } from 'react
 import { computed, action, observable, reaction } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
-import SwipeCards from './helpers/SwipeCards'
-import NewsItem from './NewsItem'
-import StackEnd from './StackEnd'
-import ResultView from './ResultView'
-import newsActions from './actions/newsActions'
-import reddit from './api/reddit'
-import layoutAnim from './helpers/layoutAnim'
+import SwipeCards from '../helpers/SwipeCards'
+import NewsItem from '../NewsItem'
+import StackEnd from '../StackEnd'
+import ResultView from '../ResultView'
+import newsActions from '../actions/newsActions'
+import reddit from '../api/reddit'
+import layoutAnim from '../helpers/layoutAnim'
 import _ from 'lodash'
-import LoadingScreen from './LoadingScreen'
-import ArticleView from './ArticleView'
-import SwipeGraphics from './SwipeGraphics'
+import LoadingScreen from '../LoadingScreen'
+import ArticleView from '../ArticleView'
+import SwipeGraphics from '../SwipeGraphics'
 
 const Wrapper = styled.View`
   align-items: stretch;
@@ -29,7 +29,7 @@ class JudgmentView extends Component {
   @observable articleUrl = false
   @observable showResults = false
 
-  newsActions = (newsActions(this.props.state))
+  newsActions = (newsActions(this.props.state, this.props.navigation))
   reddit = (reddit(this.props.state))
 
   componentDidMount() {
@@ -59,11 +59,11 @@ class JudgmentView extends Component {
     this.articleUrl = false
   }
 
-  @action onCardDone = next => {
+  @action onCardDone = (next) => {
     LayoutAnimation.configureNext(layoutAnim)
     this.showResults = true
 
-    reaction(() => !this.showResults , doNextCard => {
+    reaction(() => !this.showResults, doNextCard => {
       if(doNextCard) next()
     })
   }
@@ -74,7 +74,8 @@ class JudgmentView extends Component {
   }
 
   render() {
-    const { unjudgedNews, judgedNews } = this.props.state
+    const { state } = this.props
+    const { unjudgedNews, judgedNews } = state
 
     return (
       <Wrapper>
