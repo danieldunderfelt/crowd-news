@@ -10,3 +10,10 @@ export const Footer = styled.View`
   flex-grow: 1;
   justify-content: flex-end;
 `
+
+export const SwipeWrapper = styled.View`
+  align-items: stretch;
+  flex-grow: 1;
+  background-color: black;
+  position: relative;
+`

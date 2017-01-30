@@ -42,7 +42,7 @@ class LoginScreen extends Component {
             </Paragraph>
           ) : (
             <Paragraph>
-              Hooold up! Before you can continue your campaign of fake news carnage,
+              Hold up! Before you can continue your campaign of fake news carnage,
               we would like to get to know you. It'll only take a few seconds and we
               do not post on your behalf without permission.
             </Paragraph>

@@ -20,7 +20,6 @@ const Wrapper = styled.View`
   flex-grow: 1;
   background-color: black;
   position: relative;
-  z-index: 100;
 `
 
 @inject('state')
@@ -78,7 +77,7 @@ class JudgmentView extends Component {
     const { unjudgedNews, judgedNews } = state
 
     return (
-      <Wrapper style={ StyleSheet.absoluteFill }>
+      <Wrapper>
         <StatusBar
           translucent
           showHideTransition="fade"
@@ -98,8 +97,8 @@ class JudgmentView extends Component {
             showNope
             handleYup={ item => this.newsActions.judgeItem(true, item) }
             handleNope={ item => this.newsActions.judgeItem(false, item) }
-            renderYup={ styles => <SwipeGraphics style={ styles } label="REAL!" side="right" /> }
-            renderNope={ styles => <SwipeGraphics style={ styles } label="FAKE!" side="left" /> }
+            renderYup={ styles => <SwipeGraphics style={ styles } color="black" label="REAL!" side="right" /> }
+            renderNope={ styles => <SwipeGraphics style={ styles } color="white" label="FAKE!" side="left" /> }
             renderNoMoreCards={ () => <StackEnd /> }
             renderCard={ cardData => (
               <NewsItem

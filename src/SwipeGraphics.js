@@ -10,26 +10,27 @@ const SwipeGraphic = styled(Animated.View)`
   bottom: 0;
   left: -200;
   right: -200;
-  background-color: ${({ label }) => label === 'REAL!' ? 'white' : 'black' };
+  background-color: ${({ color = 'white' }) => color };
 `
 
 const SwipeText = styled(Text)`
-  color: ${({ label }) => label === 'REAL!' ? 'black' : 'white' };
+  color: ${({ color }) => color === 'white' ? 'black' : 'white' };
   font-size: 72;
   font-weight: 900;
   text-align: center;
 `
 
 export default observer(props => {
-  const { style, side, label } = props
+  const { style, side, label, textStyle, color } = props
 
   return (
     <SwipeGraphic
       pointerEvents="none"
       label={ label }
       side={ side }
+      color={ color }
       style={ style }>
-      <SwipeText label={ label }>
+      <SwipeText style={ textStyle } color={ color }>
         { label }
       </SwipeText>
     </SwipeGraphic>

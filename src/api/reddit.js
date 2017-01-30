@@ -17,8 +17,6 @@ export default state => {
   function getPosts(paging = true) {
     const subredditsStr = subreddits.join('+')
 
-    console.log(getUrl(subredditsStr, paging))
-
     return axios
       .get(getUrl(subredditsStr, paging))
       .then(({ data }) => parsePostsFromData(data))
