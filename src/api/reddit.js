@@ -14,17 +14,24 @@ export default state => {
     return requestUrl + (paged ? pagingParams : '')
   }
 
-  function getPosts() {
+  function getPosts(paging = true) {
     const subredditsStr = subreddits.join('+')
 
+    console.log(getUrl(subredditsStr, paging))
+
     return axios
-      .get(getUrl(subredditsStr))
+      .get(getUrl(subredditsStr, paging))
       .then(({ data }) => parsePostsFromData(data))
   }
 
   function parsePostsFromData(data) {
+    const posts = _.get(data, 'data.children', [])
 
-    return _.chain(_.get(data, 'data.children'))
+    if(!posts.length) {
+      return getPosts(false)
+    }
+
+    return _.chain(posts)
       .map(post => post.data)
       .filter(post => (
         post.over_18 === false &&

@@ -6,6 +6,8 @@ import Button, { ButtonLabel } from './Button'
 import Text from 'react-native-text'
 import { observable, action } from 'mobx'
 
+const newspaperBg = require('./img/intro-bg.jpg')
+
 const Wrapper = styled.View`
   flex-grow: 1;
   padding: 0;
@@ -61,6 +63,8 @@ class NewsItem extends Component {
     const { title, url, image, onOpenArticle } = this.props
     const { width, height } = Dimensions.get('window')
 
+    const imageSource = image ? { uri: image } : newspaperBg
+
     return (
       <Wrapper>
         { image && (
@@ -68,7 +72,7 @@ class NewsItem extends Component {
             width={ width }
             height={ height }
             resizeMode="cover"
-            source={{ uri: image }}/>
+            source={ imageSource }/>
         )}
         <ArticleContent width={ width }>
           <Title>
