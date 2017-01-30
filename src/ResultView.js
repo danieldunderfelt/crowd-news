@@ -41,7 +41,7 @@ const Ad = styled(AdMobBanner)`
 `
 
 const ResultHeading = styled(Text)`
-  color: #ccc;
+  color: #ededed;
   font-size: 30;
   font-weight: 300;
   text-align: center;
@@ -133,13 +133,13 @@ class ResultView extends Component {
                 ) : (
                   <ContentWrapper>
                     <ResultHeading>
-                      You rated this article <JudgmentWord>{ displayWord }</JudgmentWord> along with
+                      You agree with
                     </ResultHeading>
                     <ResultWord>
                       { displayPercentage }%
                     </ResultWord>
                     <ResultHeading>
-                      of others who have rated this article.
+                      others that this article is <JudgmentWord>{ displayWord }!</JudgmentWord>
                     </ResultHeading>
                   </ContentWrapper>
                 )}
