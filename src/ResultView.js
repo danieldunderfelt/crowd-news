@@ -1,23 +1,38 @@
 import React, { Component, PropTypes } from 'react'
-import { View, StyleSheet, Dimensions } from 'react-native'
+import { View, StyleSheet, Image, Dimensions } from 'react-native'
 import { observer, inject } from 'mobx-react/native'
 import { observable, action } from 'mobx'
 import styled from 'styled-components/native'
 import _ from 'lodash'
 import Text from 'react-native-text'
 import LoadingScreen from './LoadingScreen'
-import Button, { ButtonLabel } from './Button'
 import { AdMobBanner } from 'react-native-admob'
+import SingleCardSwipe from './helpers/SingleCardSwipe'
+
+const newspaperBg = require('./img/intro-bg.jpg')
+
+const ArticleImage = styled(Image)`
+  width: ${({ width }) => width };
+  height: ${({ height }) => height + 20 };
+  position: absolute;
+  top: -10;
+  left: ${({ width }) => width / 2 };
+  justify-content: center;
+  align-items: center;
+  opacity: 0.35;
+  transform: translateX(-${({ width }) => width / 2 });
+`
 
 const ResultsWrapper = styled.View`
   height: ${({ height }) => height };
-  background-color: #212121;
+  background-color: transparent;
 `
 
 const ViewWrapper = styled.View`
   flex-grow: 1;
   align-self: stretch;
   justify-content: center;
+  position: relative;
 `
 
 const Ad = styled(AdMobBanner)`
@@ -52,11 +67,12 @@ const ResultWord = styled(ResultHeading)`
   font-size: 120;
   color: white;
   font-weight: 900;
-  margin: 30 0;
+  margin: 20 0;
 `
 
-const ContinueButton = styled(Button)`
-  margin: 50 50 0;
+const ContentWrapper = styled.View`
+  justify-content: center;
+  align-items: center;
 `
 
 @inject('state')
@@ -66,70 +82,78 @@ class ResultView extends Component {
   @observable showAd = true
 
   render() {
-    const { height } = Dimensions.get('window')
+    const { width, height } = Dimensions.get('window')
     const { judgedNews } = this.props.state
 
     const judgedArticle = _.last(judgedNews.slice())
-    const { judgment: yourJudgment, truePercentage: percent, judgmentCount: responses } = judgedArticle
-
-    console.log(responses, percent)
+    const { judgment: yourJudgment, truePercentage: percent, judgmentCount: responses, image } = judgedArticle
 
     const displayPercentage = yourJudgment === true ? percent : 100 - percent
     const displayWord = yourJudgment === true ? 'REAL' : 'FAKE'
 
-    return percent === false ? (
-        <LoadingScreen
-          loadingText="Loading results..."
-          bg="black" />
-    ) : (
-      <ViewWrapper style={ StyleSheet.absoluteFill }>
-        <ResultsWrapper height={ this.showAd ? height - 50 : height }>
-          <JudgedHeading>
-            { judgedArticle.title }
-          </JudgedHeading>
-          { displayPercentage === 0 && responses > 0 ? (
-            <View>
-              <ResultHeading>
-                You're the first who rated this article
-              </ResultHeading>
-              <ResultWord>
-              { displayWord }
-              </ResultWord>
-            </View>
-          ) : responses === 0 ? (
-            <View>
-              <ResultHeading>
-                You're the first one to rate this article!
-              </ResultHeading>
-            </View>
-          ) : (
-            <View>
-              <ResultHeading>
-                You rated this article <JudgmentWord>{ displayWord }</JudgmentWord> along with
-              </ResultHeading>
-              <ResultWord>
-                { displayPercentage }%
-              </ResultWord>
-              <ResultHeading>
-                of others who have rated this article.
-              </ResultHeading>
-            </View>
-          )}
-          <ContinueButton
-            color="white"
-            onPress={ () => this.props.onDone(judgedArticle) }>
-            <ButtonLabel color="black">
-              { 'Ok, next!'.toUpperCase() }
-            </ButtonLabel>
-          </ContinueButton>
-        </ResultsWrapper>
-        { this.showAd ? (
-          <Ad
-            bannerSize="smartBannerLandscape"
-            adUnitID="ca-app-pub-7905807201378145/6576693799"
-            testDeviceID={ __DEV__ ? "EMULATOR" : false }
-            didFailToReceiveAdWithError={ action(() => this.showAd = false ) } />
-        ) : null }
+    const imageSource = image ? { uri: image } : newspaperBg
+
+    return (
+      <ViewWrapper>
+        <SingleCardSwipe
+          rightText="NEXT!"
+          leftText="NEXT!"
+          onRight={ () => this.props.onDone(judgedArticle) }
+          onLeft={ () => this.props.onDone(judgedArticle) }>
+          <ArticleImage
+            width={ width }
+            height={ height }
+            resizeMode="cover"
+            source={ imageSource } />
+          <ResultsWrapper height={ this.showAd ? height - 50 : height }>
+            <JudgedHeading>
+              { judgedArticle.title }
+            </JudgedHeading>
+            { percent === false ? (
+              <LoadingScreen
+                loadingText="Loading results..."
+                bg="transparent" />
+            ) : (
+              <View>
+                { displayPercentage === 0 && responses > 0 ? (
+                  <ContentWrapper>
+                    <ResultHeading>
+                      You're the first one to rate this article
+                    </ResultHeading>
+                    <ResultWord>
+                      { displayWord }
+                    </ResultWord>
+                  </ContentWrapper>
+                ) : responses === 0 ? (
+                  <ContentWrapper>
+                    <ResultHeading>
+                      You're the first one to rate this article!
+                    </ResultHeading>
+                  </ContentWrapper>
+                ) : (
+                  <ContentWrapper>
+                    <ResultHeading>
+                      You rated this article <JudgmentWord>{ displayWord }</JudgmentWord> along with
+                    </ResultHeading>
+                    <ResultWord>
+                      { displayPercentage }%
+                    </ResultWord>
+                    <ResultHeading>
+                      of others who have rated this article.
+                    </ResultHeading>
+                  </ContentWrapper>
+                )}
+              </View>
+            )}
+          </ResultsWrapper>
+          { this.showAd ? (
+            <Ad
+              bannerSize="smartBannerPortrait"
+              adUnitID="ca-app-pub-7905807201378145/6576693799"
+              testDeviceID={ __DEV__ ? "EMULATOR" : false }
+              didFailToReceiveAdWithError={ action(() => this.showAd = false ) } />
+          ) : null }
+        </SingleCardSwipe>
       </ViewWrapper>
     )
   }

@@ -8,8 +8,7 @@ import SwipeGraphics from '../SwipeGraphics'
 
 const style = StyleSheet.create({
   textStyle: {
-    fontSize: 40,
-    fontWeight: '700',
+    fontSize: 50
   }
 })
 

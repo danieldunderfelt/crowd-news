@@ -67,13 +67,11 @@ class NewsItem extends Component {
 
     return (
       <Wrapper>
-        { image && (
-          <ArticleImage
-            width={ width }
-            height={ height }
-            resizeMode="cover"
-            source={ imageSource }/>
-        )}
+        <ArticleImage
+          width={ width }
+          height={ height }
+          resizeMode="cover"
+          source={ imageSource } />
         <ArticleContent width={ width }>
           <Title>
             { title }
