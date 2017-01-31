@@ -7,8 +7,9 @@ import Text from 'react-native-text'
 
 const StyledButton = styled(Button)`
   border-radius: 0;
-  border: 0;
-  background-color: ${({ color = 'black' }) => color };
+  border: ${({ secondary = false }) => secondary ? 2 : 0 };
+  border-color: ${({ color = 'white' }) => color };
+  background-color: ${({ secondary = false, color = 'black' }) => secondary ? 'transparent' : color };
 `
 
 export const ButtonLabel = styled(Text)`

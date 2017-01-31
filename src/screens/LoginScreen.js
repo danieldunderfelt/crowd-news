@@ -27,7 +27,7 @@ class LoginScreen extends Component {
   }
 
   render() {
-    const { auth, state } = this.props
+    const { auth, state, navigation } = this.props
 
     return (
       <BgImage image={ require('../img/intro-bg.jpg') }>
@@ -50,24 +50,34 @@ class LoginScreen extends Component {
         </ContentBox>
         <Footer>
           { state.user ? (
-            <Button
-              background="black"
-              onPress={ () => auth.logOut() }>
-              <ButtonLabel color="white">
-                Log out
-              </ButtonLabel>
-            </Button>
+            <View>
+              <Button
+                color="black"
+                onPress={ () => auth.logOut() }>
+                <ButtonLabel color="white">
+                  Log out
+                </ButtonLabel>
+              </Button>
+              <Button
+                secondary
+                color="white"
+                onPress={ () => navigation.goBack() }>
+                <ButtonLabel color="white">
+                  Back
+                </ButtonLabel>
+              </Button>
+            </View>
           ) : (
             <View>
               <Button
-                background="black"
+                color="black"
                 onPress={ () => this.handleAuth('facebook') }>
                 <ButtonLabel color="white">
                   Login with Facebook
                 </ButtonLabel>
               </Button>
               <Button
-                background="black"
+                color="black"
                 onPress={ () => this.handleAuth('google') }>
                 <ButtonLabel color="white">
                   Login with Google

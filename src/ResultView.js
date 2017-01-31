@@ -8,6 +8,8 @@ import Text from 'react-native-text'
 import LoadingScreen from './LoadingScreen'
 import { AdMobBanner } from 'react-native-admob'
 import SingleCardSwipe from './helpers/SingleCardSwipe'
+import SwipeInstructionGraphic from './SwipeInstructionGraphic'
+import { Footer } from './style/content'
 
 const newspaperBg = require('./img/intro-bg.jpg')
 
@@ -24,6 +26,8 @@ const ArticleImage = styled(Image)`
 `
 
 const ResultsWrapper = styled.View`
+  flex-grow: 1;
+  width: ${({ width }) => width };
   height: ${({ height }) => height };
   background-color: transparent;
 `
@@ -33,6 +37,7 @@ const ViewWrapper = styled.View`
   align-self: stretch;
   justify-content: center;
   position: relative;
+  width: ${({ width }) => width };
 `
 
 const Ad = styled(AdMobBanner)`
@@ -46,6 +51,7 @@ const ResultHeading = styled(Text)`
   font-weight: 300;
   text-align: center;
   padding: 0 20;
+  margin: 10 0;
 `
 
 const JudgmentWord = styled(ResultHeading)`
@@ -64,10 +70,11 @@ const JudgedHeading = styled(Text)`
 `
 
 const ResultWord = styled(ResultHeading)`
-  font-size: 120;
+  font-size: 100;
+  line-height: 107;
   color: white;
   font-weight: 900;
-  margin: 20 0;
+  margin: 25 0 0;
 `
 
 const ContentWrapper = styled.View`
@@ -89,12 +96,12 @@ class ResultView extends Component {
     const { judgment: yourJudgment, truePercentage: percent, judgmentCount: responses, image } = judgedArticle
 
     const displayPercentage = yourJudgment === true ? percent : 100 - percent
-    const displayWord = yourJudgment === true ? 'REAL' : 'FAKE'
+    const displayWord = yourJudgment === true ? 'REAL NEWS' : 'FAKE NEWS'
 
     const imageSource = image ? { uri: image } : newspaperBg
 
     return (
-      <ViewWrapper>
+      <ViewWrapper width={ width }>
         <SingleCardSwipe
           rightText="NEXT!"
           leftText="NEXT!"
@@ -105,7 +112,7 @@ class ResultView extends Component {
             height={ height }
             resizeMode="cover"
             source={ imageSource } />
-          <ResultsWrapper height={ this.showAd ? height - 50 : height }>
+          <ResultsWrapper width={ width } height={ this.showAd ? height - 50 : height }>
             <JudgedHeading>
               { judgedArticle.title }
             </JudgedHeading>
@@ -127,8 +134,11 @@ class ResultView extends Component {
                 ) : responses === 0 ? (
                   <ContentWrapper>
                     <ResultHeading>
-                      You're the first one to rate this article!
+                      You rated this article
                     </ResultHeading>
+                    <ResultWord>
+                      { displayWord }
+                    </ResultWord>
                   </ContentWrapper>
                 ) : (
                   <ContentWrapper>
@@ -145,6 +155,9 @@ class ResultView extends Component {
                 )}
               </View>
             )}
+            <Footer>
+              <SwipeInstructionGraphic />
+            </Footer>
           </ResultsWrapper>
           { this.showAd ? (
             <Ad

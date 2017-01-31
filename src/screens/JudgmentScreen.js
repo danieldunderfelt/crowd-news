@@ -3,17 +3,13 @@ import { View, Text, StyleSheet, LayoutAnimation, StatusBar, Modal } from 'react
 import { computed, action, observable, reaction } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
 import styled from 'styled-components/native'
-import SwipeCards from '../helpers/SwipeCards'
-import NewsItem from '../NewsItem'
-import StackEnd from '../StackEnd'
 import ResultView from '../ResultView'
 import newsActions from '../actions/newsActions'
 import reddit from '../api/reddit'
 import layoutAnim from '../helpers/layoutAnim'
 import _ from 'lodash'
 import LoadingScreen from '../LoadingScreen'
-import ArticleView from '../ArticleView'
-import SwipeGraphics from '../SwipeGraphics'
+import ArticleSwipe from '../ArticleSwipe'
 
 const Wrapper = styled.View`
   align-items: stretch;
@@ -26,7 +22,6 @@ const Wrapper = styled.View`
 @observer
 class JudgmentView extends Component {
 
-  @observable articleUrl = false
   @observable showResults = false
 
   newsActions = (newsActions(this.props.state, this.props.navigation))
@@ -48,14 +43,6 @@ class JudgmentView extends Component {
     return this.reddit
       .getPosts()
       .then(this.newsActions.addItems)
-  }
-
-  @action openArticle = url => {
-    this.articleUrl = url
-  }
-
-  @action closeArticle = () => {
-    this.articleUrl = false
   }
 
   @action onCardDone = (next) => {
@@ -89,34 +76,12 @@ class JudgmentView extends Component {
         ) : unjudgedNews.length === 0 ? (
           <LoadingScreen loadingText="Loading news..." />
         ) : (
-          <SwipeCards
-            allowGestureTermination={ false }
-            onCardDone={ this.onCardDone }
-            stackOffsetX={ 0 }
-            showYup
-            showNope
-            handleYup={ item => this.newsActions.judgeItem(true, item) }
-            handleNope={ item => this.newsActions.judgeItem(false, item) }
-            renderYup={ styles => <SwipeGraphics style={ styles } color="black" label="REAL!" side="right" /> }
-            renderNope={ styles => <SwipeGraphics style={ styles } color="white" label="FAKE!" side="left" /> }
-            renderNoMoreCards={ () => <StackEnd /> }
-            renderCard={ cardData => (
-              <NewsItem
-                onOpenArticle={ this.openArticle }
-                key={ cardData.id }
-                { ...cardData } />
-            )}
+          <ArticleSwipe
+            onLeft={ item => this.newsActions.judgeItem(false, item) }
+            onRight={ item => this.newsActions.judgeItem(true, item) }
+            onCardDone={ this.onCardDone }
             cards={ unjudgedNews } />
         )}
-        <Modal
-          transparent
-          visible={ !!this.articleUrl }
-          animationType="slide"
-          key="article-modal">
-          <ArticleView
-            closeArticle={ this.closeArticle }
-            url={ this.articleUrl } />
-        </Modal>
       </Wrapper>
     )
   }

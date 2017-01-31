@@ -8,6 +8,7 @@ import storage from '../helpers/storage'
 import { ViewHeading, Paragraph, Bold } from '../style/typography'
 import { ContentBox, Footer } from '../style/content'
 import SingleCardSwipe from '../helpers/SingleCardSwipe'
+import SwipeInstructionGraphic from '../SwipeInstructionGraphic'
 
 const FloatingButton = styled(Button)`
   position: absolute;
@@ -28,7 +29,7 @@ const FloatingLabel = styled(ButtonLabel)`
 class IntroScreen extends Component {
 
   render() {
-    const { navigation, auth } = this.props
+    const { navigation, auth, state } = this.props
 
     return (
       <SingleCardSwipe
@@ -47,6 +48,7 @@ class IntroScreen extends Component {
               Activate your critical thinking and find out how well you can <Bold>spot Fake News!</Bold>
             </Paragraph>
           </ContentBox>
+          <SwipeInstructionGraphic />
           <Footer>
             { __DEV__ ? (
               <View>
@@ -58,13 +60,15 @@ class IntroScreen extends Component {
               </View>
             ) : null }
           </Footer>
-          <FloatingButton
-            small
-            onPress={ () => auth.logOut() }>
-            <FloatingLabel>
-              Log out?
-            </FloatingLabel>
-          </FloatingButton>
+          { state.user ? (
+            <FloatingButton
+              small
+              onPress={ () => auth.logOut() }>
+              <FloatingLabel>
+                Log out?
+              </FloatingLabel>
+            </FloatingButton>
+          ) : null }
         </BgImage>
       </SingleCardSwipe>
     )
