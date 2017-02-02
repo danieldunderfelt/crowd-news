@@ -16,7 +16,7 @@ const BgImage = styled.Image`
 const ContentWrapper = styled.View`
   padding: 20 10 20 10;
   flex-grow: 1;
-  background-color: rgba(0, 0, 0, 0.33);
+  background-color: rgba(0, 0, 0, 0.2);
 `
 
 export default observer(props => {

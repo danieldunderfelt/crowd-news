@@ -30,6 +30,7 @@ const ResultsWrapper = styled.View`
   width: ${({ width }) => width };
   height: ${({ height }) => height };
   background-color: transparent;
+  padding-top: 50;
 `
 
 const ViewWrapper = styled.View`
@@ -57,16 +58,6 @@ const ResultHeading = styled(Text)`
 const JudgmentWord = styled(ResultHeading)`
   font-weight: 900;
   font-size: 32;
-`
-
-const JudgedHeading = styled(Text)`
-  color: white;
-  font-size: 14;
-  font-weight: 200;
-  text-align: center;
-  padding: 40 20 10 20;
-  margin-bottom: 30;
-  background-color: black;
 `
 
 const ResultWord = styled(ResultHeading)`
@@ -113,9 +104,6 @@ class ResultView extends Component {
             resizeMode="cover"
             source={ imageSource } />
           <ResultsWrapper width={ width } height={ this.showAd ? height - 50 : height }>
-            <JudgedHeading>
-              { judgedArticle.title }
-            </JudgedHeading>
             { percent === false ? (
               <LoadingScreen
                 loadingText="Loading results..."

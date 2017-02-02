@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>FakeFeed</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -40,10 +42,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.developsuperpowers.apps.FakeNews</string>
+			<string>com.developsuperpowers.fakenews</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.developsuperpowers.apps.FakeNews</string>
+				<string>com.developsuperpowers.fakenews</string>
 			</array>
 		</dict>
 	</array>
@@ -79,6 +81,10 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>DSLutherscheHalbfett.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

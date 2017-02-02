@@ -24,6 +24,12 @@ const FloatingLabel = styled(ButtonLabel)`
   font-size: 10;
 `
 
+const AppHeading = styled(ViewHeading)`
+  font-size: 100;
+  line-height: 110;
+  text-align: center;
+`
+
 @inject('state', 'auth')
 @observer
 class IntroScreen extends Component {
@@ -38,9 +44,9 @@ class IntroScreen extends Component {
         onRight={ () => navigation.navigate('Judge') }
         onLeft={ () => navigation.navigate(__DEV__ ? 'Login' : 'Judge') }>
         <BgImage image={ require('../img/intro-bg.jpg') }>
-          <ViewHeading>
-            Fake News?!
-          </ViewHeading>
+          <AppHeading>
+            Media Match
+          </AppHeading>
           <ContentBox>
             <Paragraph>
               "Fake News" are news articles that are either completely false, based on half-truths
@@ -48,8 +54,8 @@ class IntroScreen extends Component {
               Activate your critical thinking and find out how well you can <Bold>spot Fake News!</Bold>
             </Paragraph>
           </ContentBox>
-          <SwipeInstructionGraphic />
           <Footer>
+            <SwipeInstructionGraphic />
             { __DEV__ ? (
               <View>
                 <Button onPress={ () => storage.removeItem('rated-news') }>

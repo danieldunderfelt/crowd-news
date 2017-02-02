@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 
 export const ContentBox = styled.View`
   padding: 20;
-  background-color: rgba(0, 0, 0, 0.66);
+  background-color: rgba(0, 0, 0, 0.5);
 `
 
 export const Footer = styled.View`

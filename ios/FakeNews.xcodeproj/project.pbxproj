@@ -42,7 +42,6 @@
 		F25B92E51E3D0E0800557041 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92E31E3D0E0800557041 /* FirebaseStorage.framework */; };
 		F25B92E61E3D0E0800557041 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92E41E3D0E0800557041 /* GTMSessionFetcher.framework */; };
 		F25B92E81E3D0FD100557041 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92E71E3D0FD100557041 /* libsqlite3.0.tbd */; };
-		F25B92EA1E3D12CA00557041 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F25B92E91E3D12CA00557041 /* GoogleService-Info.plist */; };
 		F25B932E1E3E4D5100557041 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B932B1E3E4D5100557041 /* FBSDKCoreKit.framework */; };
 		F25B932F1E3E4D5100557041 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B932C1E3E4D5100557041 /* FBSDKLoginKit.framework */; };
 		F25B93301E3E4D5100557041 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B932D1E3E4D5100557041 /* FBSDKShareKit.framework */; };
@@ -53,6 +52,8 @@
 		F25B93401E3E510D00557041 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B93391E3E510D00557041 /* GoogleSignIn.framework */; };
 		F25B93411E3E510D00557041 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B933A1E3E510D00557041 /* GoogleSymbolUtilities.framework */; };
 		F25B93421E3E510D00557041 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B933B1E3E510D00557041 /* GoogleUtilities.framework */; };
+		F25B934C1E42712600557041 /* DSLutherscheHalbfett.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F25B934B1E42712600557041 /* DSLutherscheHalbfett.ttf */; };
+		F2BA549A1E43C400004E7507 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2BA54991E43C400004E7507 /* GoogleService-Info.plist */; };
 		F2BF73D01E3A892500763A80 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BF73B61E3A891B00763A80 /* libART.a */; };
 /* End PBXBuildFile section */
 
@@ -321,7 +322,6 @@
 		F25B92E31E3D0E0800557041 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = "<group>"; };
 		F25B92E41E3D0E0800557041 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
 		F25B92E71E3D0FD100557041 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		F25B92E91E3D12CA00557041 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../working files/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F25B932B1E3E4D5100557041 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F25B932C1E3E4D5100557041 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F25B932D1E3E4D5100557041 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -333,6 +333,8 @@
 		F25B933A1E3E510D00557041 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = GoogleSdk/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		F25B933B1E3E510D00557041 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = GoogleSdk/GoogleUtilities.framework; sourceTree = "<group>"; };
 		F25B93431E3E563400557041 /* RCTFBLogin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBLogin.xcodeproj; path = "../node_modules/react-native-facebook-login/RCTFBLogin.xcodeproj"; sourceTree = "<group>"; };
+		F25B934B1E42712600557041 /* DSLutherscheHalbfett.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DSLutherscheHalbfett.ttf; sourceTree = "<group>"; };
+		F2BA54991E43C400004E7507 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2BF73B11E3A891B00763A80 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -474,13 +476,13 @@
 		13B07FAE1A68108700A75B9A /* FakeNews */ = {
 			isa = PBXGroup;
 			children = (
+				F2BA54991E43C400004E7507 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				F25B92E21E3CD8DC00557041 /* Firebase.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				F25B92E91E3D12CA00557041 /* GoogleService-Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -586,6 +588,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F25B934B1E42712600557041 /* DSLutherscheHalbfett.ttf */,
 				13B07FAE1A68108700A75B9A /* FakeNews */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* FakeNewsTests */,
@@ -1012,10 +1015,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F25B934C1E42712600557041 /* DSLutherscheHalbfett.ttf in Resources */,
 				F25B933F1E3E510D00557041 /* GoogleSignIn.bundle in Resources */,
+				F2BA549A1E43C400004E7507 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				F25B92EA1E3D12CA00557041 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1136,6 +1140,7 @@
 					"$(PROJECT_DIR)/GoogleSdk/**",
 				);
 				INFOPLIST_FILE = FakeNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1143,7 +1148,7 @@
 					"-lc++",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.developsuperpowers.apps.FakeNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.developsuperpowers.fakenews;
 				PRODUCT_NAME = FakeNews;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1162,6 +1167,7 @@
 					"$(PROJECT_DIR)/GoogleSdk/**",
 				);
 				INFOPLIST_FILE = FakeNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1169,7 +1175,7 @@
 					"-lc++",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.developsuperpowers.apps.FakeNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.developsuperpowers.fakenews;
 				PRODUCT_NAME = FakeNews;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
