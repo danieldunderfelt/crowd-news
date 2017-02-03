@@ -1,12 +1,11 @@
 import React, { Component, PropTypes } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 import { reaction } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
-import styled from 'styled-components/native'
 import _ from 'lodash'
 import Button, { ButtonLabel } from '../Button'
 import BgImage from '../style/BackgroundImageScreen'
-import { ViewHeading, Paragraph, Bold } from '../style/typography'
+import { ViewHeading, Paragraph } from '../style/typography'
 import { ContentBox, Footer } from '../style/content'
 
 @inject('auth', 'state')
@@ -32,7 +31,7 @@ class LoginScreen extends Component {
     return (
       <BgImage image={ require('../img/intro-bg.jpg') }>
         <ViewHeading size={ 60 }>
-          { state.user ? 'Log out' : 'Log in' }
+          { !!state.user ? 'Log out' : 'Log in' }
         </ViewHeading>
         <ContentBox>
           { state.user ? (
@@ -49,7 +48,7 @@ class LoginScreen extends Component {
           )}
         </ContentBox>
         <Footer>
-          { state.user ? (
+          { !!state.user ? (
             <View>
               <Button
                 color="black"

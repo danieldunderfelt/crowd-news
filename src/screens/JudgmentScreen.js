@@ -28,7 +28,7 @@ class JudgmentView extends Component {
   reddit = (reddit(this.props.state))
 
   componentDidMount() {
-    const { state, navigation } = this.props
+    const { state } = this.props
 
     reaction(() => state.unjudgedNews.length, stackLength => {
       if(!stackLength) this.fillStack()

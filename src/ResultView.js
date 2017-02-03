@@ -151,7 +151,7 @@ class ResultView extends Component {
             <Ad
               bannerSize="smartBannerPortrait"
               adUnitID="ca-app-pub-7905807201378145/6576693799"
-              testDeviceID={ __DEV__ ? "EMULATOR" : false }
+              testDeviceID={ __DEV__ ? "EMULATOR" : '' }
               didFailToReceiveAdWithError={ action(() => this.showAd = false ) } />
           ) : null }
         </SingleCardSwipe>
