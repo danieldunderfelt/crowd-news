@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "746713077322",
+    "firebase_url": "https://crowdnews-4b627.firebaseio.com",
+    "project_id": "crowdnews-4b627",
+    "storage_bucket": "crowdnews-4b627.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746713077322:android:17310534da12cf3d",
+        "android_client_info": {
+          "package_name": "com.fakenews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746713077322-575oficrb1ev0q73dbdvakiq9bm0hjj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCev7l2yWY5h7IPGEqVQGS4sG8BQ_rcNYM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746713077322-575oficrb1ev0q73dbdvakiq9bm0hjj5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "746713077322-2b09k7cgtfs5mdjhme7mfsrb85iit327.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.developsuperpowers.fakenews"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,7 +13,6 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* FakeNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FakeNewsTests.m */; };
-		08152785C97A436683CEDD50 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5E4ECA2734489F83FADBA7 /* libRNGoogleSignin.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -24,6 +23,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		3E809311B18E449D8C7840CD /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B837D22108F43788B5AA6F6 /* libCodePush.a */; };
+		5CAC2FC03402EC735BCB8EEA /* Pods_FakeNewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174542C835058C26F7283A89 /* Pods_FakeNewsTests.framework */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		5FE87767A14E41CC942E995A /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AC8DC954EC4C948AEF0B24 /* SafariServices.framework */; };
 		74A38765081F4C81B7613876 /* libRCTFBLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EF8975BB6749FC81295313 /* libRCTFBLogin.a */; };
@@ -31,7 +31,12 @@
 		8FD03176FB214487AE50EFBE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB01AEB3F784E4FB7C7D1E9 /* AddressBook.framework */; };
 		D79E4642EC0E4C668353546C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CEABE5DD6C6C42E588F030FE /* libz.tbd */; };
 		DB3B9B995C964F1CB991E36F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859F205DF0D44EC886390E1 /* SystemConfiguration.framework */; };
+		DF31DB9702F59E4926306B8C /* Pods_FakeNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D1B7ACBCA515C2688E65B7 /* Pods_FakeNews.framework */; };
 		F222F79559CC4501878B64BE /* libRNAdMobManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3206D102B34B4A8DEE6DA9 /* libRNAdMobManager.a */; };
+		F22E4D951E45343100D7FA2B /* RNGoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E4D911E45343100D7FA2B /* RNGoogleSignIn.swift */; };
+		F22E4D961E45343100D7FA2B /* RNGoogleSignInBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = F22E4D921E45343100D7FA2B /* RNGoogleSignInBridge.m */; };
+		F22E4D971E45343100D7FA2B /* RNGoogleSignInEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E4D931E45343100D7FA2B /* RNGoogleSignInEvents.swift */; };
+		F22E4D981E45343100D7FA2B /* RNGoogleSignInEventsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = F22E4D941E45343100D7FA2B /* RNGoogleSignInEventsBridge.m */; };
 		F25B92DA1E3CD87E00557041 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D41E3CD87E00557041 /* FirebaseAnalytics.framework */; };
 		F25B92DB1E3CD87E00557041 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D51E3CD87E00557041 /* FirebaseCore.framework */; };
 		F25B92DC1E3CD87E00557041 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D61E3CD87E00557041 /* FirebaseInstanceID.framework */; };
@@ -45,14 +50,6 @@
 		F25B932E1E3E4D5100557041 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B932B1E3E4D5100557041 /* FBSDKCoreKit.framework */; };
 		F25B932F1E3E4D5100557041 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B932C1E3E4D5100557041 /* FBSDKLoginKit.framework */; };
 		F25B93301E3E4D5100557041 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B932D1E3E4D5100557041 /* FBSDKShareKit.framework */; };
-		F25B933C1E3E510D00557041 /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B93351E3E510D00557041 /* GoogleAppUtilities.framework */; };
-		F25B933D1E3E510D00557041 /* GoogleAuthUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B93361E3E510D00557041 /* GoogleAuthUtilities.framework */; };
-		F25B933E1E3E510D00557041 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B93371E3E510D00557041 /* GoogleNetworkingUtilities.framework */; };
-		F25B933F1E3E510D00557041 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F25B93381E3E510D00557041 /* GoogleSignIn.bundle */; };
-		F25B93401E3E510D00557041 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B93391E3E510D00557041 /* GoogleSignIn.framework */; };
-		F25B93411E3E510D00557041 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B933A1E3E510D00557041 /* GoogleSymbolUtilities.framework */; };
-		F25B93421E3E510D00557041 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B933B1E3E510D00557041 /* GoogleUtilities.framework */; };
-		F25B934C1E42712600557041 /* DSLutherscheHalbfett.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F25B934B1E42712600557041 /* DSLutherscheHalbfett.ttf */; };
 		F2BA549A1E43C400004E7507 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2BA54991E43C400004E7507 /* GoogleService-Info.plist */; };
 		F2BA549C1E4514C6004E7507 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2BA54991E43C400004E7507 /* GoogleService-Info.plist */; };
 		F2BF73D01E3A892500763A80 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BF73B61E3A891B00763A80 /* libART.a */; };
@@ -248,13 +245,6 @@
 			remoteGlobalIDString = A96DA7741C146D7200FC639B;
 			remoteInfo = RNAdMobManager;
 		};
-		F25B931D1E3E366D00557041 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EBF1AC8ADF404A338B7F6D70 /* RNGoogleSignin.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9FD355121D3E4A2900D06170;
-			remoteInfo = RNGoogleSignin;
-		};
 		F25B93471E3E563400557041 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F25B93431E3E563400557041 /* RCTFBLogin.xcodeproj */;
@@ -298,6 +288,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FakeNews/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FakeNews/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		174542C835058C26F7283A89 /* Pods_FakeNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FakeNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3206D102B34B4A8DEE6DA9 /* libRNAdMobManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAdMobManager.a; sourceTree = "<group>"; };
 		5859F205DF0D44EC886390E1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5B837D22108F43788B5AA6F6 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
@@ -305,13 +296,19 @@
 		72AC8DC954EC4C948AEF0B24 /* SafariServices.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		877761304F98CCAB5505508D /* Pods-FakeNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FakeNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FakeNews/Pods-FakeNews.debug.xcconfig"; sourceTree = "<group>"; };
 		89EF8975BB6749FC81295313 /* libRCTFBLogin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBLogin.a; sourceTree = "<group>"; };
-		9E5E4ECA2734489F83FADBA7 /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
+		8BB4DD5CDF17EA81E647EEB5 /* Pods-FakeNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FakeNewsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FakeNewsTests/Pods-FakeNewsTests.release.xcconfig"; sourceTree = "<group>"; };
 		9FB01AEB3F784E4FB7C7D1E9 /* AddressBook.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		B22A85BB82E6429992FD15E9 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		CEABE5DD6C6C42E588F030FE /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D273E9C4EB1D4BD6973773FC /* RNAdMobManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAdMobManager.xcodeproj; path = "../node_modules/react-native-admob/ios/RNAdMobManager.xcodeproj"; sourceTree = "<group>"; };
-		EBF1AC8ADF404A338B7F6D70 /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
+		E90ABD8CFB5C436ACF91BA53 /* Pods-FakeNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FakeNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FakeNewsTests/Pods-FakeNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF3D7191C46F70CE3E5C9FE1 /* Pods-FakeNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FakeNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-FakeNews/Pods-FakeNews.release.xcconfig"; sourceTree = "<group>"; };
+		F22E4D911E45343100D7FA2B /* RNGoogleSignIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNGoogleSignIn.swift; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignIn.swift"; sourceTree = "<group>"; };
+		F22E4D921E45343100D7FA2B /* RNGoogleSignInBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNGoogleSignInBridge.m; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInBridge.m"; sourceTree = "<group>"; };
+		F22E4D931E45343100D7FA2B /* RNGoogleSignInEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNGoogleSignInEvents.swift; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInEvents.swift"; sourceTree = "<group>"; };
+		F22E4D941E45343100D7FA2B /* RNGoogleSignInEventsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNGoogleSignInEventsBridge.m; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInEventsBridge.m"; sourceTree = "<group>"; };
 		F25B92D41E3CD87E00557041 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		F25B92D51E3CD87E00557041 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
 		F25B92D61E3CD87E00557041 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
@@ -326,17 +323,12 @@
 		F25B932B1E3E4D5100557041 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F25B932C1E3E4D5100557041 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F25B932D1E3E4D5100557041 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		F25B93351E3E510D00557041 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppUtilities.framework; path = GoogleSdk/GoogleAppUtilities.framework; sourceTree = "<group>"; };
-		F25B93361E3E510D00557041 /* GoogleAuthUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAuthUtilities.framework; path = GoogleSdk/GoogleAuthUtilities.framework; sourceTree = "<group>"; };
-		F25B93371E3E510D00557041 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = GoogleSdk/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
-		F25B93381E3E510D00557041 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = GoogleSdk/GoogleSignIn.bundle; sourceTree = "<group>"; };
-		F25B93391E3E510D00557041 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = GoogleSdk/GoogleSignIn.framework; sourceTree = "<group>"; };
-		F25B933A1E3E510D00557041 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = GoogleSdk/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		F25B933B1E3E510D00557041 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = GoogleSdk/GoogleUtilities.framework; sourceTree = "<group>"; };
 		F25B93431E3E563400557041 /* RCTFBLogin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBLogin.xcodeproj; path = "../node_modules/react-native-facebook-login/RCTFBLogin.xcodeproj"; sourceTree = "<group>"; };
-		F25B934B1E42712600557041 /* DSLutherscheHalbfett.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DSLutherscheHalbfett.ttf; sourceTree = "<group>"; };
+		F293A1361E45321600F6C26A /* RNGoogleSignIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RNGoogleSignIn-Bridging-Header.h"; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		F2BA54991E43C400004E7507 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2BA549D1E4523EA004E7507 /* FakeNews-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FakeNews-Bridging-Header.h"; sourceTree = "<group>"; };
 		F2BF73B11E3A891B00763A80 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
+		F9D1B7ACBCA515C2688E65B7 /* Pods_FakeNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FakeNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				5CAC2FC03402EC735BCB8EEA /* Pods_FakeNewsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,14 +345,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F25B933E1E3E510D00557041 /* GoogleNetworkingUtilities.framework in Frameworks */,
-				F25B933C1E3E510D00557041 /* GoogleAppUtilities.framework in Frameworks */,
-				F25B93401E3E510D00557041 /* GoogleSignIn.framework in Frameworks */,
 				5FE87767A14E41CC942E995A /* SafariServices.framework in Frameworks */,
 				F25B92E81E3D0FD100557041 /* libsqlite3.0.tbd in Frameworks */,
 				F25B932E1E3E4D5100557041 /* FBSDKCoreKit.framework in Frameworks */,
 				F25B92DF1E3CD87E00557041 /* GoogleToolboxForMac.framework in Frameworks */,
-				F25B93411E3E510D00557041 /* GoogleSymbolUtilities.framework in Frameworks */,
 				F25B92DA1E3CD87E00557041 /* FirebaseAnalytics.framework in Frameworks */,
 				F25B92E51E3D0E0800557041 /* FirebaseStorage.framework in Frameworks */,
 				F2BF73D01E3A892500763A80 /* libART.a in Frameworks */,
@@ -377,20 +366,18 @@
 				F25B93301E3E4D5100557041 /* FBSDKShareKit.framework in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				F25B92E11E3CD8A900557041 /* GoogleMobileAds.framework in Frameworks */,
-				F25B93421E3E510D00557041 /* GoogleUtilities.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				F25B92DD1E3CD87E00557041 /* GoogleInterchangeUtilities.framework in Frameworks */,
-				F25B933D1E3E510D00557041 /* GoogleAuthUtilities.framework in Frameworks */,
 				F25B92DC1E3CD87E00557041 /* FirebaseInstanceID.framework in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				3E809311B18E449D8C7840CD /* libCodePush.a in Frameworks */,
 				D79E4642EC0E4C668353546C /* libz.tbd in Frameworks */,
 				F222F79559CC4501878B64BE /* libRNAdMobManager.a in Frameworks */,
 				74A38765081F4C81B7613876 /* libRCTFBLogin.a in Frameworks */,
-				08152785C97A436683CEDD50 /* libRNGoogleSignin.a in Frameworks */,
 				DB3B9B995C964F1CB991E36F /* SystemConfiguration.framework in Frameworks */,
 				F25B932F1E3E4D5100557041 /* FBSDKLoginKit.framework in Frameworks */,
 				8FD03176FB214487AE50EFBE /* AddressBook.framework in Frameworks */,
+				DF31DB9702F59E4926306B8C /* Pods_FakeNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +464,7 @@
 		13B07FAE1A68108700A75B9A /* FakeNews */ = {
 			isa = PBXGroup;
 			children = (
+				F2BA549D1E4523EA004E7507 /* FakeNews-Bridging-Header.h */,
 				F2BA54991E43C400004E7507 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -508,13 +496,7 @@
 		1D337FE5F1D742C3BC320EB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F25B93351E3E510D00557041 /* GoogleAppUtilities.framework */,
-				F25B93361E3E510D00557041 /* GoogleAuthUtilities.framework */,
-				F25B93371E3E510D00557041 /* GoogleNetworkingUtilities.framework */,
-				F25B93381E3E510D00557041 /* GoogleSignIn.bundle */,
-				F25B93391E3E510D00557041 /* GoogleSignIn.framework */,
-				F25B933A1E3E510D00557041 /* GoogleSymbolUtilities.framework */,
-				F25B933B1E3E510D00557041 /* GoogleUtilities.framework */,
+				F293A1361E45321600F6C26A /* RNGoogleSignIn-Bridging-Header.h */,
 				F25B932B1E3E4D5100557041 /* FBSDKCoreKit.framework */,
 				F25B932C1E3E4D5100557041 /* FBSDKLoginKit.framework */,
 				F25B932D1E3E4D5100557041 /* FBSDKShareKit.framework */,
@@ -532,6 +514,8 @@
 				72AC8DC954EC4C948AEF0B24 /* SafariServices.framework */,
 				5859F205DF0D44EC886390E1 /* SystemConfiguration.framework */,
 				9FB01AEB3F784E4FB7C7D1E9 /* AddressBook.framework */,
+				F9D1B7ACBCA515C2688E65B7 /* Pods_FakeNews.framework */,
+				174542C835058C26F7283A89 /* Pods_FakeNewsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -572,7 +556,6 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				B22A85BB82E6429992FD15E9 /* CodePush.xcodeproj */,
 				D273E9C4EB1D4BD6973773FC /* RNAdMobManager.xcodeproj */,
-				EBF1AC8ADF404A338B7F6D70 /* RNGoogleSignin.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -589,12 +572,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				F25B934B1E42712600557041 /* DSLutherscheHalbfett.ttf */,
+				F22E4D991E45343B00D7FA2B /* Sources */,
 				13B07FAE1A68108700A75B9A /* FakeNews */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* FakeNewsTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				1D337FE5F1D742C3BC320EB5 /* Frameworks */,
+				BF2F298DC094FB84F557CB99 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -609,18 +593,32 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BF2F298DC094FB84F557CB99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				877761304F98CCAB5505508D /* Pods-FakeNews.debug.xcconfig */,
+				EF3D7191C46F70CE3E5C9FE1 /* Pods-FakeNews.release.xcconfig */,
+				E90ABD8CFB5C436ACF91BA53 /* Pods-FakeNewsTests.debug.xcconfig */,
+				8BB4DD5CDF17EA81E647EEB5 /* Pods-FakeNewsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F22E4D991E45343B00D7FA2B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F22E4D911E45343100D7FA2B /* RNGoogleSignIn.swift */,
+				F22E4D921E45343100D7FA2B /* RNGoogleSignInBridge.m */,
+				F22E4D931E45343100D7FA2B /* RNGoogleSignInEvents.swift */,
+				F22E4D941E45343100D7FA2B /* RNGoogleSignInEventsBridge.m */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
 		F25B92B41E3CD83B00557041 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				F25B92D31E3CD83C00557041 /* libRNAdMobManager.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F25B92F91E3E366D00557041 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F25B931E1E3E366D00557041 /* libRNGoogleSignin.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -656,9 +654,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FakeNewsTests" */;
 			buildPhases = (
+				D0452EDFF9C575E43AF3C422 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				B785BC200A4FC7B8B5B8477D /* [CP] Embed Pods Frameworks */,
+				A5F1BA6A2A38AE7686503ACD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -674,10 +675,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FakeNews" */;
 			buildPhases = (
+				F5CFEE6F917DED3FD8A7F0A0 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				BC0313C71976D87E50357D35 /* [CP] Embed Pods Frameworks */,
+				A88D5334AFA6B048DD468B7F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -703,6 +707,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = VTHJ4G9DW9;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -777,10 +782,6 @@
 				{
 					ProductGroup = F25B92B41E3CD83B00557041 /* Products */;
 					ProjectRef = D273E9C4EB1D4BD6973773FC /* RNAdMobManager.xcodeproj */;
-				},
-				{
-					ProductGroup = F25B92F91E3E366D00557041 /* Products */;
-					ProjectRef = EBF1AC8ADF404A338B7F6D70 /* RNGoogleSignin.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -974,13 +975,6 @@
 			remoteRef = F25B92D21E3CD83C00557041 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F25B931E1E3E366D00557041 /* libRNGoogleSignin.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNGoogleSignin.a;
-			remoteRef = F25B931D1E3E366D00557041 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		F25B93481E3E563400557041 /* libRCTFBLogin.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1017,8 +1011,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F25B934C1E42712600557041 /* DSLutherscheHalbfett.ttf in Resources */,
-				F25B933F1E3E510D00557041 /* GoogleSignIn.bundle in Resources */,
 				F2BA549A1E43C400004E7507 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
@@ -1042,6 +1034,96 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
+		A5F1BA6A2A38AE7686503ACD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FakeNewsTests/Pods-FakeNewsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A88D5334AFA6B048DD468B7F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FakeNews/Pods-FakeNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B785BC200A4FC7B8B5B8477D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FakeNewsTests/Pods-FakeNewsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC0313C71976D87E50357D35 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FakeNews/Pods-FakeNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0452EDFF9C575E43AF3C422 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F5CFEE6F917DED3FD8A7F0A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1057,8 +1139,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F22E4D951E45343100D7FA2B /* RNGoogleSignIn.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				F22E4D981E45343100D7FA2B /* RNGoogleSignInEventsBridge.m in Sources */,
+				F22E4D971E45343100D7FA2B /* RNGoogleSignInEvents.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				F22E4D961E45343100D7FA2B /* RNGoogleSignInBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1087,7 +1173,9 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E90ABD8CFB5C436ACF91BA53 /* Pods-FakeNewsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1111,7 +1199,9 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BB4DD5CDF17EA81E647EEB5 /* Pods-FakeNewsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = FakeNewsTests/Info.plist;
@@ -1132,8 +1222,10 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 877761304F98CCAB5505508D /* Pods-FakeNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = VTHJ4G9DW9;
@@ -1143,6 +1235,10 @@
 					"$(SRCROOT)/../node_modules/react-native-facebook-login/FacebookSDK/**",
 					"$(PROJECT_DIR)/GoogleSdk/**",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/**",
+					"$(inherited)/**",
+				);
 				INFOPLIST_FILE = FakeNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1154,14 +1250,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.developsuperpowers.fakenews;
 				PRODUCT_NAME = FakeNews;
+				SWIFT_OBJC_BRIDGING_HEADER = "FakeNews-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF3D7191C46F70CE3E5C9FE1 /* Pods-FakeNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VTHJ4G9DW9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1170,6 +1271,10 @@
 					"$(SRCROOT)/../node_modules/react-native-facebook-login/FacebookSDK/**",
 					"$(PROJECT_DIR)/GoogleSdk/**",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/**",
+					"$(inherited)/**",
+				);
 				INFOPLIST_FILE = FakeNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1181,6 +1286,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.developsuperpowers.fakenews;
 				PRODUCT_NAME = FakeNews;
+				SWIFT_OBJC_BRIDGING_HEADER = "FakeNews-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1223,6 +1330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1265,6 +1373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = (

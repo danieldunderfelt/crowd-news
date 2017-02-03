@@ -3,8 +3,9 @@ package com.fakenews;
 import android.app.Application;
 import android.util.Log;
 
+import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
 import com.facebook.react.ReactApplication;
-import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
 import com.magus.fblogin.FacebookLoginPackage;
 import com.sbugert.rnadmob.RNAdMobPackage;
 import com.microsoft.codepush.react.CodePush;
@@ -20,39 +21,40 @@ import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
 
-  private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+
+        @Override
+        protected String getJSBundleFile() {
+            return CodePush.getJSBundleFile();
+        }
+
+        @Override
+        protected boolean getUseDeveloperSupport() {
+            return BuildConfig.DEBUG;
+        }
+
+        @Override
+        protected List<ReactPackage> getPackages() {
+            return Arrays.<ReactPackage>asList(
+                    new MainReactPackage(),
+            new RNGoogleSignInPackage(),
+                    new RNGoogleSignInPackage(),
+                    new FacebookLoginPackage(),
+                    new RNAdMobPackage(),
+                    new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
+                    new SensorManagerPackage()
+            );
+        }
+    };
 
     @Override
-    protected String getJSBundleFile() {
-      return CodePush.getJSBundleFile();
+    public ReactNativeHost getReactNativeHost() {
+        return mReactNativeHost;
     }
 
     @Override
-    protected boolean getUseDeveloperSupport() {
-      return BuildConfig.DEBUG;
+    public void onCreate() {
+        super.onCreate();
+        SoLoader.init(this, /* native exopackage */ false);
     }
-
-    @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new RNGoogleSigninPackage(),
-            new FacebookLoginPackage(),
-            new RNAdMobPackage(),
-            new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
-            new SensorManagerPackage()
-      );
-    }
-  };
-
-  @Override
-  public ReactNativeHost getReactNativeHost() {
-    return mReactNativeHost;
-  }
-
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    SoLoader.init(this, /* native exopackage */ false);
-  }
 }

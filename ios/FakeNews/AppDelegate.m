@@ -12,7 +12,6 @@
 #import "Firebase.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <RNGoogleSignin/RNGoogleSignin.h>
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -23,6 +22,9 @@
 {
   NSURL *jsCodeLocation;
 
+  NSError* configureError;
+  [[GGLContext sharedInstance] configureWithError: &configureError];
+  NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
   
 #ifdef DEBUG
     jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
@@ -51,16 +53,28 @@
                                   didFinishLaunchingWithOptions:launchOptions];
 }
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  BOOL handled = [[GIDSignIn sharedInstance] handleURL:url
+                                     sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                            annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+  return handled;
+}
+
 // Facebook SDK
 - (void)applicationDidBecomeActive:(UIApplication *)application {
   [FBSDKAppEvents activateApp];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  BOOL handledGoogle = [RNGoogleSignin application:application
-                                           openURL:url
+  BOOL handledGoogle = false;
+  if([[GIDSignIn sharedInstance] handleURL:url
                                  sourceApplication:sourceApplication
-                                        annotation:annotation];
+                                annotation:annotation]) {
+    handledGoogle = YES;
+  }
+  
   BOOL handledFacebook = [[FBSDKApplicationDelegate sharedInstance] application:application
                                                                         openURL:url
                                                               sourceApplication:sourceApplication

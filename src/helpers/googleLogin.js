@@ -1,15 +1,15 @@
-import { GoogleSignin } from 'react-native-google-signin'
+import GoogleSignIn from 'react-native-google-sign-in'
 
 export default () => {
 
   // First set client ID for ios
-  GoogleSignin.configure({
-    iosClientId: '746713077322-ugqph6orahiv7rqtg06mkjglp5cvco8b.apps.googleusercontent.com'
+  GoogleSignIn.configure({
+    ClientId: '746713077322-ugqph6orahiv7rqtg06mkjglp5cvco8b.apps.googleusercontent.com'
   })
 
   function login() {
-    return GoogleSignin
-      .signIn()
+    return GoogleSignIn
+      .signInPromise()
       .then(({ accessToken }) => accessToken ) // Extract access token
       .catch(err => {
         console.warn('Google login error:', err)
@@ -18,8 +18,8 @@ export default () => {
   }
 
   function logout() {
-    return GoogleSignin
-      .signOut()
+    return GoogleSignIn
+      .signOutPromise()
       .then(() => true)
       .catch(err => {
         console.warn('Google login error:', err)
