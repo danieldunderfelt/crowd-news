@@ -18,6 +18,7 @@ const SwipeWrapper = styled(Animatable.View)`
 const MiddleWord = styled(Text)`
   color: white;
   font-weight: 900;
+  background-color: transparent;
 `
 
 const SwipeImg = styled.Image`

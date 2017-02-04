@@ -16,7 +16,7 @@ export const Footer = styled.View`
 export const SwipeWrapper = styled.View`
   align-items: stretch;
   flex-grow: 1;
-  background-color: black;
+  background-color: ${({ color = 'black' }) => color };
   justify-content: center;
   position: relative;
   width: ${({ width = initialWidth() }) => width };

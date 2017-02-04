@@ -16,27 +16,27 @@ const style = StyleSheet.create({
 class SingleCardSwipe extends Component {
 
   render() {
-    const { onLeft, onRight, leftText, rightText, children } = this.props
+    const { bgColor, onLeft, onRight, leftText, rightText, children } = this.props
 
     return (
-      <SwipeWrapper>
+      <SwipeWrapper color={ bgColor }>
         <SwipeCards
           cards={[ 1 ]}
           stackOffsetX={ 0 }
           showYup
           showNope
           renderCard={ () => (
-            <View style={{ flexGrow: 1, alignItems: 'stretch' }}>
+            <View>
               { children }
             </View>
           )}
           handleYup={ onRight }
           handleNope={ onLeft }
           renderYup={ styles => (
-            <SwipeGraphics textStyle={ style.textStyle } color="black" style={ styles } label={ rightText } side="right" />
+            <SwipeGraphics textStyle={ style.textStyle } color="white" style={ styles } label={ rightText } side="right" />
           )}
           renderNope={ styles => (
-            <SwipeGraphics textStyle={ style.textStyle } color="white" style={ styles } label={ leftText } side="left" />
+            <SwipeGraphics textStyle={ style.textStyle } color="black" style={ styles } label={ leftText } side="left" />
           )}
           allowGestureTermination={ false } />
       </SwipeWrapper>

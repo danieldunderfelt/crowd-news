@@ -4,9 +4,13 @@ import { reaction } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
 import _ from 'lodash'
 import Button, { ButtonLabel } from '../Button'
-import BgImage from '../style/BackgroundImageScreen'
-import { ViewHeading, Paragraph } from '../style/typography'
-import { ContentBox, Footer } from '../style/content'
+import DualityScreen from '../style/DualityScreen'
+import { Footer } from '../style/content'
+import styled from 'styled-components/native'
+
+const Padding = styled.View`
+  padding: 20;
+`
 
 @inject('auth', 'state')
 @observer
@@ -29,27 +33,12 @@ class LoginScreen extends Component {
     const { auth, state, navigation } = this.props
 
     return (
-      <BgImage image={ require('../img/intro-bg.jpg') }>
-        <ViewHeading size={ 60 }>
-          { !!state.user ? 'Log out' : 'Log in' }
-        </ViewHeading>
-        <ContentBox>
-          { state.user ? (
-            <Paragraph>
-              Had enough? Log out with the button below, but do remember to use the same
-              login provider when you inevitably come back for more ;)
-            </Paragraph>
-          ) : (
-            <Paragraph>
-              Hold up! Before you can continue your campaign of fake news carnage,
-              we would like to get to know you. It'll only take a few seconds and we
-              do not post on your behalf without permission.
-            </Paragraph>
-          )}
-        </ContentBox>
+      <DualityScreen
+        subHeading="You'll be back."
+        heading={ !!state.user ? 'LOG OUT?' : 'LOG IN!' }>
         <Footer>
           { !!state.user ? (
-            <View>
+            <Padding>
               <Button
                 color="black"
                 onPress={ () => auth.logOut() }>
@@ -59,15 +48,15 @@ class LoginScreen extends Component {
               </Button>
               <Button
                 secondary
-                color="white"
+                color="black"
                 onPress={ () => navigation.goBack() }>
-                <ButtonLabel color="white">
+                <ButtonLabel color="black">
                   Back
                 </ButtonLabel>
               </Button>
-            </View>
+            </Padding>
           ) : (
-            <View>
+            <Padding>
               <Button
                 color="black"
                 onPress={ () => this.handleAuth('facebook') }>
@@ -82,10 +71,10 @@ class LoginScreen extends Component {
                   Login with Google
                 </ButtonLabel>
               </Button>
-            </View>
+            </Padding>
           )}
         </Footer>
-      </BgImage>
+      </DualityScreen>
     )
   }
 }
