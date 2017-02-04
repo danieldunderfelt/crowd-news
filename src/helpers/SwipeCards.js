@@ -95,9 +95,7 @@ export default class SwipeCards extends Component {
     handleNope: (card) => null,
     nopeText: "Nope!",
     yupText: "Yup!",
-    onPress: () => {
-      alert('tap')
-    },
+    onPress: () => {},
     onCardDone: null,
     cardRemoved: (ix) => null,
     renderCard: (card) => null,
