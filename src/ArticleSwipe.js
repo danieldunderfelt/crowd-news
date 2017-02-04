@@ -42,11 +42,13 @@ class ArticleSwipe extends Component {
               key={ cardData.id }
               { ...cardData } />
           )}
+          onPress={ ({ url }) => this.openArticle(url) }
           cards={ cards } />
         <Modal
           transparent
           visible={ !!this.articleUrl }
           animationType="slide"
+          onRequestClose={ this.closeArticle }
           key="article-modal">
           <ArticleView
             closeArticle={ this.closeArticle }

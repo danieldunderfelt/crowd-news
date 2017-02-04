@@ -12,6 +12,8 @@ export default (data, state) => {
   if( Object.keys(data).length === 0 ) return {}
   if( _.get(data, '__is_article', false) ) return data
 
+  console.log(data)
+
   const url = normalizeUrl(_.get(data, 'url', 'no://url'))
   const id = hash(url)
   const judgmentsRef = judgmentsDb(id)
@@ -61,10 +63,10 @@ export default (data, state) => {
   })
 
   if( !!article.image ) {
+    
     Image
-      .prefetch({ source: article.image })
-      .catch(err => { /* ignore :) */
-      })
+      .prefetch(article.image)
+      .catch(err => { /* ignore :) */ })
   }
 
   return article

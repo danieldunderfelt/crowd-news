@@ -73,7 +73,7 @@ export default class SwipeCards extends Component {
     handleNope: React.PropTypes.func,
     yupText: React.PropTypes.string,
     noText: React.PropTypes.string,
-    onClickHandler: React.PropTypes.func,
+    onPress: React.PropTypes.func,
     renderCard: React.PropTypes.func,
     cardRemoved: React.PropTypes.func,
     onCardDone: React.PropTypes.func,
@@ -95,7 +95,7 @@ export default class SwipeCards extends Component {
     handleNope: (card) => null,
     nopeText: "Nope!",
     yupText: "Yup!",
-    onClickHandler: () => {
+    onPress: () => {
       alert('tap')
     },
     onCardDone: null,
@@ -148,9 +148,9 @@ export default class SwipeCards extends Component {
       onPanResponderRelease: (e, { vx, vy, dx, dy }) => {
         this.state.pan.flattenOffset()
         let velocity
-        if( (dx === 0) && (dy === 0) )   //meaning the gesture did not cover any distance
+        if( (dx > -10 && dx < 10) && (dy > -10 && dy < 10) )   //meaning the gesture did not cover any distance
         {
-          this.props.onClickHandler(this.state.card)
+          this.props.onPress(this.state.card)
         }
 
         if( vx > 0 ) {

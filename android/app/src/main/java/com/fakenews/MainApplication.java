@@ -5,11 +5,9 @@ import android.util.Log;
 
 import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
 import com.facebook.react.ReactApplication;
-import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
 import com.magus.fblogin.FacebookLoginPackage;
 import com.sbugert.rnadmob.RNAdMobPackage;
 import com.microsoft.codepush.react.CodePush;
-import com.sensormanager.SensorManagerPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -37,12 +35,10 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
-            new RNGoogleSignInPackage(),
                     new RNGoogleSignInPackage(),
                     new FacebookLoginPackage(),
                     new RNAdMobPackage(),
-                    new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
-                    new SensorManagerPackage()
+                    new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG)
             );
         }
     };
