@@ -37,6 +37,7 @@
 		F22E4D961E45343100D7FA2B /* RNGoogleSignInBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = F22E4D921E45343100D7FA2B /* RNGoogleSignInBridge.m */; };
 		F22E4D971E45343100D7FA2B /* RNGoogleSignInEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E4D931E45343100D7FA2B /* RNGoogleSignInEvents.swift */; };
 		F22E4D981E45343100D7FA2B /* RNGoogleSignInEventsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = F22E4D941E45343100D7FA2B /* RNGoogleSignInEventsBridge.m */; };
+		F22E4D9B1E460A0B00D7FA2B /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = F22E4D9A1E460A0B00D7FA2B /* AppIcon.appiconset */; };
 		F25B92DA1E3CD87E00557041 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D41E3CD87E00557041 /* FirebaseAnalytics.framework */; };
 		F25B92DB1E3CD87E00557041 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D51E3CD87E00557041 /* FirebaseCore.framework */; };
 		F25B92DC1E3CD87E00557041 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25B92D61E3CD87E00557041 /* FirebaseInstanceID.framework */; };
@@ -309,6 +310,7 @@
 		F22E4D921E45343100D7FA2B /* RNGoogleSignInBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNGoogleSignInBridge.m; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInBridge.m"; sourceTree = "<group>"; };
 		F22E4D931E45343100D7FA2B /* RNGoogleSignInEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNGoogleSignInEvents.swift; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInEvents.swift"; sourceTree = "<group>"; };
 		F22E4D941E45343100D7FA2B /* RNGoogleSignInEventsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNGoogleSignInEventsBridge.m; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInEventsBridge.m"; sourceTree = "<group>"; };
+		F22E4D9A1E460A0B00D7FA2B /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		F25B92D41E3CD87E00557041 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		F25B92D51E3CD87E00557041 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
 		F25B92D61E3CD87E00557041 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 				F25B92E21E3CD8DC00557041 /* Firebase.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				F22E4D9A1E460A0B00D7FA2B /* AppIcon.appiconset */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -1011,6 +1014,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F22E4D9B1E460A0B00D7FA2B /* AppIcon.appiconset in Resources */,
 				F2BA549A1E43C400004E7507 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,

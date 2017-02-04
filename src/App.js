@@ -5,6 +5,7 @@ import { observable, action, toJS, reaction } from 'mobx'
 import authActions from './actions/authActions'
 import Routes from './Routes'
 import _ from 'lodash'
+import codePush from 'react-native-code-push'
 
 const store = observable({
   _currentUser: null,
@@ -29,6 +30,7 @@ const store = observable({
   }
 })
 
+@codePush
 @observer
 class App extends Component {
   authActions = authActions(store)
