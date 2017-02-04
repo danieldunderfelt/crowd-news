@@ -1,0 +1,2 @@
+json_key_file "/Users/danieldunderfelt/projects/FakeNews/working files/Google Play Android Developer-7e3b6dac2e40.json" # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
+package_name "com.fakenews" # e.g. com.krausefx.app

@@ -83,6 +83,8 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+def pass = getPassword("Daniel Dunderfelt", "mediamatch_keystore")
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -97,6 +99,14 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
     }
+    signingConfigs {
+        release {
+            storeFile file(MEDIAMATCH_RELEASE_STORE_FILE)
+            storePassword pass
+            keyAlias MEDIAMATCH_RELEASE_KEY_ALIAS
+            keyPassword pass
+        }
+    }
     splits {
         abi {
             reset()
@@ -109,6 +119,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release

@@ -54,3 +54,4 @@ fastlane/screenshots
 *.cer
 *.mobileprovision
 report.xml
+*.keystore
