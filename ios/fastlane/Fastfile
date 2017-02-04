@@ -32,9 +32,6 @@ platform :ios do
   lane :beta do
     ensure_git_status_clean
     increment_build_number(xcodeproj: "FakeNews.xcodeproj")
-    commit_version_bump
-    add_git_tag
-    push_to_git_remote
     cert
     sigh
     gym(scheme: "FakeNews") # Build your app - more options available
