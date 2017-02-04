@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native'
+import { Dimensions} from 'react-native'
 import styled from 'styled-components/native'
+
+const initialWidth = () => Dimensions.get('window').width
 
 export const ContentBox = styled.View`
   padding: 20;
@@ -15,5 +17,7 @@ export const SwipeWrapper = styled.View`
   align-items: stretch;
   flex-grow: 1;
   background-color: black;
+  justify-content: center;
   position: relative;
+  width: ${({ width = initialWidth() }) => width };
 `

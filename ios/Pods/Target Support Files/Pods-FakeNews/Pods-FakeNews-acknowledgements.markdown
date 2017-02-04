@@ -1,11 +1,23 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## Firebase
+
+Copyright 2017 Google
+
 ## FirebaseAnalytics
 
 Copyright 2016 Google
 
+## FirebaseAuth
+
+Copyright 2016 Google
+
 ## FirebaseCore
+
+Copyright 2016 Google
+
+## FirebaseDatabase
 
 Copyright 2016 Google
 
@@ -424,6 +436,10 @@ Copyright 2016 Google
    See the License for the specific language governing permissions and
    limitations under the License.
 
+
+## Google-Mobile-Ads-SDK
+
+Copyright 2017 Google
 
 ## Google
 

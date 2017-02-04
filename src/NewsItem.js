@@ -5,6 +5,7 @@ import styled from 'styled-components/native'
 import Button, { ButtonLabel } from './Button'
 import Text from 'react-native-text'
 import { observable, action } from 'mobx'
+import { Footer } from './style/content'
 
 const newspaperBg = require('./img/intro-bg.jpg')
 
@@ -14,7 +15,6 @@ const Wrapper = styled.View`
   justify-content: center;
   align-items: stretch;
   background-color: black;
-  position: relative;
 `
 
 const Title = styled(Text)`

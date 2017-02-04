@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View, StyleSheet, Image, Dimensions } from 'react-native'
+import { View, Platform, Image, Dimensions } from 'react-native'
 import { observer, inject } from 'mobx-react/native'
 import { observable, action } from 'mobx'
 import styled from 'styled-components/native'
@@ -9,9 +9,14 @@ import LoadingScreen from './LoadingScreen'
 import { AdMobBanner } from 'react-native-admob'
 import SingleCardSwipe from './helpers/SingleCardSwipe'
 import SwipeInstructionGraphic from './SwipeInstructionGraphic'
-import { Footer } from './style/content'
+import { Footer, SwipeWrapper as ViewWrapper } from './style/content'
 
 const newspaperBg = require('./img/intro-bg.jpg')
+
+const adUnitId = Platform.select({
+  ios: 'ca-app-pub-7905807201378145/6576693799',
+  android: 'ca-app-pub-7905807201378145/1511562192'
+})
 
 const ArticleImage = styled(Image)`
   width: ${({ width }) => width };
@@ -33,26 +38,18 @@ const ResultsWrapper = styled.View`
   padding-top: 50;
 `
 
-const ViewWrapper = styled.View`
-  flex-grow: 1;
-  align-self: stretch;
-  justify-content: center;
-  position: relative;
-  width: ${({ width }) => width };
-`
-
 const Ad = styled(AdMobBanner)`
   flex-grow: 1;
   height: 50;
 `
 
 const ResultHeading = styled(Text)`
-  color: #ededed;
+  color: #ccc;
   font-size: 30;
   font-weight: 300;
   text-align: center;
   padding: 0 20;
-  margin: 10 0;
+  margin: 15 0 20;
 `
 
 const JudgmentWord = styled(ResultHeading)`
@@ -62,10 +59,9 @@ const JudgmentWord = styled(ResultHeading)`
 
 const ResultWord = styled(ResultHeading)`
   font-size: 100;
-  line-height: 107;
   color: white;
   font-weight: 900;
-  margin: 25 0 0;
+  margin: 0;
 `
 
 const ContentWrapper = styled.View`
@@ -78,6 +74,10 @@ const ContentWrapper = styled.View`
 class ResultView extends Component {
 
   @observable showAd = true
+
+  @action setAdDisplay = (display = false) => {
+    this.showAd = display
+  }
 
   render() {
     const { width, height } = Dimensions.get('window')
@@ -150,9 +150,11 @@ class ResultView extends Component {
           { this.showAd ? (
             <Ad
               bannerSize="smartBannerPortrait"
-              adUnitID="ca-app-pub-7905807201378145/6576693799"
-              testDeviceID={ __DEV__ ? "EMULATOR" : '' }
-              didFailToReceiveAdWithError={ action(() => this.showAd = false ) } />
+              adUnitID={ adUnitId }
+              testDeviceID={ __DEV__ ? 'EMULATOR' : null }
+              didFailToReceiveAdWithError={ err => {
+                this.setAdDisplay(false)
+              }} />
           ) : null }
         </SingleCardSwipe>
       </ViewWrapper>
