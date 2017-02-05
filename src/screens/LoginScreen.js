@@ -7,6 +7,7 @@ import Button, { ButtonLabel } from '../Button'
 import DualityScreen from '../style/DualityScreen'
 import { Footer } from '../style/content'
 import styled from 'styled-components/native'
+import LoadingScreen from '../LoadingScreen'
 
 const Padding = styled.View`
   padding: 20;
@@ -32,7 +33,11 @@ class LoginScreen extends Component {
   render() {
     const { auth, state, navigation } = this.props
 
-    return (
+    return state.authLoading ? (
+        <LoadingScreen
+          loadingText="Logging in..."
+          bg="black" />
+      ) : (
       <DualityScreen
         subHeading={ !!state.user ? "You'll be back." : "To enjoy Media Match." }
         heading={ !!state.user ? 'LOG OUT?' : 'LOG IN!' }>

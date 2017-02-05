@@ -13,12 +13,15 @@ export default (state) => {
   })
 
   function authenticate(providerName) {
+    setLoading(true)
+
     return Promise.resolve(providerName)
       .then(p => {
         if(p === 'google') return getGoogleCredential()
         if(p === 'facebook') return getFacebookCredential()
       })
       .then(credential => firebase.auth().signInWithCredential(credential))
+      .then(() => setLoading(false))
       .catch(handleAuthError)
   }
 
@@ -27,6 +30,10 @@ export default (state) => {
       .signOut()
       .catch(handleAuthError)
   }
+
+  const setLoading = action((setValue = true) => {
+    state.authLoading = setValue
+  })
 
   async function getGoogleCredential() {
     const google = googleLogin()

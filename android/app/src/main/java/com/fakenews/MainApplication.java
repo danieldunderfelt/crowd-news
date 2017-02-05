@@ -1,10 +1,9 @@
 package com.fakenews;
 
 import android.app.Application;
-import android.util.Log;
 
-import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
 import com.magus.fblogin.FacebookLoginPackage;
 import com.sbugert.rnadmob.RNAdMobPackage;
 import com.microsoft.codepush.react.CodePush;

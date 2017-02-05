@@ -11,6 +11,7 @@ const store = observable({
   _currentUser: null,
   news: [],
   judgedNews: [],
+  authLoading: false,
   reddit: {
     get after() {
       return _.get(_.last(store.judgedNews.slice()), 'name', '')

@@ -49,20 +49,18 @@
   [FIRApp configure];
   [GADMobileAds configureWithApplicationID:@"ca-app-pub-7905807201378145~2146494198"];
   
-  [[FBSDKApplicationDelegate sharedInstance] application:application
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
                                   didFinishLaunchingWithOptions:launchOptions];
-  
-  return YES;
 }
 
-- (BOOL)application:(UIApplication *)application
+/*- (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
   BOOL handled = [[GIDSignIn sharedInstance] handleURL:url
                                      sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
                                             annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
   return handled;
-}
+}*/
 
 // Facebook SDK
 - (void)applicationDidBecomeActive:(UIApplication *)application {
