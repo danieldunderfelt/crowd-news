@@ -4,7 +4,8 @@ export default () => {
 
   // First set client ID for ios
   GoogleSignIn.configure({
-    ClientId: '746713077322-ugqph6orahiv7rqtg06mkjglp5cvco8b.apps.googleusercontent.com'
+    offlineAccess: false,
+    clientID: '746713077322-ugqph6orahiv7rqtg06mkjglp5cvco8b.apps.googleusercontent.com'
   })
 
   function login() {

@@ -18,6 +18,11 @@ const adUnitId = Platform.select({
   android: 'ca-app-pub-7905807201378145/1511562192'
 })
 
+const testDeviceId = !__DEV__ ? null : Platform.select({
+  ios: 'EMULATOR',
+  android: '677F73582515E3A533EE4E98B94BAE8B'
+})
+
 const ArticleImage = styled(Image)`
   width: ${({ width }) => width };
   height: ${({ height }) => height + 20 };
@@ -39,7 +44,7 @@ const ResultsWrapper = styled.View`
 `
 
 const Ad = styled(AdMobBanner)`
-  flex-grow: 1;
+  flex-grow: 0;
   height: 50;
 `
 
@@ -147,16 +152,14 @@ class ResultView extends Component {
               <SwipeInstructionGraphic />
             </Footer>
           </ResultsWrapper>
-          { this.showAd ? (
+        </SingleCardSwipe>
+        { this.showAd ? (
             <Ad
               bannerSize="smartBannerPortrait"
               adUnitID={ adUnitId }
-              testDeviceID={ __DEV__ ? 'EMULATOR' : null }
-              didFailToReceiveAdWithError={ err => {
-                this.setAdDisplay(false)
-              }} />
+              testDeviceID={ testDeviceId }
+              didFailToReceiveAdWithError={ err => this.setAdDisplay(false) } />
           ) : null }
-        </SingleCardSwipe>
       </ViewWrapper>
     )
   }

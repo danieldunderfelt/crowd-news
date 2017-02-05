@@ -1,6 +1,9 @@
 package com.fakenews;
 
+import android.os.Bundle;
+
 import com.facebook.react.ReactActivity;
+import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,5 +14,11 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "FakeNews";
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-7905807201378145~7558095797");
     }
 }

@@ -49,8 +49,10 @@
   [FIRApp configure];
   [GADMobileAds configureWithApplicationID:@"ca-app-pub-7905807201378145~2146494198"];
   
-  return [[FBSDKApplicationDelegate sharedInstance] application:application
+  [[FBSDKApplicationDelegate sharedInstance] application:application
                                   didFinishLaunchingWithOptions:launchOptions];
+  
+  return YES;
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -68,12 +70,10 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  BOOL handledGoogle = false;
-  if([[GIDSignIn sharedInstance] handleURL:url
+  
+  BOOL handledGoogle = [[GIDSignIn sharedInstance] handleURL:url
                                  sourceApplication:sourceApplication
-                                annotation:annotation]) {
-    handledGoogle = YES;
-  }
+                                                  annotation:annotation];
   
   BOOL handledFacebook = [[FBSDKApplicationDelegate sharedInstance] application:application
                                                                         openURL:url

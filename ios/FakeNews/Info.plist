@@ -48,15 +48,25 @@
 				<string>com.developsuperpowers.fakenews</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.googleusercontent.apps.746713077322-ugqph6orahiv7rqtg06mkjglp5cvco8b</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.746713077322-ugqph6orahiv7rqtg06mkjglp5cvco8b</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>4</string>
 	<key>CodePushDeploymentKey</key>
 	<string>yxUOzuEsVfybsYaH9uR0efjvow5mVyjgq568-</string>
 	<key>FacebookAppID</key>
 	<string>1196930667093144</string>
 	<key>FacebookDisplayName</key>
-	<string>FakeNews</string>
+	<string>Media Match</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>

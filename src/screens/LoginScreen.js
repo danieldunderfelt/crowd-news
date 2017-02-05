@@ -34,7 +34,7 @@ class LoginScreen extends Component {
 
     return (
       <DualityScreen
-        subHeading="You'll be back."
+        subHeading={ !!state.user ? "You'll be back." : "To enjoy Media Match." }
         heading={ !!state.user ? 'LOG OUT?' : 'LOG IN!' }>
         <Footer>
           { !!state.user ? (

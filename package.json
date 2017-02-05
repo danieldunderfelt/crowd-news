@@ -26,7 +26,7 @@
     "react-native-admob": "github:lucianomlima/react-native-admob#react-native_v0.40.0-fix",
     "react-native-animatable": "^1.1.0",
     "react-native-code-push": "latest",
-    "react-native-facebook-login": "magus/react-native-facebook-login",
+    "react-native-facebook-login": "github:magus/react-native-facebook-login",
     "react-native-google-sign-in": "0.0.10",
     "react-native-progress": "^3.2.0",
     "react-native-text": "^0.0.4",
