@@ -43,6 +43,15 @@
 		F29C4DBB1E476A61008CE837 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29C4DB71E476A61008CE837 /* FBSDKCoreKit.framework */; };
 		F29C4DBC1E476A61008CE837 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29C4DB81E476A61008CE837 /* FBSDKLoginKit.framework */; };
 		F29C4DBD1E476A62008CE837 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29C4DB91E476A61008CE837 /* FBSDKShareKit.framework */; };
+		F29C4DEE1E4909A7008CE837 /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F29C4DEB1E4909A7008CE837 /* Kanit-Black.ttf */; };
+		F29C4DEF1E4909A7008CE837 /* Kanit-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F29C4DEC1E4909A7008CE837 /* Kanit-Light.ttf */; };
+		F29C4DF01E4909A7008CE837 /* Kanit-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F29C4DED1E4909A7008CE837 /* Kanit-Thin.ttf */; };
+		F29C4DF71E490D91008CE837 /* Kanit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F29C4DF11E490D91008CE837 /* Kanit-Bold.ttf */; };
+		F29C4DF81E490D91008CE837 /* Kanit-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F29C4DF21E490D91008CE837 /* Kanit-ExtraBold.ttf */; };
+		F29C4DF91E490D91008CE837 /* Kanit-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F29C4DF31E490D91008CE837 /* Kanit-ExtraLight.ttf */; };
+		F29C4DFA1E490D91008CE837 /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F29C4DF41E490D91008CE837 /* Kanit-Medium.ttf */; };
+		F29C4DFB1E490D91008CE837 /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F29C4DF51E490D91008CE837 /* Kanit-Regular.ttf */; };
+		F29C4DFC1E490D91008CE837 /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F29C4DF61E490D91008CE837 /* Kanit-SemiBold.ttf */; };
 		F2BA549A1E43C400004E7507 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2BA54991E43C400004E7507 /* GoogleService-Info.plist */; };
 		F2BA549C1E4514C6004E7507 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2BA54991E43C400004E7507 /* GoogleService-Info.plist */; };
 		F2BF73D01E3A892500763A80 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BF73B61E3A891B00763A80 /* libART.a */; };
@@ -311,6 +320,15 @@
 		F29C4DB81E476A61008CE837 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F29C4DB91E476A61008CE837 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		F29C4DEA1E47715A008CE837 /* FakeNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = FakeNews.entitlements; path = FakeNews/FakeNews.entitlements; sourceTree = "<group>"; };
+		F29C4DEB1E4909A7008CE837 /* Kanit-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Black.ttf"; sourceTree = "<group>"; };
+		F29C4DEC1E4909A7008CE837 /* Kanit-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Light.ttf"; sourceTree = "<group>"; };
+		F29C4DED1E4909A7008CE837 /* Kanit-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Thin.ttf"; sourceTree = "<group>"; };
+		F29C4DF11E490D91008CE837 /* Kanit-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Bold.ttf"; sourceTree = "<group>"; };
+		F29C4DF21E490D91008CE837 /* Kanit-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-ExtraBold.ttf"; sourceTree = "<group>"; };
+		F29C4DF31E490D91008CE837 /* Kanit-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-ExtraLight.ttf"; sourceTree = "<group>"; };
+		F29C4DF41E490D91008CE837 /* Kanit-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Medium.ttf"; sourceTree = "<group>"; };
+		F29C4DF51E490D91008CE837 /* Kanit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Regular.ttf"; sourceTree = "<group>"; };
+		F29C4DF61E490D91008CE837 /* Kanit-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-SemiBold.ttf"; sourceTree = "<group>"; };
 		F2BA54991E43C400004E7507 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2BA549D1E4523EA004E7507 /* FakeNews-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FakeNews-Bridging-Header.h"; sourceTree = "<group>"; };
 		F2BF73B11E3A891B00763A80 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
@@ -442,6 +460,15 @@
 		13B07FAE1A68108700A75B9A /* FakeNews */ = {
 			isa = PBXGroup;
 			children = (
+				F29C4DEB1E4909A7008CE837 /* Kanit-Black.ttf */,
+				F29C4DEC1E4909A7008CE837 /* Kanit-Light.ttf */,
+				F29C4DED1E4909A7008CE837 /* Kanit-Thin.ttf */,
+				F29C4DF11E490D91008CE837 /* Kanit-Bold.ttf */,
+				F29C4DF21E490D91008CE837 /* Kanit-ExtraBold.ttf */,
+				F29C4DF31E490D91008CE837 /* Kanit-ExtraLight.ttf */,
+				F29C4DF41E490D91008CE837 /* Kanit-Medium.ttf */,
+				F29C4DF51E490D91008CE837 /* Kanit-Regular.ttf */,
+				F29C4DF61E490D91008CE837 /* Kanit-SemiBold.ttf */,
 				F29C4DEA1E47715A008CE837 /* FakeNews.entitlements */,
 				F2BA549D1E4523EA004E7507 /* FakeNews-Bridging-Header.h */,
 				F2BA54991E43C400004E7507 /* GoogleService-Info.plist */,
@@ -987,10 +1014,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29C4DF91E490D91008CE837 /* Kanit-ExtraLight.ttf in Resources */,
+				F29C4DF81E490D91008CE837 /* Kanit-ExtraBold.ttf in Resources */,
 				F22E4D9B1E460A0B00D7FA2B /* AppIcon.appiconset in Resources */,
+				F29C4DEF1E4909A7008CE837 /* Kanit-Light.ttf in Resources */,
 				F2BA549A1E43C400004E7507 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F29C4DF01E4909A7008CE837 /* Kanit-Thin.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				F29C4DEE1E4909A7008CE837 /* Kanit-Black.ttf in Resources */,
+				F29C4DFC1E490D91008CE837 /* Kanit-SemiBold.ttf in Resources */,
+				F29C4DFA1E490D91008CE837 /* Kanit-Medium.ttf in Resources */,
+				F29C4DF71E490D91008CE837 /* Kanit-Bold.ttf in Resources */,
+				F29C4DFB1E490D91008CE837 /* Kanit-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1218,7 +1254,7 @@
 					"$(inherited)/**",
 				);
 				INFOPLIST_FILE = FakeNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1255,7 +1291,7 @@
 					"$(inherited)/**",
 				);
 				INFOPLIST_FILE = FakeNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

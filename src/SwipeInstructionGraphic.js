@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import * as Animatable from 'react-native-animatable'
-import Text from 'react-native-text'
+import Text from './style/typography'
 
 const swipeLeft = require('./img/swipe_left.png')
 const swipeRight = require('./img/swipe_right.png')

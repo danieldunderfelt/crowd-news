@@ -3,7 +3,7 @@ import { View, StyleSheet, Dimensions, Platform } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import * as Animatable from 'react-native-animatable'
-import Text from 'react-native-text'
+import Text from '../style/typography'
 
 const Wrapper = styled.View`
   width: ${({ size }) => size.width };
@@ -31,27 +31,30 @@ const FloatingContent = styled.View`
 `
 
 const Content = styled(Animatable.View)`
-  width: ${({ size }) => size.height };
+  width: ${({ size }) => size.height + (size.height / 2.33) };
+  height: 95;
   position: absolute;
-  top: ${({ size }) => Platform.OS === 'android' ? size.height / 2.8 : size.height / 2.5 };
-  left: -${({ size }) => Platform.OS === 'android' ? size.width / 2.63 : size.width / 2.65 };
+  top: 0;
+  left: ${({ size }) => size.width / 2 };
   z-index: 10;
-  transform: rotate(-60.75deg)
+  transform: rotate(-60.75deg) translateX(-${({ size }) => size.width * 1.282 }) translateY(${({ size }) => size.height / 2.33 });
   background-color: transparent;
 `
 
 const Heading = styled(Text)`
   font-size: 70;
-  line-height: 80;
+  line-height: 85;
   font-weight: 900;
   text-align: center;
+  margin: 0;
   color: ${({ color }) => color };
 `
 
 const SubHeading = styled(Heading)`
   font-size: 24;
-  line-height: 34;
-  font-weight: 300;
+  line-height: 28;
+  font-weight: 400;
+  margin-top: -12;
   text-align: center;
 `
 

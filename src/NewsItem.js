@@ -3,7 +3,7 @@ import { Image, Dimensions } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import Button, { ButtonLabel } from './Button'
-import Text from 'react-native-text'
+import Text from './style/typography'
 import { observable, action } from 'mobx'
 import { Footer } from './style/content'
 

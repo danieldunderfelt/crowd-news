@@ -3,7 +3,7 @@ import { Dimensions, LayoutAnimation } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import Progress from 'react-native-progress/CircleSnail'
-import Text from 'react-native-text'
+import Text from './style/typography'
 import layoutAnim, { fade } from './helpers/layoutAnim'
 
 const SpinnerWrapper = styled.View`
