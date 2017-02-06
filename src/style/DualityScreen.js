@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View, StyleSheet, Dimensions, Platform } from 'react-native'
+import { View, StyleSheet, Dimensions, StatusBar } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import * as Animatable from 'react-native-animatable'
@@ -67,6 +67,10 @@ class DualityScreen extends Component {
 
     return (
       <Wrapper size={ size } color={ topColor }>
+        <StatusBar
+          translucent
+          showHideTransition="fade"
+          barStyle={ topColor === 'black' ? 'light-content' : 'dark-content' } />
         <SplitPart size={ size } color={ bottomColor } />
         <Content size={ size }>
           <Heading color={ headingColor }>
