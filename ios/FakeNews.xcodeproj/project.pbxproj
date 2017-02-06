@@ -310,6 +310,7 @@
 		F29C4DB71E476A61008CE837 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F29C4DB81E476A61008CE837 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F29C4DB91E476A61008CE837 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		F29C4DEA1E47715A008CE837 /* FakeNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = FakeNews.entitlements; path = FakeNews/FakeNews.entitlements; sourceTree = "<group>"; };
 		F2BA54991E43C400004E7507 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2BA549D1E4523EA004E7507 /* FakeNews-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FakeNews-Bridging-Header.h"; sourceTree = "<group>"; };
 		F2BF73B11E3A891B00763A80 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
@@ -441,6 +442,7 @@
 		13B07FAE1A68108700A75B9A /* FakeNews */ = {
 			isa = PBXGroup;
 			children = (
+				F29C4DEA1E47715A008CE837 /* FakeNews.entitlements */,
 				F2BA549D1E4523EA004E7507 /* FakeNews-Bridging-Header.h */,
 				F2BA54991E43C400004E7507 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -677,6 +679,11 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = VTHJ4G9DW9;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1196,7 +1203,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CODE_SIGN_ENTITLEMENTS = FakeNews/FakeNews.entitlements;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = VTHJ4G9DW9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1233,7 +1241,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CODE_SIGN_ENTITLEMENTS = FakeNews/FakeNews.entitlements;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = VTHJ4G9DW9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
