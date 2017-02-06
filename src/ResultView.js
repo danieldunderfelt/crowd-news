@@ -51,10 +51,11 @@ const Ad = styled(AdMobBanner)`
 const ResultHeading = styled(Text)`
   color: #ccc;
   font-size: 30;
-  font-weight: 300;
+  line-height: 35;
+  font-weight: 400;
   text-align: center;
   padding: 0 20;
-  margin: 15 0 20;
+  margin: 0 0 30;
 `
 
 const JudgmentWord = styled(ResultHeading)`
@@ -64,6 +65,7 @@ const JudgmentWord = styled(ResultHeading)`
 
 const ResultWord = styled(ResultHeading)`
   font-size: 100;
+  line-height: 120;
   color: white;
   font-weight: 900;
   margin: 0;
