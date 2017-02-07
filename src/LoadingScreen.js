@@ -16,7 +16,6 @@ const SpinnerWrapper = styled.View`
 const LoadingText = styled(Text)`
   font-size: 16;
   color: white;
-  font-weight: 300;
   margin-top: 30;
 `
 

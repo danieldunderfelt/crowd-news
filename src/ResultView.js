@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react/native'
 import { observable, action } from 'mobx'
 import styled from 'styled-components/native'
 import _ from 'lodash'
-import Text from './style/typography'
+import Text, { Black, Regular } from './style/typography'
 import LoadingScreen from './LoadingScreen'
 import { AdMobBanner } from 'react-native-admob'
 import SingleCardSwipe from './helpers/SingleCardSwipe'
@@ -48,27 +48,27 @@ const Ad = styled(AdMobBanner)`
   height: 50;
 `
 
-const ResultHeading = styled(Text)`
+const ResultHeading = styled(Regular)`
   color: #ccc;
   font-size: 24;
-  line-height: 30;
-  font-weight: 400;
   text-align: center;
-  padding: 0 20;
-  margin: 0 0 30;
+  margin: 0 20 20;
 `
 
-const JudgmentWord = styled(ResultHeading)`
-  font-weight: 900;
-  font-size: 32;
-`
-
-const ResultWord = styled(ResultHeading)`
+const ResultWord = styled(Black)`
   font-size: 100;
   line-height: 110;
   color: white;
-  font-weight: 900;
-  margin: 0;
+  text-align-vertical: center;
+  text-align: center;
+  margin: 0 20 35;
+`
+
+const JudgmentWord = styled(Black)`
+  font-size: 32;
+  text-align: center;
+  color: #ccc;
+  margin: 10 20 20;
 `
 
 const ContentWrapper = styled.View`

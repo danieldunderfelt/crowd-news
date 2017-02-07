@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import * as Animatable from 'react-native-animatable'
-import Text from './style/typography'
+import { Black } from './style/typography'
 
 const swipeLeft = require('./img/swipe_left.png')
 const swipeRight = require('./img/swipe_right.png')
@@ -15,9 +15,8 @@ const SwipeWrapper = styled(Animatable.View)`
   margin: 50 0 30;
 `
 
-const MiddleWord = styled(Text)`
+const MiddleWord = styled(Black)`
   color: white;
-  font-weight: 900;
   background-color: transparent;
 `
 

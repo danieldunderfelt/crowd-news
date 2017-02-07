@@ -3,7 +3,7 @@ import { View, StyleSheet, Dimensions, StatusBar } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import * as Animatable from 'react-native-animatable'
-import Text from '../style/typography'
+import { Black, Regular } from '../style/typography'
 
 const Wrapper = styled.View`
   width: ${({ size }) => size.width };
@@ -32,29 +32,27 @@ const FloatingContent = styled.View`
 
 const Content = styled(Animatable.View)`
   width: ${({ size }) => size.height + (size.height / 2.33) };
-  height: 95;
   position: absolute;
   top: 0;
   left: ${({ size }) => size.width / 2 };
   z-index: 10;
-  transform: rotate(-60.75deg) translateX(-${({ size }) => size.width * 1.318 }) translateY(${({ size }) => size.height / 2.33 });
+  transform: rotate(-60.75deg) translateX(-${({ size }) => size.width * 1.275 }) translateY(${({ size }) => size.height / 2.5 });
   background-color: transparent;
 `
 
-const Heading = styled(Text)`
+const Heading = styled(Black)`
   font-size: 70;
   line-height: 85;
-  font-weight: 900;
   text-align: center;
   margin: 0;
   color: ${({ color }) => color };
 `
 
-const SubHeading = styled(Heading)`
+const SubHeading = styled(Regular)`
   font-size: 24;
-  line-height: 28;
-  font-weight: 400;
+  line-height: 30;
   text-align: center;
+  color: ${({ color }) => color };
 `
 
 @observer

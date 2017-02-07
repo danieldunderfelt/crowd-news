@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, Animated } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
-import Text from './style/typography'
+import Text, { Black } from './style/typography'
 
 const SwipeGraphic = styled(Animated.View)`
   position: absolute;
@@ -13,10 +13,9 @@ const SwipeGraphic = styled(Animated.View)`
   background-color: ${({ color = 'white' }) => color };
 `
 
-const SwipeText = styled(Text)`
+const SwipeText = styled(Black)`
   color: ${({ color }) => color === 'white' ? 'black' : 'white' };
   font-size: 72;
-  font-weight: 900;
   text-align: center;
 `
 

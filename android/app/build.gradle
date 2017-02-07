@@ -138,9 +138,7 @@ android {
 }
 
 dependencies {
-    compile(project(":react-native-google-sign-in")){
-        exclude group: "com.google.android.gms" // very important
-    }
+    compile project(':react-native-google-sign-in')
     compile project(':react-native-facebook-login')
     compile project(':react-native-admob')
     compile project(':react-native-code-push')

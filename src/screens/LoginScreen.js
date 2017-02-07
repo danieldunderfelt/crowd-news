@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { View } from 'react-native'
 import { reaction } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
 import _ from 'lodash'

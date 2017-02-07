@@ -8,6 +8,8 @@ import _ from 'lodash'
 export default (state, navigation) => {
   const judgmentsDb = database('judgments')
 
+  storage.removeItem('rated-news')
+
   async function recordJudgment(id, data) {
     const ref = judgmentsDb(id).push()
 

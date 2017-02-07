@@ -3,9 +3,8 @@ import { Image, Dimensions } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import Button, { ButtonLabel } from './Button'
-import Text from './style/typography'
+import Text, { Bold, Regular } from './style/typography'
 import { observable, action } from 'mobx'
-import { Footer } from './style/content'
 
 const newspaperBg = require('./img/intro-bg.jpg')
 
@@ -17,10 +16,9 @@ const Wrapper = styled.View`
   background-color: black;
 `
 
-const Title = styled(Text)`
+const Title = styled(Bold)`
   font-size: 24;
   line-height: 32;
-  font-weight: 700;
   text-align: center;
   margin-bottom: 20;
   color: white;
