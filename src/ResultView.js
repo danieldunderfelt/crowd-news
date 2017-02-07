@@ -61,7 +61,7 @@ const ResultWord = styled(Black)`
   color: white;
   text-align-vertical: center;
   text-align: center;
-  margin: 0 20 35;
+  margin: ${ Platform.OS === 'ios' ? '0 20 10' : '0 20 35' };
 `
 
 const JudgmentWord = styled(Black)`
