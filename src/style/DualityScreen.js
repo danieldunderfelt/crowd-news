@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
-import { View, StyleSheet, Dimensions, StatusBar } from 'react-native'
+import { View, StyleSheet, Dimensions, StatusBar, InteractionManager } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import * as Animatable from 'react-native-animatable'
-import { Black, Regular } from '../style/typography'
+import { AnimatedBlack, AnimatedRegular } from '../style/typography'
 
 const Wrapper = styled.View`
   width: ${({ size }) => size.width };
@@ -18,9 +18,9 @@ const SplitPart = styled(Animatable.View)`
   width: ${({ size }) => size.width * 2 };
   height: ${({ size }) => size.height * 4 };
   position: absolute;
-  left: 0;
-  top: -${({ size }) => size.height };
-  transform: rotate(29.25deg) ${({ size }) => `translateX(-${ size.width / 2.85 }) translateY(${ size.height / 2 })` };
+  left: ${({ size }) => size.width };
+  top: ${({ size }) => size.height };
+  transform: rotate(29.25deg) ${({ size }) => `translateX(${ size.width / 2.85 }) translateY(${ size.height / 2.5 })` };
 `
 
 const FloatingContent = styled.View`
@@ -28,6 +28,7 @@ const FloatingContent = styled.View`
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 10;
 `
 
 const Content = styled(Animatable.View)`
@@ -35,20 +36,21 @@ const Content = styled(Animatable.View)`
   position: absolute;
   top: 0;
   left: ${({ size }) => size.width / 2 };
-  z-index: 10;
+  z-index: 1;
   transform: rotate(-60.75deg) translateX(-${({ size }) => size.width * 1.275 }) translateY(${({ size }) => size.height / 2.5 });
   background-color: transparent;
 `
 
-const Heading = styled(Black)`
+const Heading = styled(AnimatedBlack)`
   font-size: 70;
   line-height: 85;
   text-align: center;
   margin: 0;
+  transform: translateY(${ ({ size }) => size.height * 2 });
   color: ${({ color }) => color };
 `
 
-const SubHeading = styled(Regular)`
+const SubHeading = styled(AnimatedRegular)`
   font-size: 24;
   line-height: 30;
   text-align: center;
@@ -57,6 +59,24 @@ const SubHeading = styled(Regular)`
 
 @observer
 class DualityScreen extends Component {
+  headingRef = null
+  subHeadingRef = null
+  bottomRef = null
+
+  componentDidMount() {
+    const { width, height } = Dimensions.get('window')
+
+    InteractionManager.runAfterInteractions(() => {
+      this.bottomRef.transitionTo({
+        left: -(width / 1.66),
+        top: -(height)
+      }, 500, 'ease-in-out-quad')
+
+      this.headingRef.transitionTo({
+        transform: [{ translateY: 0 }]
+      }, 800, 'ease-out-sine')
+    })
+  }
 
   render() {
     const size = Dimensions.get('window')
@@ -68,12 +88,21 @@ class DualityScreen extends Component {
           translucent
           showHideTransition="fade"
           barStyle={ topColor === 'black' ? 'light-content' : 'dark-content' } />
-        <SplitPart size={ size } color={ bottomColor } />
+        <SplitPart
+          innerRef={ ref => this.bottomRef = ref }
+          size={ size }
+          color={ bottomColor } />
         <Content size={ size }>
-          <Heading color={ headingColor }>
+          <Heading
+            size={ size }
+            innerRef={ ref => this.headingRef = ref }
+            color={ headingColor }>
             { heading }
           </Heading>
-          <SubHeading color={ subHeadingColor }>
+          <SubHeading
+            size={ size }
+            innerRef={ ref => this.subHeadingRef = ref }
+            color={ subHeadingColor }>
             { subHeading }
           </SubHeading>
         </Content>
