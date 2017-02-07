@@ -20,7 +20,7 @@ const Wrapper = styled.View`
 const Title = styled(Text)`
   font-size: 24;
   line-height: 32;
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
   margin-bottom: 20;
   color: white;

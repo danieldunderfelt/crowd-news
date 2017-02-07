@@ -37,7 +37,7 @@ const Content = styled(Animatable.View)`
   top: 0;
   left: ${({ size }) => size.width / 2 };
   z-index: 10;
-  transform: rotate(-60.75deg) translateX(-${({ size }) => size.width * 1.282 }) translateY(${({ size }) => size.height / 2.33 });
+  transform: rotate(-60.75deg) translateX(-${({ size }) => size.width * 1.318 }) translateY(${({ size }) => size.height / 2.33 });
   background-color: transparent;
 `
 
@@ -54,7 +54,6 @@ const SubHeading = styled(Heading)`
   font-size: 24;
   line-height: 28;
   font-weight: 400;
-  margin-top: -12;
   text-align: center;
 `
 

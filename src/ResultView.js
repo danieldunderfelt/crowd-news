@@ -50,8 +50,8 @@ const Ad = styled(AdMobBanner)`
 
 const ResultHeading = styled(Text)`
   color: #ccc;
-  font-size: 30;
-  line-height: 35;
+  font-size: 24;
+  line-height: 30;
   font-weight: 400;
   text-align: center;
   padding: 0 20;
@@ -65,7 +65,7 @@ const JudgmentWord = styled(ResultHeading)`
 
 const ResultWord = styled(ResultHeading)`
   font-size: 100;
-  line-height: 120;
+  line-height: 110;
   color: white;
   font-weight: 900;
   margin: 0;
@@ -74,6 +74,7 @@ const ResultWord = styled(ResultHeading)`
 const ContentWrapper = styled.View`
   justify-content: center;
   align-items: center;
+  flex-grow: 2;
 `
 
 @inject('state')
@@ -116,27 +117,27 @@ class ResultView extends Component {
                 loadingText="Loading results..."
                 bg="transparent" />
             ) : (
-              <View>
+              <ContentWrapper>
                 { displayPercentage === 0 && responses > 0 ? (
-                  <ContentWrapper>
+                  <View>
                     <ResultHeading>
                       You're the first one to rate this article
                     </ResultHeading>
                     <ResultWord>
                       { displayWord }
                     </ResultWord>
-                  </ContentWrapper>
+                  </View>
                 ) : responses === 0 ? (
-                  <ContentWrapper>
+                  <View>
                     <ResultHeading>
                       You rated this article
                     </ResultHeading>
                     <ResultWord>
                       { displayWord }
                     </ResultWord>
-                  </ContentWrapper>
+                  </View>
                 ) : (
-                  <ContentWrapper>
+                  <View>
                     <ResultHeading>
                       You agree with
                     </ResultHeading>
@@ -146,9 +147,9 @@ class ResultView extends Component {
                     <ResultHeading>
                       others that this article is <JudgmentWord>{ displayWord }!</JudgmentWord>
                     </ResultHeading>
-                  </ContentWrapper>
+                  </View>
                 )}
-              </View>
+              </ContentWrapper>
             )}
             <Footer>
               <SwipeInstructionGraphic />

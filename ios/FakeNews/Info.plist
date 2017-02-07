@@ -95,15 +95,14 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Kanit-Black.ttf</string>
-		<string>Kanit-Light.ttf</string>
-		<string>Kanit-Thin.ttf</string>
-		<string>Kanit-Bold.ttf</string>
-		<string>Kanit-ExtraBold.ttf</string>
-		<string>Kanit-ExtraLight.ttf</string>
-		<string>Kanit-Medium.ttf</string>
-		<string>Kanit-Regular.ttf</string>
-		<string>Kanit-SemiBold.ttf</string>
+		<string>Raleway-Black.ttf</string>
+		<string>Raleway-Bold.ttf</string>
+		<string>Raleway-ExtraLight.ttf</string>
+		<string>Raleway-Light.ttf</string>
+		<string>Raleway-Medium.ttf</string>
+		<string>Raleway-Regular.ttf</string>
+		<string>Raleway-SemiBold.ttf</string>
+		<string>Raleway-Thin.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

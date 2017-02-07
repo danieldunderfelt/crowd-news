@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import Text from 'react-native-text'
 
 const TextStyle = styled(Text)`
-  font-family: Kanit;
+  font-family: Raleway;
 `
 
 export default TextStyle
