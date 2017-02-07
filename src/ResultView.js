@@ -52,16 +52,16 @@ const ResultHeading = styled(Regular)`
   color: #ccc;
   font-size: 24;
   text-align: center;
-  margin: 0 20 20;
+  margin: 0 20 10;
 `
 
 const ResultWord = styled(Black)`
   font-size: 100;
-  line-height: 110;
+  line-height: 125;
   color: white;
   text-align-vertical: center;
   text-align: center;
-  margin: ${ Platform.OS === 'ios' ? '0 20 10' : '0 20 35' };
+  margin: ${ Platform.OS === 'ios' ? '0 20 5' : '0 20 25' };
 `
 
 const JudgmentWord = styled(Black)`
