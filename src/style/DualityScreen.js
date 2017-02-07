@@ -70,7 +70,7 @@ class DualityScreen extends Component {
       this.bottomRef.transitionTo({
         left: -(width / 1.66),
         top: -(height)
-      }, 500, 'ease-in-out-quad')
+      })
 
       this.headingRef.transitionTo({
         transform: [{ translateY: 0 }]
