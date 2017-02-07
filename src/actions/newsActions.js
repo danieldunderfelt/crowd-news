@@ -7,12 +7,21 @@ import _ from 'lodash'
 
 export default (state, navigation) => {
   const judgmentsDb = database('judgments')
+  const userJudgmentsDb = database('userJudgments')(state.user.uid)
 
-  async function recordJudgment(id, data) {
+  function recordJudgment(id, data) {
     const ref = judgmentsDb(id).push()
+    const userRef = userJudgmentsDb.push()
 
-    return await ref.set(data)
-      .catch(err => console.warn(err))
+    const userData = {
+      ...data,
+      articleId: id
+    }
+
+    return Promise.all([
+      ref.set(data),
+      userRef.set(userData)
+    ]).catch(err => console.warn(err))
   }
 
   const newsCollection = collection(state.news, data => Article(data, state), 'Article collection')
