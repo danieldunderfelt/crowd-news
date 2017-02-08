@@ -26,7 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
         }
 
         @Override
-        protected boolean getUseDeveloperSupport() {
+        public boolean getUseDeveloperSupport() {
             return BuildConfig.DEBUG;
         }
 
@@ -34,7 +34,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
-            new RNGoogleSignInPackage(),
+                    new RNGoogleSignInPackage(),
                     new FacebookLoginPackage(),
                     new RNAdMobPackage(),
                     new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG)

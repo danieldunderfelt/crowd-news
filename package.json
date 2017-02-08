@@ -22,7 +22,7 @@
     "mobx-utils": "^2.0.1",
     "normalize-url": "^1.9.0",
     "react": "~15.4.0-rc.4",
-    "react-native": "0.40.0",
+    "react-native": "^0.41.2",
     "react-native-admob": "github:lucianomlima/react-native-admob#react-native_v0.40.0-fix",
     "react-native-animatable": "^1.1.0",
     "react-native-code-push": "latest",
@@ -44,6 +44,8 @@
     "preset": "react-native"
   },
   "rnpm": {
-    "assets": ["fonts"]
+    "assets": [
+      "fonts"
+    ]
   }
 }

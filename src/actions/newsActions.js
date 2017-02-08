@@ -7,11 +7,11 @@ import _ from 'lodash'
 
 export default (state, navigation) => {
   const judgmentsDb = database('judgments')
-  const userJudgmentsDb = database('userJudgments')(state.user.uid)
+  const userJudgmentsDb = database('userJudgments')
 
   function recordJudgment(id, data) {
     const ref = judgmentsDb(id).push()
-    const userRef = userJudgmentsDb.push()
+    const userRef = userJudgmentsDb(state.user.uid).push()
 
     const userData = {
       ...data,

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View, StyleSheet, Dimensions, StatusBar, InteractionManager } from 'react-native'
+import { Platform, Dimensions, StatusBar, InteractionManager } from 'react-native'
 import { observer } from 'mobx-react/native'
 import styled from 'styled-components/native'
 import * as Animatable from 'react-native-animatable'
@@ -20,7 +20,7 @@ const SplitPart = styled(Animatable.View)`
   position: absolute;
   left: ${({ size }) => size.width };
   top: ${({ size }) => size.height };
-  transform: rotate(29.25deg) ${({ size }) => `translateX(${ size.width / 2.85 }) translateY(${ size.height / 2.5 })` };
+  transform: rotate(29.25deg) ${({ size }) => `translateX(${ size.width / (Platform.OS === 'android' ? 2.95 : 2.85) }) translateY(${ size.height / 2.5 })` };
 `
 
 const FloatingContent = styled.View`
@@ -42,11 +42,12 @@ const Content = styled(Animatable.View)`
 `
 
 const Heading = styled(AnimatedBlack)`
-  font-size: 70;
+  font-size: 75;
   line-height: 85;
+  font-weight: 900;
   text-align: center;
   margin: 0;
-  transform: translateY(${ ({ size }) => size.height * 2 });
+  transform: translateY(${ ({ size }) => size.height * 4 });
   color: ${({ color }) => color };
 `
 
@@ -74,7 +75,7 @@ class DualityScreen extends Component {
 
       this.headingRef.transitionTo({
         transform: [{ translateY: 0 }]
-      }, 800, 'ease-out-sine')
+      })
     })
   }
 
@@ -89,11 +90,13 @@ class DualityScreen extends Component {
           showHideTransition="fade"
           barStyle={ topColor === 'black' ? 'light-content' : 'dark-content' } />
         <SplitPart
+          useNativeDriver
           innerRef={ ref => this.bottomRef = ref }
           size={ size }
           color={ bottomColor } />
         <Content size={ size }>
           <Heading
+            useNativeDriver
             size={ size }
             innerRef={ ref => this.headingRef = ref }
             color={ headingColor }>

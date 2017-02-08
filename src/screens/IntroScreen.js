@@ -10,8 +10,8 @@ import SwipeInstructionGraphic from '../SwipeInstructionGraphic'
 
 const FloatingButton = styled(Button)`
   position: absolute;
-  top: ${ Platform.OS === 'android' ? 30 : 50 };
-  right: ${ Platform.OS === 'android' ? 20 : 0 };
+  top: ${ Platform.OS === 'android' ? 50 : 50 };
+  right: ${ Platform.OS === 'android' ? 30 : 0 };
   flex-grow: 1;
   height: 20;
   background-color: transparent;
