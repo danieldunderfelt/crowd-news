@@ -1,13 +1,27 @@
-MIT License
+Media Match fair use license
 
 Copyright (c) 2017 Daniel Dunderfelt
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+in the Software freely, but with the following restrictions: you may not publish
+this Software as-is or with minimal changes to any application store or market.
+You may redistribute this software privately, but you may not remove or modify
+the monetization features (ads).
+
+In other words, unless you fundamentally change this Software, you may not
+repackage, redistribute or re-publish this Software publicaly or remove its
+monetization features (ads).
+
+The source code for this Software is released in good faith for educational,
+inspirational or otherwise constructive uses. You may copy, merge, modify, publish,
+distribute, sublicense and/or sell parts of the Software and include parts in
+other software projects, include usage in commercial projects.
+
+Right, I tried the lawyer talk, but it's pretty much the MIT license except you may
+not simply re-upload this app to an app store and call it a day. Please use parts
+of the code freely, or use the code as a base for an app of your own with similar,
+but not exactly the same, functionality. Okay? Okay.
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
