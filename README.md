@@ -8,3 +8,5 @@ If you want to suggest a subreddit to pull news from, please send a PR! The subr
 This app is not biased towards or against any opinion, position or publication, political or otherwise, and anyone can confirm this by viewing all of the source code.
 
 Contact me at *dunderfeltdaniel@gmail.com* for questions or comments about this app. Please file an issue or a PR if you've found a bug or want to suggest a new feature.
+
+[Read more](https://www.danieldunderfelt.com/media-match/)
