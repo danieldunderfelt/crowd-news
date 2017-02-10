@@ -44,7 +44,6 @@ const Content = styled(Animatable.View)`
 const Heading = styled(AnimatedBlack)`
   font-size: 75;
   line-height: 85;
-  font-weight: 900;
   text-align: center;
   margin: 0;
   transform: translateY(${ ({ size }) => size.height * 4 });
