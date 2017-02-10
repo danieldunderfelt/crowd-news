@@ -6,10 +6,12 @@ import Text, { Black } from './style/typography'
 
 const SwipeGraphic = styled(Animated.View)`
   position: absolute;
-  padding: 20 20 200 20;
-  bottom: 0;
+  padding: 200 20 20 20;
+  top: 0;
   left: -200;
   right: -200;
+  align-items: center;
+  justify-content: flex-end;
   background-color: ${({ color = 'white' }) => color };
 `
 

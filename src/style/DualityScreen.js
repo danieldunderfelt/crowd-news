@@ -67,14 +67,18 @@ class DualityScreen extends Component {
     const { width, height } = Dimensions.get('window')
 
     InteractionManager.runAfterInteractions(() => {
-      this.bottomRef.transitionTo({
-        left: -(width / 1.66),
-        top: -(height)
-      })
+      if(this.bottomRef !== null) {
+        this.bottomRef.transitionTo({
+          left: -(width / 1.66),
+          top: -(height)
+        })
+      }
 
-      this.headingRef.transitionTo({
-        transform: [{ translateY: 0 }]
-      })
+      if(this.headingRef !== null) {
+        this.headingRef.transitionTo({
+          transform: [{ translateY: 0 }]
+        })
+      }
     })
   }
 
