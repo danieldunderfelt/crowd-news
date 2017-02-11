@@ -1,7 +1,6 @@
 import { Image } from 'react-native'
 import { observable, when } from 'mobx'
 import _ from 'lodash'
-import normalizeUrl from 'normalize-url'
 import hash from './hash'
 import database, { resolveList } from '../helpers/database'
 import { fromResource } from 'mobx-utils'
@@ -9,10 +8,13 @@ import { fromResource } from 'mobx-utils'
 const judgmentsDb = database('judgments')
 
 export default (data, state) => {
-  if( Object.keys(data).length === 0 ) return {}
+  if( Object.keys(data).length === 0 ) return false
   if( _.get(data, '__is_article', false) ) return data
 
-  const url = normalizeUrl(_.get(data, 'url', 'no://url'))
+  const url = _.get(data, 'url', false)
+
+  if(!url) return false
+
   const id = hash(url)
   const judgmentsRef = judgmentsDb(id)
 

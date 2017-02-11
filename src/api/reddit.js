@@ -2,6 +2,7 @@ import axios from 'axios'
 import _ from 'lodash'
 import subreddits from '../../subreddits'
 import { extendObservable, action } from 'mobx'
+import normalizeUrl from 'normalize-url'
 
 export default state => {
 
@@ -33,8 +34,10 @@ export default state => {
       .map(post => post.data)
       .filter(post => (
         post.over_18 === false &&
-        post.is_self === false
+        post.is_self === false &&
+        post.post_hint === 'link'
       ))
+      .map(post => Object.assign({}, post, { url: normalizeUrl(_.get(post, 'url', 'no://url')) }))
       .uniqBy('url')
       .value()
   }

@@ -1,4 +1,4 @@
-package com.fakenews;
+package com.danieldunderfelt.mediamatch;
 
 import android.os.Bundle;
 
@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "FakeNews";
+        return "MediaMatch";
     }
 
     @Override

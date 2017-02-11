@@ -90,7 +90,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.fakenews"
+        applicationId "com.danieldunderfelt.mediamatch"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 4

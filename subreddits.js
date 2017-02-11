@@ -1,6 +1,8 @@
 export default [
   'worldnews',
   'news',
+  'politics',
+  'conservative',
   'upliftingnews',
   'nottheonion',
   'newsoftheweird',
