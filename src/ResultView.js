@@ -95,7 +95,7 @@ class ResultView extends Component {
     const { judgment: yourJudgment, truePercentage: percent, judgmentCount: responses, image } = judgedArticle
 
     const displayPercentage = yourJudgment === true ? percent : 100 - percent
-    const displayWord = yourJudgment === true ? 'REAL NEWS' : 'FAKE NEWS'
+    const displayWord = yourJudgment === true ? 'REAL' : 'FAKE'
 
     const imageSource = image ? { uri: image } : newspaperBg
 

@@ -17,5 +17,6 @@ export default [
   'truenews',
   'uncensorednews',
   'internationalnews',
-  'open_news'
+  'open_news',
+  'mediamatch' // ;)
 ]
