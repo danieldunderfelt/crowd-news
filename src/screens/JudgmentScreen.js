@@ -18,13 +18,13 @@ const Wrapper = styled.View`
   position: relative;
 `
 
-@inject('state')
+@inject('state', 'auth')
 @observer
 class JudgmentView extends Component {
 
   @observable showResults = false
 
-  newsActions = (newsActions(this.props.state, this.props.navigation))
+  newsActions = (newsActions(this.props.state, this.props.auth, this.props.navigation))
   reddit = (reddit(this.props.state))
 
   componentDidMount() {

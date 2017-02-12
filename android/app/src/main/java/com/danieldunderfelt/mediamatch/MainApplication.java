@@ -36,7 +36,7 @@ public class MainApplication extends Application implements ReactApplication {
                     new RNGoogleSignInPackage(),
                     new FacebookLoginPackage(),
                     new RNAdMobPackage(),
-                    new CodePush(getResources().getString(com.danieldunderfelt.mediamatch.R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG)
+                    new CodePush(BuildConfig.CODEPUSH_KEY, getApplicationContext(), BuildConfig.DEBUG)
             );
         }
     };

@@ -4,6 +4,7 @@ import firebase from '../api/firebase'
 import facebookLogin from '../helpers/facebookLogin'
 import googleLogin from '../helpers/googleLogin'
 import { auth as FirebaseAuth } from 'firebase'
+import storage from '../helpers/storage'
 
 export default (state) => {
 
@@ -12,8 +13,25 @@ export default (state) => {
     firebase.auth().onAuthStateChanged(sink, err => console.log('Auth error: ', err))
   })
 
+  async function doAuthenticated(action = () => {}, navigation = false) {
+    reaction(() => state.user, user => {
+      if(user) action()
+    }, true)
+
+    if(!state.user) {
+      const loginProvider = await storage.getItem('auth-provider')
+
+      if(loginProvider) {
+        authenticate(loginProvider)
+      } else if(!!navigation) {
+        navigation.navigate('Login')
+      }
+    }
+  }
+
   function authenticate(providerName) {
     setLoading(true)
+    storage.setItem('auth-provider', providerName)
 
     return Promise.resolve(providerName)
       .then(p => {
@@ -61,6 +79,7 @@ export default (state) => {
 
   return {
     authenticate,
+    doAuthenticated,
     logOut
   }
 }

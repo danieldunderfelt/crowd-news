@@ -1,15 +1,21 @@
+import { Platform } from 'react-native'
 import axios from 'axios'
 import _ from 'lodash'
 import subreddits from '../../subreddits'
-import { extendObservable, action } from 'mobx'
+import { extendObservable, action, observable } from 'mobx'
 import normalizeUrl from 'normalize-url'
+
+const appId = Platform.select({
+  ios: 'com.developsuperpowers.FakeNews',
+  android: 'com.danieldunderfelt.mediamatch'
+})
 
 export default state => {
 
   function getUrl(endpoint, paged = true) {
     const { after, count } = state.reddit
 
-    const pagingParams = `&after=${ after }&count=${ count }`
+    const pagingParams = `&limit=10&after=${ after }&count=${ count }`
     const requestUrl = `https://www.reddit.com/r/${endpoint}/top.json?nsfw=0&sort=top&t=day`
 
     return requestUrl + (paged ? pagingParams : '')
@@ -19,7 +25,9 @@ export default state => {
     const subredditsStr = subreddits.join('+')
 
     return axios
-      .get(getUrl(subredditsStr, paging))
+      .get(getUrl(subredditsStr, paging), {
+        headers: { 'User-Agent': `${ Platform.OS }:${ appId }:1.0.0 (by /u/fieldOfThunder)` }
+      })
       .then(({ data }) => parsePostsFromData(data))
   }
 

@@ -1,0 +1,6 @@
+<resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">yxUOzuEsVfybsYaH9uR0efjvow5mVyjgq568-</string>
+    <string name="app_name">Media Match STAGING</string>
+    <string name="fb_app_id">1196930667093144</string>
+    <string name="fb_login_protocol_scheme">fb1196930667093144</string>
+</resources>

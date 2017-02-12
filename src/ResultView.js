@@ -121,7 +121,7 @@ class ResultView extends Component {
                 { displayPercentage === 0 && responses > 0 ? (
                   <View>
                     <ResultHeading>
-                      You're the first one to rate this article
+                      You're the first to judge this article
                     </ResultHeading>
                     <ResultWord>
                       { displayWord }
@@ -130,7 +130,7 @@ class ResultView extends Component {
                 ) : responses === 0 ? (
                   <View>
                     <ResultHeading>
-                      You rated this article
+                      You judged this article
                     </ResultHeading>
                     <ResultWord>
                       { displayWord }

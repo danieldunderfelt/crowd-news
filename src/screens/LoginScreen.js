@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { reaction } from 'mobx'
 import { observer, inject } from 'mobx-react/native'
-import _ from 'lodash'
 import Button, { ButtonLabel } from '../Button'
 import DualityScreen from '../style/DualityScreen'
 import { Footer } from '../style/content'
@@ -22,11 +21,13 @@ class LoginScreen extends Component {
   }
 
   componentDidMount() {
-    const { state, navigation: { state: { params }}} = this.props
+    const { auth, navigation } = this.props
 
-    reaction(() => state.user, user => {
-      if(user) _.invoke(params, 'onLoggedIn')
-    })
+    if(!__DEV__) {
+      auth.doAuthenticated(() => {
+        navigation.dispatch({ type: 'Navigation/BACK' })
+      })
+    }
   }
 
   render() {

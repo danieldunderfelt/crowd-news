@@ -5,7 +5,7 @@ import database from '../helpers/database'
 import storage from '../helpers/storage'
 import _ from 'lodash'
 
-export default (state, navigation) => {
+export default (state, auth, navigation) => {
   const judgmentsDb = database('judgments')
   const userJudgmentsDb = database('userJudgments')
 
@@ -31,15 +31,14 @@ export default (state, navigation) => {
     item.judgment = judgment
     judgedCollection.addItem(item)
 
-    if(!!state.user) {
+    auth.doAuthenticated(() => {
       saveJudgment(item)
       this.showResults = false
-    } else {
-      navigation.navigate('Login', { onLoggedIn: () => {
-        saveJudgment(item)
-        navigation.dispatch({ type: 'Back' })
-      }})
-    }
+
+      if(navigation.state.routeName !== 'Judge') {
+        navigation.dispatch({ type: 'Navigation/BACK' })
+      }
+    }, navigation)
   })
 
   function saveJudgment(item) {
