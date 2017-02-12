@@ -45,6 +45,7 @@ export default (state, auth, navigation) => {
     cacheJudged([ Object.assign({}, toJS(item, false), { __is_article: false }) ])
 
     return recordJudgment(item.id, {
+      title: item.title,
       userId: state.user.uid,
       judgment: item.judgment,
       url: item.url
