@@ -13,10 +13,11 @@ export default (data, state) => {
 
   const url = _.get(data, 'url', false)
 
+  // Sanity check
   if(!url) return false
 
   const id = hash(url)
-  const judgmentsRef = judgmentsDb(id)
+  const judgmentsRef = judgmentsDb(`${ id }/judgments`)
 
   function calculatePercentage(list = []) {
     const responses = list.length
@@ -47,6 +48,7 @@ export default (data, state) => {
     image: _.get(data, 'preview.images[0].source.url', false),
     title: data.title,
     url,
+    created: data.created,
     judgment: null,
     get judgmentCount() {
       const list = judgmentResource.current()

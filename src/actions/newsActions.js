@@ -9,17 +9,35 @@ export default (state, auth, navigation) => {
   const judgmentsDb = database('judgments')
   const userJudgmentsDb = database('userJudgments')
 
-  function recordJudgment(id, data) {
-    const ref = judgmentsDb(id).push()
+  function recordJudgment(item) {
+    const dataPromise = judgmentsDb(`${ item.id }/data`).set({
+      articleId: item.id,
+      posted: item.created,
+      title: item.title,
+      url: item.url
+    })
+
+    const judgmentRef = judgmentsDb(`${ item.id }/judgments`).push()
     const userRef = userJudgmentsDb(state.user.uid).push()
 
+    const timestamp = Math.floor(Date.now() / 1000)
+
     const userData = {
-      ...data,
-      articleId: id
+      timestamp,
+      articleId: item.id,
+      userId: state.user.uid,
+      judgment: item.judgment
+    }
+
+    const articleData = {
+      timestamp,
+      userId: state.user.uid,
+      judgment: item.judgment
     }
 
     return Promise.all([
-      ref.set(data),
+      dataPromise,
+      judgmentRef.set(articleData),
       userRef.set(userData)
     ]).catch(err => console.warn(err))
   }
@@ -43,13 +61,7 @@ export default (state, auth, navigation) => {
 
   function saveJudgment(item) {
     cacheJudged([ Object.assign({}, toJS(item, false), { __is_article: false }) ])
-
-    return recordJudgment(item.id, {
-      title: item.title,
-      userId: state.user.uid,
-      judgment: item.judgment,
-      url: item.url
-    })
+    return recordJudgment(item)
   }
 
   function cacheJudged(ratedNews) {
