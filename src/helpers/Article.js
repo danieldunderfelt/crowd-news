@@ -48,6 +48,7 @@ export default (data, state) => {
     image: _.get(data, 'preview.images[0].source.url', false),
     title: data.title,
     url,
+    domain: data.domain,
     created: data.created,
     judgment: null,
     get judgmentCount() {

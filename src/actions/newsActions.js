@@ -14,7 +14,8 @@ export default (state, auth, navigation) => {
       articleId: item.id,
       posted: item.created,
       title: item.title,
-      url: item.url
+      url: item.url,
+      domain: item.domain
     })
 
     const judgmentRef = judgmentsDb(`${ item.id }/judgments`).push()
@@ -45,7 +46,7 @@ export default (state, auth, navigation) => {
   const newsCollection = collection(state.news, data => Article(data, state), 'Article collection')
   const judgedCollection = collection(state.judgedNews, data => Article(data, state), 'Judged articles')
 
-  const judgeItem = action((judgment, item) => {
+  const judgeItem = action('Add judgment', (judgment, item) => {
     item.judgment = judgment
     judgedCollection.addItem(item)
 

@@ -6,6 +6,7 @@ import authActions from './actions/authActions'
 import Routes from './Routes'
 import _ from 'lodash'
 import codePush from 'react-native-code-push'
+import { startLogging } from './helpers/mobxLogger'
 
 const store = observable({
   _currentUser: null,
@@ -31,6 +32,8 @@ const store = observable({
   }
 })
 
+//startLogging({ collapsed: true, ignore: [ 'timer', 'ignore' ] })
+
 @codePush
 @observer
 class App extends Component {
@@ -50,6 +53,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+
     AppState.addEventListener('change', this.handleStateChange)
     this.handleOpen()
   }

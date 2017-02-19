@@ -68,7 +68,7 @@ export default (state) => {
   }
 
   function handleAuthError(err) {
-    console.warn(err)
+    console.log(err)
   }
 
   const setCurrentUser = action(() => {

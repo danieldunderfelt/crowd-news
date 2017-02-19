@@ -81,7 +81,7 @@ const ContentWrapper = styled.View`
 @observer
 class ResultView extends Component {
 
-  @observable showAd = true
+  @observable showAd = false
 
   @action setAdDisplay = (display = false) => {
     this.showAd = display
